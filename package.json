@@ -12,5 +12,9 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"format": "npx prettier -w ."
-	}
+	},
+	"workspaces": [
+		"apps/*",
+		"components/*"
+	]
 }
