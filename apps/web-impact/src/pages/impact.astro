@@ -1,0 +1,56 @@
+---
+import { TextSection } from '@littlesticks/odyssey-theme-components';
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: 'SRF Impact ❦ How it works',
+	description: 'About Page',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>Impact</h1>
+			<p>
+				Learn how we work, and work with us
+			</p>
+		</div>
+    <picture slot="image-container">
+      <img
+        src="/assets/images/home/classic-hero.jpg"
+        alt="Astro Odyssee"
+        id="home-hero-image"
+      />
+    </picture>
+	</HeroSection>
+  <TextSection narrow>
+    <h2>How Impact Works</h2>
+
+    <p>SRF Impact is privileged to steward, advise, and invest gifts entrusted to us by families and individuals committed to bolstering wealth creation, social mobility, and better health for all. We help families navigate the how, what, and why of Impact Investing. Our family advisory committee only selects a limited number of missioned aligned families that are interested in investing and having an impact through FundONE and the Southern Reconstruction Fund.</p>
+
+    <h2>Impact Measurements</h2>
+
+    <p>SRF Impact has partnered with leading impact finance minds to license a transformational proprietary measurement framework to create a Universal Impact measurement based on Quality-Adjusted Life Years (QALYs).  We focus on improving outcomes in duration, quality, resilience of life in the communities with which we partner to foster (W)Health Capital and create lasting positive change that endures over generations.</p>
+
+    <h2>Ways to Give</h2>
+
+    <p>If you’re eager to make an impact, consider supporting our work by becoming an advisee or donor.</p>
+
+    <p>Ways to Give and Assets we Accept:</p>
+
+    <ul>
+      <li>Cash and cash equivalent</li>
+      <li>Stocks and other securities</li>
+      <li>Closely held, restricted or pre-IPO stock</li>
+      <li>Privately held business interests</li>
+      <li>Cryptocurrencies</li>
+      <li>Real-estate</li>
+      <li>Transfer of a private foundation</li>
+      <li>Tangible personal property</li>
+    </ul>
+
+    <p>To inquire about becoming an SRF Impact donor, contact Annalise Kontras, <a href="mailto:annalise@southernreconstructionfund.org">annalise@southernreconstructionfund.org</a>.</p>
+  </TextSection>
+</Layout>
