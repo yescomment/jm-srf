@@ -1,0 +1,68 @@
+---
+import { TextSection } from '@littlesticks/odyssey-theme-components';
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: 'About | Astro Odyssey Theme',
+	description: 'About Page',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>Our Strategy</h1>
+			<p>
+				The (W)Health Capital strategy provides capital that is patient, flexible and affordable with a focus on investment opportunities that reimagine the creation of wealth and health in equitable ways. We catalyze novel models and growth opportunities by providing (W)Health Capital to highly capable, but thinly capitalized impact entrepreneurs, and organizations.
+			</p>
+		</div>
+    <picture slot="image-container">
+      <img
+        src="/assets/images/home/classic-hero.jpg"
+        alt="Astro Odyssee"
+        id="home-hero-image"
+      />
+    </picture>
+	</HeroSection>
+  <TextSection narrow>
+    <h2>Vision for a (W)Healthy Community</h2>
+
+    <p>A (W)Health-based investment strategy creates value across multiple asset areas that build on each other for multiple generations. We consider the well-being and mobility of all people in a community to provide true opportunities for people to develop comprehensive strategies and build health and wellness. An asset class that includes social, physical, financial, and political capital at the foundation is needed for a prosperous community and the equitable economies of the future.</p>
+
+    <h2>What A (W)Healthy South Looks Like</h2>
+
+    <p>We envision thriving communities dotting the American and global South and the following are eight characteristics that provide safety and opportunity for their residents.The common thread connecting them is that they are inclusive and foster self-determination. They establish a basic standard of living from which individuals can create healthy and prosperous lives.</p>
+
+
+    <h3>Safe Neighborhoods and Community Autonomy</h3>
+    <p>Residents should feel secure and safe in their home and in their neighborhood, free from the presence of violence and/or overly policed environments. Neighbors should have the collective autonomy and resources to find solutions to their problems, with the unencumbered and “no-strings-attached” support of private and public partners.</p>
+
+    <h3>Plentiful Employment and Business Opportunities</h3>
+    <p>Residents must have the basic means to acquire and access work opportunities within their community. Jobs should have basic benefits, career-building opportunities, wealth-building opportunities, and a fair and engaging workplace. Local businesses should be competitive, as well as integrated into the regional economy. Communities should have a critical mass of business ownership as to prevent economic leakage.</p>
+
+    <h3>Safe, Affordable, and Secure Housing</h3>
+    <p>Well-maintained housing should be affordable for current residents, and market- rate financing and insurance should be affordable for housing investments.</p>
+
+    <h3>Safe and Effective Schools</h3>
+    <p>Students should acquire the skills and necessary habits of mind to make educated decisions and to positively contribute to a democratic system. They should also acquire levels of proficiency needed to attend college or secure some type of post-secondary vocational certification with labor-market value that leads to gainful employment and a career of their choosing. School curriculum and instruction should be culturally competent and responsive, as well as ensure that students learn social connectivity and self-efficacy.</p>
+
+    <h3>A Fair Justice System</h3>
+    <p>When brought to trial, people should be tried by a jury of their peers and people from their immediate communities. Neighbors should be supported by the criminal justice system in their community-based restorative justice practices and self- policing activity.</p>
+
+    <h3>Access to Reliable and Affordable Health Care</h3>
+    <p>Reliable and affordable health care should be readily available, with quality physicians and practitioners focused on the health and well-being of their patients through quality health care, nutritious food, and physical activity. Communities should have access to fresh, affordable produce and local groceries in close proximity to where they live.</p>
+
+    <h3>Representative Local Governments</h3>
+    <p>Neighborhoods should have equal voice in determining local political outcomes without systemic barriers to their access and, as tax-paying citizens, receive quality services without having to spend continuous energy and resources on advocacy. Communities should be free of predatory revenue streams collected by municipalities, counties, and cities, as well as predatory financial institutions.</p>
+
+    <h3>Control Over Their Public Identity and Cultural Institutions</h3>
+    <p>Communities should have equal representation in media outlets while being able to offer complete narratives of their community and the way media represents them to external actors. Public arts and cultural institutions should have dedicated spaces that reflect community interest. Institutions that celebrate the community’s culture and heritage should be readily available, as should creative spaces that expose residents to a diversity of different cultural, ethnic, social, and sexual orientations.</p>
+
+    <h2>The Individuals</h2>
+
+
+
+    <code>TK: button to contact form?</code>
+  </TextSection>
+</Layout>
