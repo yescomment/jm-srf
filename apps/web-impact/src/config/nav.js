@@ -16,6 +16,10 @@ export const nav = [
 		slug: '/impact',
 	},
 	{
+		title: 'The (W)Health Papers',
+		slug: '/whealth-papers',
+	},
+	{
 		title: 'Contact',
 		slug: '/company/contact',
 	},
