@@ -1,10 +1,10 @@
 {
-	"name": "odyssey-theme",
-	"version": "2.0.2",
-	"private": false,
+	"name": "jm-srf-web",
+	"version": "3.0.0",
+	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:littlesticksdev/odyssey-theme"
+		"url": "git@github.com:yescomment/jm-srf"
 	},
 	"scripts": {
 		"dev": "astro dev",
