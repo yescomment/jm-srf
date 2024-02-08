@@ -4,12 +4,20 @@ export const nav = [
 		slug: '/',
 	},
 	{
-		title: 'Blog',
-		slug: '/blog',
+		title: 'About',
+		slug: '/about',
 	},
 	{
-		title: 'About',
-		slug: '/company/about',
+		title: 'Strategy',
+		slug: '/strategy',
+	},
+	{
+		title: 'Impact',
+		slug: '/impact',
+	},
+	{
+		title: 'The (W)Health Papers',
+		slug: '/whealth-papers',
 	},
 	{
 		title: 'Contact',

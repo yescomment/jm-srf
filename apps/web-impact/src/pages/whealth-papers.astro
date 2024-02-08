@@ -1,0 +1,34 @@
+---
+import { TextSection } from '@littlesticks/odyssey-theme-components';
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: 'SRF Impact ❦ How it works',
+	description: 'About Page',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>The (W)Health Papers</h1>
+			<p>
+				Inspired by the Federalist Papers, a collection of essays calling for a ratification of the United States’ Constitution for a more perfect union, the SRF Impact team is calling on people across sectors to co-sign a new form a capital, one that holds equity at its center through a collection of essays entitled the (W)Health Papers.
+			</p>
+		</div>
+    <picture slot="image-container">
+      <img
+        src="/assets/images/home/dark-hero.jpg"
+        alt="Astro Odyssee"
+        id="home-hero-image"
+      />
+    </picture>
+	</HeroSection>
+  <TextSection narrow>
+
+    <p>The (W)Health Papers is a multimedia partnership with like-minded practitioners and investors, which dives into some of the foundational mindset shifts, principles, and strategies required for reimagining markets, reinterpreting value, and restoring communities as beacons of health, wealth, and generational prosperity. </p>
+
+    <p>Due to generations of unjust racial economic and social policy, socioeconomic resources remain distributed along racial lines. Entrepreneurial genius and collective capacity are not. This multimedia project is a repository dedicated to speaking about purpose, mindset shift, capital, investment, and justice. It will require participants to evaluate their purpose, their gifts, and the risks they are willing to take to build bridges across lines of difference.</p>
+  </TextSection>
+</Layout>
