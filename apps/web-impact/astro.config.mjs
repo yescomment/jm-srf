@@ -4,9 +4,16 @@ import mdx from "@astrojs/mdx";
 import image from "@astrojs/image";
 import lit from "@astrojs/lit";
 
+const VERCEL_PREVIEW_SITE =
+  process.env.VERCEL_ENV !== 'production' &&
+  process.env.VERCEL_URL &&
+  `https://${process.env.VERCEL_URL}`;
+
+const siteURL = VERCEL_PREVIEW_SITE || 'https://srfimpact.org/';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://srfimpact.org',
+  site: siteURL,
   sitemap: true,
   // Generate sitemap (set to "false" to disable)
   integrations: [sitemap(), mdx(), image(), lit()], // Add renderers to the config
