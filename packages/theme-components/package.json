@@ -1,5 +1,5 @@
 {
-  "name": "srf-astro-components",
+  "name": "srf-theme-components",
   "description": "Components for SRF Impact & SRF Capital Astro themes, forked from @littlesticks/odyssey-theme-components",
   "version": "0.0.24",
   "repository": {
@@ -9,12 +9,6 @@
   "license": "MIT",
   "type": "module",
   "exports": "./index.js",
-  "keywords": [
-    "astro-component",
-    "astro-theme",
-    "starter",
-    "theme"
-  ],
   "dependencies": {
     "astro": "^1.0.2",
     "astro-icon": "^0.7.3"
