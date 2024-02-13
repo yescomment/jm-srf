@@ -2,10 +2,6 @@
   "name": "srf-theme-components",
   "description": "Components for SRF Impact & SRF Capital Astro themes, forked from @littlesticks/odyssey-theme-components",
   "version": "0.0.24",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:littlesticksdev/odyssey-theme"
-  },
   "license": "MIT",
   "type": "module",
   "exports": "./index.js",
