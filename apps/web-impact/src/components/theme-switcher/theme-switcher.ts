@@ -2,23 +2,20 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import {
-	classicThemeIcon,
-	darkThemeIcon,
 	earthThemeIcon,
-	blueThemeIcon,
 	orangeThemeIcon,
 } from './icons';
 
 const themes = [
   {
-    name: 'earth',
+    name: 'srf-impact',
     icon: earthThemeIcon,
     label: 'SRF Impact',
   },
   {
-    name: 'sand',
+    name: 'srf-fund',
     icon: orangeThemeIcon,
-    label: 'SRF Fund (dev)',
+    label: 'SRF Fund',
   }
 ]
 
@@ -76,7 +73,7 @@ export class ThemeSwitcher extends LitElement {
 		if (localStorageTheme !== null) {
 			this._setTheme(localStorageTheme);
 		} else {
-      this._setTheme('default');
+      this._setTheme('srf-impact');
     }
 	}
 
@@ -88,19 +85,10 @@ export class ThemeSwitcher extends LitElement {
 		this._doc.setAttribute('data-theme', theme);
 
     const _heroImage = document.querySelector('#home-hero-image') as HTMLImageElement;
-		if (theme === 'default') {
-			_heroImage.src = '/assets/images/home/classic-hero.jpg';
-		}
-		if (theme === 'dark') {
-			_heroImage.src = '/assets/images/home/dark-hero.jpg';
-		}
-		if (theme === 'earth') {
+		if (theme === 'srf-impact') {
 			_heroImage.src = '/assets/images/home/earth-hero.jpg';
 		}
-		if (theme === 'ocean') {
-			_heroImage.src = '/assets/images/home/ocean-hero.jpg';
-		}
-		if (theme === 'sand') {
+		if (theme === 'srf-fund') {
 			_heroImage.src = '/assets/images/home/sand-hero.jpg';
 		}
 		localStorage.setItem('theme', theme);
