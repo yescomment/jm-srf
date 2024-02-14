@@ -1,10 +1,10 @@
 {
-	"name": "odyssey-theme",
+	"name": "jm-srf-impact-web",
 	"version": "2.0.2",
-	"private": false,
+	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:littlesticksdev/odyssey-theme"
+		"url": "git@github.com:yescomment/jm-srf.git"
 	},
 	"scripts": {
 		"dev": "astro dev",
@@ -13,17 +13,16 @@
 		"preview": "astro preview",
 		"format": "npx prettier -w ."
 	},
-	"devDependencies": {
-		"@astrojs/image": "^0.17.3",
-		"@astrojs/lit": "^1.0.1",
-		"@astrojs/mdx": "^0.19.7",
-		"@astrojs/sitemap": "^0.1.0",
-		"@littlesticks/odyssey-theme-components": "^0.0.23",
+	"dependencies": {
+		"@astrojs/lit": "^4.0.1",
+		"@astrojs/mdx": "^2.1.1",
+		"@astrojs/sitemap": "^3.0.5",
 		"@webcomponents/template-shadowroot": "^0.1.0",
-		"astro": "^2.10.15",
-		"astro-icon": "^0.7.3",
-		"date-fns": "^2.28.0",
-		"lit": "^2.3.1",
-		"prettier-plugin-astro": "^0.0.12"
+		"astro": "^4.3.7",
+		"srf-theme-components": "*"
+	},
+	"devDependencies": {
+		"prettier-plugin-astro": "^0.0.12",
+		"sharp": "^0.33.2"
 	}
 }
