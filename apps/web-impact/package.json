@@ -13,7 +13,7 @@
 		"preview": "astro preview",
 		"format": "npx prettier -w ."
 	},
-	"devDependencies": {
+	"dependencies": {
 		"@astrojs/image": "^0.17.3",
 		"@astrojs/lit": "^1.0.1",
 		"@astrojs/mdx": "^0.19.7",
@@ -23,7 +23,9 @@
 		"astro": "^2.10.15",
 		"astro-icon": "^0.7.3",
 		"date-fns": "^2.28.0",
-		"lit": "^2.3.1",
+		"lit": "^2.3.1"
+	},
+	"devDependencies": {
 		"prettier-plugin-astro": "^0.0.12"
 	}
 }
