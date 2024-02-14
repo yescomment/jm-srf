@@ -8,6 +8,6 @@
     "build": {
       "cache": true,
       "persistent": true
-    },
+    }
   }
 }
