@@ -1,5 +1,6 @@
 ---
-import { Header, Button, Footer } from 'srf-theme-components';
+import { Button, Footer } from 'srf-theme-components';
+import { Header } from 'jm-srf-components';
 import Layout from './Base.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 import Logo from '../components/Logo.astro';
@@ -15,7 +16,6 @@ import { nav } from '../config/nav.js';
 
 const { seo } = Astro.props as Props;
 ---
-
 <Layout seo={seo}>
 	<Header rightMenu navData={nav} slot="header">
 		<span slot="logo">

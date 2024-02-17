@@ -1,0 +1,48 @@
+---
+// import { Icon } from 'astro-icon'
+const {
+  navLinksLeft = [],
+  navLinksRight = [],
+} = Astro.props;
+
+interface Props {
+  navLinksLeft: {
+    href: string;
+    text: string;
+    highlight?: Boolean;
+  }[];
+  navLinksRight: {
+    href: string;
+    text: string;
+    highlight?: Boolean;
+  }[];
+}
+---
+<header>
+  <nav class="left">
+    {navLinksLeft.map(link => (
+      <a class:list={{'highlight': highlight}} href={link.href}>{link.text}</a>
+    ))}
+  </nav>
+  <a href="/" class="logo-container">
+    <slot name="logo">Home</slot>
+  </a>
+  <nav class="right">
+    {navLinksRight.map(link => (
+      <a class:list={{'highlight': highlight}} href={link.href}>{link.text}</a>
+    ))}
+  </nav>
+</header>
+
+<style>
+  header {
+    padding: 1rem 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-gap: 1rem;
+  }
+
+  .logo-container {
+    /* set for each site */
+  }
+</style>
