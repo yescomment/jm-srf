@@ -235,9 +235,11 @@ const seo = {
 				}
 			}
 
-			g[id*=#{$feature}] path {
+			g[id*=#{$feature}] {
 				z-index: 1;
-				stroke: #e74c34 !important;
+				path {
+					stroke: #e74c34 !important;
+				}
 			}
 		}
 	}
