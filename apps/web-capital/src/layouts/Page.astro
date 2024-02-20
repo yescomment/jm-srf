@@ -17,11 +17,18 @@ import { nav } from '../config/nav.js';
 const { seo } = Astro.props as Props;
 ---
 <Layout seo={seo}>
-	<Header rightMenu navData={nav} slot="header">
-		<span slot="logo">
-			<Logo />
-		</span>
-		<Button slot="action-item" href="/fund-temp">SRF Fund</Button>
+	<Header slot="header" navLinksLeft={nav.left} navLinksRight={nav.right}>
+		<Fragment slot="left">
+			<a href="/about">About</a>
+			<a href="/strategy">Strategy</a>
+			<a href="/impact">Impact</a>
+			<a href="/whealth-papers">The (W)Health Papers</a>
+		</Fragment>
+		<img slot="logo" src="/assets/images/srf_capital_stacked.svg" alt="SRF Impact Logo">
+		<Fragment slot="right">
+			<a href="/company/contact">Contact</a>
+			<a href="//srfcapital.org">SRF Capital</a>
+		</Fragment>
 	</Header>
 	<div id="page">
 		<slot />

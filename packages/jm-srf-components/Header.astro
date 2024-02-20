@@ -1,36 +1,15 @@
 ---
 // import { Icon } from 'astro-icon'
-const {
-  navLinksLeft = [],
-  navLinksRight = [],
-} = Astro.props;
-
-interface Props {
-  navLinksLeft: {
-    href: string;
-    text: string;
-    highlight?: Boolean;
-  }[];
-  navLinksRight: {
-    href: string;
-    text: string;
-    highlight?: Boolean;
-  }[];
-}
 ---
 <header>
   <nav class="left">
-    {navLinksLeft.map(link => (
-      <a class:list={{'highlight': highlight}} href={link.href}>{link.text}</a>
-    ))}
+    <slot name="left"/>
   </nav>
   <a href="/" class="logo-container">
     <slot name="logo">Home</slot>
   </a>
   <nav class="right">
-    {navLinksRight.map(link => (
-      <a class:list={{'highlight': highlight}} href={link.href}>{link.text}</a>
-    ))}
+    <slot name="right"/>
   </nav>
 </header>
 

@@ -3,6 +3,12 @@ body {
 	height: 100%;
 }
 
+header .logo-container {
+	background-color: #E74C34; /* brand */
+	height: 200%;
+	width: 4rem;
+}
+
 body {
 	max-width: 1920px;
 	margin: 0 auto;
