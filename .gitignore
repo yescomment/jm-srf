@@ -1,3 +1,6 @@
+# Turborepo/turbopack
+.turbo
+
 ### Node ###
 
 # Logs
@@ -130,3 +133,4 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.vercel

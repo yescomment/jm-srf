@@ -1,5 +1,5 @@
 {
-	"name": "jm-srf-web",
+	"name": "jm-srf",
 	"version": "3.0.0",
 	"private": true,
 	"repository": {
@@ -15,6 +15,9 @@
 	},
 	"workspaces": [
 		"apps/*",
-		"components/*"
-	]
+		"packages/*"
+	],
+	"dependencies": {
+		"turbo": "^1.12.3"
+	}
 }

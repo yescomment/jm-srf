@@ -1,0 +1,11 @@
+{
+  "name": "jm-srf-components",
+  "version": "1.0.0",
+  "description": "Resuable Astro components across SRF's websites, largely forked from Odyssey theme by littlesticks/whitepine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jacob Ford <j@cobford.com> (https://nocomment.llc/)",
+  "license": "UNLICENSED"
+}

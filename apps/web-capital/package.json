@@ -1,0 +1,31 @@
+{
+	"name": "jm-srf-capital",
+	"version": "2.0.2",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:yescomment/jm-srf.git"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"format": "npx prettier -w ."
+	},
+	"dependencies": {
+		"@astrojs/lit": "^4.0.1",
+		"@astrojs/mdx": "^2.1.1",
+		"@astrojs/sitemap": "^3.0.5",
+		"@webcomponents/template-shadowroot": "^0.2.1",
+		"astro": "^4.3.7",
+		"date-fns": "^3.3.1",
+		"lit": "^3.1.2",
+		"srf-theme-components": "*",
+		"jm-srf-components": "*"
+	},
+	"devDependencies": {
+		"prettier-plugin-astro": "^0.0.12",
+		"sharp": "^0.33.2"
+	}
+}

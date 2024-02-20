@@ -1,0 +1,30 @@
+---
+// import { Icon } from 'astro-icon'
+---
+<section>
+  <article>
+    <slot name="text"/>
+  </article>
+  <aside>
+    <slot name="aside"/>
+  </aside>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text aside";
+    gap: 4rem;
+  }
+
+  section > aside {
+    grid-area: aside;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-areas: "aside
+                          text";
+  }
+</style>

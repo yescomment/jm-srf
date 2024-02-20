@@ -1,0 +1,27 @@
+---
+// import { Icon } from 'astro-icon'
+---
+<header>
+  <nav class="left">
+    <slot name="left"/>
+  </nav>
+  <a href="/" class="logo-container">
+    <slot name="logo">Home</slot>
+  </a>
+  <nav class="right">
+    <slot name="right"/>
+  </nav>
+</header>
+
+<style>
+  header {
+    padding: 1rem 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-gap: 1rem;
+  }
+
+  .logo-container {
+    /* set for each site */
+  }
+</style>
