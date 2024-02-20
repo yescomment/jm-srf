@@ -150,18 +150,22 @@ const seo = {
 			</g>
 		</svg>
 		<div slot="text" id="srf-map-descriptions">
-			<h2 id="h-neighborhoods">What Does a (W)Healthy South Look Like?</h2>
+			<h2>What Does a (W)Healthy South Look Like?</h2>
 			<p>We envision thriving communities dotting the American South and the following are eight community characteristics that provide safety and opportunity for their residents.</p>
 
-			<h3>Safe Neighborhoods & Community Autonomy</h3>
-			<p>Residents should feel secure and safe in their home and in their neighborhood, free from the presence of violence and/or overly policed environments.</p>
-			<p>Neighbors should have the collective autonomy and resources to find solutions to their problems, with the unencumbered and “no-strings-attached” support of private and public partners.</p>
+			<div class="key" id="neighborhoods">
+				<h3>Safe Neighborhoods & Community Autonomy</h3>
+				<p>Residents should feel secure and safe in their home and in their neighborhood, free from the presence of violence and/or overly policed environments.</p>
+				<p>Neighbors should have the collective autonomy and resources to find solutions to their problems, with the unencumbered and “no-strings-attached” support of private and public partners.</p>
+			</div>
 
-			<h3 id="h-businesses">Plentiful Employment and Business Opportunities</h2>
-			<p>Residents must have the basic means to acquire and access work opportunities within their community that provide a safety net, while working to develop and  invest in wealth-building opportunities.</p>
-			<p>Jobs should have basic benefits, career building opportunities, wealth-building opportunities, and a fair and engaging workplace.</p>
-			<p>Communities should have a critical mass of business ownership to prevent economic leakage by ensuring that dollars and resources remain in the community and that long-term wealth generation can be built.</p>
-			<p>Local businesses should be competitive and integrated into their regional economies. They should be included in the finance, technology, and information networks regarding trading partners to learn how information flows to both existing businesses and new entrepreneurs.</p>
+			<div class="key" id="businesses">
+				<h3>Plentiful Employment and Business Opportunities</h3>
+				<p>Residents must have the basic means to acquire and access work opportunities within their community that provide a safety net, while working to develop and  invest in wealth-building opportunities.</p>
+				<p>Jobs should have basic benefits, career building opportunities, wealth-building opportunities, and a fair and engaging workplace.</p>
+				<p>Communities should have a critical mass of business ownership to prevent economic leakage by ensuring that dollars and resources remain in the community and that long-term wealth generation can be built.</p>
+				<p>Local businesses should be competitive and integrated into their regional economies. They should be included in the finance, technology, and information networks regarding trading partners to learn how information flows to both existing businesses and new entrepreneurs.</p>
+			</div>
 
 		</div>
 	</PageSection>
@@ -174,7 +178,7 @@ const seo = {
 		top: 0;
 	}
 
-	#srf-map-descriptions h3.active {
+	#srf-map-descriptions .key.active {
 		color: #e74c34;
 	}
 
@@ -188,11 +192,14 @@ const seo = {
 </style>
 
 <script is:inline>
-	let headers = document.querySelectorAll('#srf-map-descriptions h3')
+	let mapKeys = document.querySelectorAll('#srf-map-descriptions div.key')
 	let mapSvgElement = document.querySelector('#whealthy-community-map')
-	let observer = new window.IntersectionObserver(updateMap)
+	let observer = new window.IntersectionObserver(updateMap, {
+		rootMargin: '-50% 0% -50% 0%',
+	})
 
 	function updateMap(entries, observer) {
+		console.log(entries)
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				entry.target.classList.add('active')
@@ -204,9 +211,7 @@ const seo = {
 		})
 	}
 
-	console.log('headers', headers)
-
-	headers.forEach(header => {
-		observer.observe(header)
+	mapKeys.forEach(mapKey => {
+		observer.observe(mapKey)
 	})
 </script>
