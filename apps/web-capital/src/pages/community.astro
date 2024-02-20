@@ -223,6 +223,13 @@ const seo = {
 		'housing',
 		'utilities';
 
+		// - [ ] add education? (primary)
+		// - [ ] add law? (primary)
+		// - [ ] add banks? (always secondary)
+		// - [ ] add media? (always secondary)
+		// - [ ] utilties -> healthcare
+		// - [ ] communities -> culture
+
 	@each $feature in $mapFeatures {
 		:root:has(##{$feature}.active) svg {
 			g##{$feature} {
