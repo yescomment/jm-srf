@@ -22,7 +22,7 @@
 		"date-fns": "^3.3.1",
 		"lit": "^3.1.2",
 		"srf-theme-components": "*",
-		"srf-webcomponents": "*"
+		"jm-srf-components": "*"
 	},
 	"devDependencies": {
 		"prettier-plugin-astro": "^0.0.12",
