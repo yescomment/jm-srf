@@ -1,28 +1,32 @@
 ---
 import { Button, Footer } from 'srf-theme-components';
-import { Header } from 'jm-srf-components';
+import { Header, config } from 'jm-srf-components';
 import Layout from './Base.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 import Logo from '../components/Logo.astro';
 import settings from '../config/settings';
 import { footerLists, footerSocials } from '../config/footer';
 
-
 export interface Props {
 	seo?: BaseHeadProps;
 }
 
-import { nav } from '../config/nav.js';
-
 const { seo } = Astro.props as Props;
 ---
-
 <Layout seo={seo}>
-	<Header rightMenu navData={nav} slot="header">
-		<span slot="logo">
-			<Logo />
-		</span>
-		<Button slot="action-item" href="/fund-temp">SRF Fund</Button>
+	<Header slot="header">
+		<Fragment slot="left">
+			<a href="/about">Who We Are</a>
+			<a href="/strategize">Strategize</a>
+			<a href="/theorize">Theorize</a>
+			<a href="/measure">Measure</a>
+			<a href="/community">Community</a>
+		</Fragment>
+		<img slot="logo" src="/assets/images/srf_impact_stacked.svg" alt="SRF Impact Logo">
+		<Fragment slot="right">
+			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
+			<a href={config.srfCapitalUrl}>SRF Capital</a>
+		</Fragment>
 	</Header>
 	<div id="page">
 		<slot />
