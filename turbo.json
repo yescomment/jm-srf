@@ -10,7 +10,8 @@
       "persistent": true,
       "outputs": [
         "dist/**"
-      ]
+      ],
+      "dependsOn": ["^build"]
     }
   }
 }
