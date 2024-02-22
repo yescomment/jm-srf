@@ -1,7 +1,8 @@
 ---
+import '../styles/theme.css'
+
 import { Button, Footer } from 'srf-theme-components';
-import { Header, config } from 'jm-srf-components';
-import Layout from './Base.astro';
+import { BaseHtml, Header, config } from 'jm-srf-components';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 import Logo from '../components/Logo.astro';
 import settings from '../config/settings';
@@ -13,7 +14,7 @@ export interface Props {
 
 const { seo } = Astro.props as Props;
 ---
-<Layout seo={seo}>
+<BaseHtml seo={seo}>
 	<Header slot="header">
 		<Fragment slot="left">
 			<a href="/about">Who We Are</a>
@@ -42,4 +43,4 @@ const { seo } = Astro.props as Props;
 	>
 		<Logo slot="logo" />
 	</Footer>
-</Layout>
+</BaseHtml>
