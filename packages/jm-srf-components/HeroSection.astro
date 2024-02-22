@@ -1,28 +1,27 @@
 ---
 const { backgroundImage } = Astro.props
 ---
-<section class="pageSection" style={`background-image: url(${backgroundImage.src})`}>
+<section style={`background-image: url(${backgroundImage.src})`}>
   <article>
     <slot/>
   </article>
 </section>
 
-<style>
-  section.pageSection {
-    background-color: var(--color-primary);
+<style lang="scss">
+  section {
+    display: flex;
     height: 90vh;
     min-height: fit-content;
     background-size: cover;
     background-position: center;
+    background-color: var(--color-primary);
 
-    display: flex;
-  }
-
-  article {
-    width: 40vw;
-    min-width: 400px;
-    margin: auto 4rem;
-    color: white;
-    text-shadow: 0 0 0.1rem #00000033;
+    article {
+      width: 40vw;
+      min-width: 400px;
+      margin: auto 4rem;
+      color: white;
+      text-shadow: 0 0 0.1rem #00000033;
+    }
   }
 </style>
