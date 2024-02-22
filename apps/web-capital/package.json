@@ -16,17 +16,19 @@
 	"dependencies": {
 		"@astrojs/lit": "^4.0.1",
 		"@astrojs/mdx": "^2.1.1",
-		"@astrojs/sitemap": "^3.0.5",
+		"@astrojs/sitemap": "^3.1.1",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "^4.3.7",
+		"astro": "^4.4.3",
 		"date-fns": "^3.3.1",
 		"jm-srf-components": "*",
 		"lit": "^3.1.2",
 		"srf-theme-components": "*"
 	},
 	"devDependencies": {
-		"prettier-plugin-astro": "^0.0.12",
-		"sass": "^1.71.0",
-		"sharp": "^0.33.2"
+		"@astrojs/check": "^0.5.5",
+		"prettier-plugin-astro": "^0.13.0",
+		"sass": "^1.71.1",
+		"sharp": "^0.33.2",
+		"typescript": "^5.3.3"
 	}
 }
