@@ -1,14 +1,14 @@
 ---
 const { backgroundImage } = Astro.props
 ---
-<section style={`background-image: url(${backgroundImage.src})`}>
+<section class="pageSection" style={`background-image: url(${backgroundImage.src})`}>
   <article>
     <slot/>
   </article>
 </section>
 
 <style>
-  section {
+  section.pageSection {
     background-color: var(--color-primary);
     height: 90vh;
     min-height: fit-content;
