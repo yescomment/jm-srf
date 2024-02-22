@@ -18,9 +18,6 @@ export default defineConfig({
   integrations: [
     sitemap(),
     mdx(),
-    lit(),
-    compress({
-      css: false,
-    }),
+    lit()
   ],
 });
