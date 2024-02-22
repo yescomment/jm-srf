@@ -8,11 +8,14 @@
 	--color-light-tinted: #c1c1bf;
 	--color-dark: #323835;
 	--color-pop: #719aaa;
+
+	--max-content-width: 1600px;
 }
 
 html,
 body {
 	height: 100%;
+	background-color: var(--color-light);
 }
 
 body {

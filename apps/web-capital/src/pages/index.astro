@@ -1,12 +1,21 @@
 ---
-import { Container, FeatureCard } from 'srf-theme-components';
-
 import Layout from '../layouts/Page.astro';
-import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
+import { Container, FeatureCard } from 'srf-theme-components';
+import { HeroSection } from 'jm-srf-components';
+import { getImage } from 'astro:assets';
+
+import heroBgImg from '../../../../assets/imagery/landscape/pexels-jess-loiterton-4602695.jpg'
+const optimizedBackgroundImage = await getImage({
+	src: heroBgImg,
+	format: 'webp',
+})
 ---
 
 <Layout>
-	<HomeHeroSection />
+	<HeroSection backgroundImage={heroBgImg}>
+		<h1>SRF Impact</h1>
+		<h2>Building equitable economies for the future.</h2>
+	</HeroSection>
 	<Container>
 		<section class="feature-card__section">
 			<h2>Our Initiatives</h2>

@@ -1,0 +1,27 @@
+---
+const { backgroundImage } = Astro.props
+---
+<section style={`background-image: url(${backgroundImage.src})`}>
+  <article>
+    <slot/>
+  </article>
+</section>
+
+<style>
+  section {
+    background-color: var(--color-primary);
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+  }
+
+  article {
+    width: 40vw;
+    min-width: 400px;
+    margin: auto 4rem;
+    color: white;
+    text-shadow: 0 0 0.1rem #00000033;
+  }
+</style>

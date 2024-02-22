@@ -1,39 +1,14 @@
 ---
 import { Icon } from 'astro-icon';
-import { Container, Button } from 'srf-theme-components';
+import { Container } from 'srf-theme-components';
 import settings from '../../../config/settings.js';
 ---
 
 <Container>
 	<section class="hero-section__section">
-		<div class="hero-section__text">
-				<h1>SRF Impact</h1>
-				<p>
-					Lorem ipsum from the <a
-						href="https://astro.build"
-						target="_blank"
-						rel="noreferrer">Southern Reconstruction Fund</a
-					>
-				</p>
-				<div class="hero-btns__container">
-					<Button href="#" customIcon
-						>TK
-            <Fragment slot="icon">
-              <Icon name="ic:baseline-chevron-right"/>
-            </Fragment>
-            </Button
-					>
-					<Button href="#" unelevated>DEV PREVIEW</Button>
-				</div>
-		</div>
-		<div class="hero-section__image">
-				<picture>
-					<img
-						src="/assets/images/home/classic-hero.jpg"
-						alt="Astro Odyssey"
-						id="home-hero-image"
-					/>
-				</picture>
+		<div>
+			<h1>SRF Impact</h1>
+			<h2>Building equitable economies for the future.</h2>
 		</div>
 	</section>
 </Container>
