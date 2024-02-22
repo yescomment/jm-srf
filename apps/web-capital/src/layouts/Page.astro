@@ -16,15 +16,16 @@ const { seo } = Astro.props as Props;
 <Layout seo={seo}>
 	<Header slot="header">
 		<Fragment slot="left">
-			<a href="/about">About</a>
-			<a href="/strategy">Strategy</a>
-			<a href="/impact">Impact</a>
-			<a href="/whealth-papers">The (W)Health Papers</a>
+			<a href="/about">Who We Are</a>
+			<a href="/strategize">Strategize</a>
+			<a href="/theorize">Theorize</a>
+			<a href="/measure">Measure</a>
+			<a href="/community">Community</a>
 		</Fragment>
-		<img slot="logo" src="/assets/images/srf_capital_stacked.svg" alt="SRF Impact Logo">
+		<img slot="logo" src="/assets/images/srf_impact_stacked.svg" alt="SRF Impact Logo">
 		<Fragment slot="right">
-			<a href="/company/contact">Contact</a>
-			<a href={config.srfImpactUrl}>SRF Impact</a>
+			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
+			<a href={config.srfCapitalUrl}>SRF Impact</a>
 		</Fragment>
 	</Header>
 	<div id="page">
