@@ -18,7 +18,10 @@ export default defineConfig({
   integrations: [
     sitemap(),
     mdx(),
-    lit()
+    lit(),
+    compress({
+      css: false,
+    }),
   ], // Add renderers to the config
   // This is for the astro-icon package. You can find more about the package here: https://www.npmjs.com/package/astro-icon
   vite: {
