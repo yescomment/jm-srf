@@ -1,3 +1,15 @@
+:root {
+	/* SRF Impact colors */
+	--color-primary: #e74c34;
+	--color-primary-tinted: #c93d2f;
+	--color-secondary: #c8bcc4;
+	--color-secondary-tinted: #a38f9d;
+	--color-light: #edede9;
+	--color-light-tinted: #c1c1bf;
+	--color-dark: #323835;
+	--color-pop: #137a4e;
+}
+
 html,
 body {
 	height: 100%;

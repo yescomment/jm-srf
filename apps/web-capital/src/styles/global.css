@@ -1,12 +1,21 @@
+:root {
+	/* SRF Capital colors */
+	--color-primary: #223749;
+	--color-primary-tinted: #223749;
+	--color-secondary: #137a4e;
+	--color-secondary-tinted: #1a6042;
+	--color-light: #edede9;
+	--color-light-tinted: #c1c1bf;
+	--color-dark: #323835;
+	--color-pop: #719aaa;
+
+	--max-content-width: 1600px;
+}
+
 html,
 body {
 	height: 100%;
-}
-
-header .logo-container {
-	background-color: #E74C34; /* brand */
-	height: 200%;
-	width: 4rem;
+	background-color: var(--color-light);
 }
 
 body {

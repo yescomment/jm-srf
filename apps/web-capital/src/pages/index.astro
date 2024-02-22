@@ -1,24 +1,24 @@
 ---
-import { Container, FeatureCard } from 'srf-theme-components';
-
 import Layout from '../layouts/Page.astro';
-import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
+import { Container, FeatureCard } from 'srf-theme-components';
+import { HeroSection } from 'jm-srf-components';
+import { getImage } from 'astro:assets';
+
+import heroBgImg from '../../../../assets/imagery/people/pexels-isabella-mendes-1304519.jpg'
+
+const optimizedBackgroundImage = await getImage({
+	src: heroBgImg,
+	format: 'webp',
+})
 ---
 
 <Layout>
-	<HomeHeroSection />
+	<HeroSection backgroundImage={heroBgImg}>
+		<h1>SRF Capital</h1>
+		<h2>Raising the economic foundation for communities to thrive in place.</h2>
+	</HeroSection>
 	<Container>
 		<section class="feature-card__section">
-			<h2>Our Initiatives</h2>
-			<p>
-				Lorem ipsum
-			</p>
-			<div class="feature-card__grid">
-				<FeatureCard href="/landing-pages/landing-1" title="The Wealth Papers" imgSrc="/assets/images/home/screenshots/landing-1">
-				</FeatureCard>
-				<FeatureCard href="https://www.southernreconstructionfund.org" title="SRF:now" imgSrc="/assets/images/home/screenshots/landing-2">
-				</FeatureCard>
-			</div>
 		</section>
 	</Container>
 </Layout>
