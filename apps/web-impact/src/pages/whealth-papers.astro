@@ -1,34 +1,31 @@
 ---
 import { TextSection } from 'srf-theme-components';
+import { TitleSection } from 'jm-srf-components'
 import Layout from '../layouts/Page.astro';
-import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+import primaryImg from '../../../../assets/imagery/people/pexels-muhammadtaha-ibrahim-4476358.jpg';
+import accentImg from '../../../../assets/imagery/plants/leaves9-edgeBR.png';
 
 const seo = {
-	title: 'SRF Impact ❦ How it works',
-	description: 'About Page',
+	title: 'SRF Impact ❦ The (W)Health Papers',
+	description: 'Inspired by the Federalist Papers, a collection of essays calling for a ratification of the United States’ Constitution for a more perfect union, the SRF Impact team is calling on people across sectors to co-sign a new form a capital, one that holds equity at its center through a collection of essays entitled the (W)Health Papers.',
 };
 ---
 
 <Layout {seo}>
-	<HeroSection>
-		<div slot="text-container">
-			<h1>The (W)Health Papers</h1>
-			<p>
-				Inspired by the Federalist Papers, a collection of essays calling for a ratification of the United States’ Constitution for a more perfect union, the SRF Impact team is calling on people across sectors to co-sign a new form a capital, one that holds equity at its center through a collection of essays entitled the (W)Health Papers.
-			</p>
-		</div>
-    <picture slot="image-container">
-      <img
-        src="/assets/images/home/dark-hero.jpg"
-        alt="Astro Odyssee"
-        id="home-hero-image"
-      />
-    </picture>
-	</HeroSection>
-  <TextSection narrow>
+	<TitleSection
+		title='The (W)Health Papers'
+		deck='The SRF Impact team is calling on people across sectors to co-sign a new form a capital.'
+		primaryImage={primaryImg},
+		accentImage={accentImg}
+	>
+		<h2 id="whealth-capital">A More Perfect Form of Capital</h2>
+		<p>Inspired by the Federalist Papers, a collection of essays calling for a ratification of the United States’ Constitution for a more perfect union, the SRF Impact team is calling on people across sectors to co-sign a new form a capital, one that holds equity at its center through a collection of essays entitled the (W)Health Papers.</p>
+	</TitleSection>
 
-    <p>The (W)Health Papers is a multimedia partnership with like-minded practitioners and investors, which dives into some of the foundational mindset shifts, principles, and strategies required for reimagining markets, reinterpreting value, and restoring communities as beacons of health, wealth, and generational prosperity. </p>
+	<TextSection narrow>
+		<p>The (W)Health Papers is a multimedia partnership with like-minded practitioners and investors, which dives into some of the foundational mindset shifts, principles, and strategies required for reimagining markets, reinterpreting value, and restoring communities as beacons of health, wealth, and generational prosperity. </p>
 
-    <p>Due to generations of unjust racial economic and social policy, socioeconomic resources remain distributed along racial lines. Entrepreneurial genius and collective capacity are not. This multimedia project is a repository dedicated to speaking about purpose, mindset shift, capital, investment, and justice. It will require participants to evaluate their purpose, their gifts, and the risks they are willing to take to build bridges across lines of difference.</p>
-  </TextSection>
+		<p>Due to generations of unjust racial economic and social policy, socioeconomic resources remain distributed along racial lines. Entrepreneurial genius and collective capacity are not. This multimedia project is a repository dedicated to speaking about purpose, mindset shift, capital, investment, and justice. It will require participants to evaluate their purpose, their gifts, and the risks they are willing to take to build bridges across lines of difference.</p>
+	</TextSection>
 </Layout>

@@ -36,12 +36,17 @@ const {
     font-weight: 300;
     font-size: 96px;
     color: var(--color-secondary);
+    text-shadow: 0 0 50px var(--color-light);
   }
 
   h2 {
     font-size: 1rem;
     font-family: var(--font-family-sans);
     font-weight: 200;
+    background-color: var(--color-light);
+    border-top: 0.25rem solid var(--color-secondary);
+    border-bottom: 0.25rem solid var(--color-secondary);
+    padding: 1rem;
   }
 
   .hero .block {
@@ -53,11 +58,12 @@ const {
 
     background-repeat: no-repeat;
     background-size: 50%;
-    background-position: center left;
+    background-position: bottom left;
 
     .titles {
       width: 30vw;
       min-width: 400px;
+      z-index: 1;
     }
 
     .filmstrip {
