@@ -1,7 +1,10 @@
 ---
 import { TextSection } from 'srf-theme-components';
+import { TitleSection } from 'jm-srf-components'
 import Layout from '../layouts/Page.astro';
-import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+import primaryImg from '../../public/assets/images/home/pexels-camilo-ospina-5033182.jpg';
+import accentImg from '../../../../assets/imagery/plants/leaves13-edgeL.png';
 
 const seo = {
 	title: 'SRF Impact ❦ About',
@@ -10,7 +13,11 @@ const seo = {
 ---
 
 <Layout {seo}>
-	<HeroSection>
+	<TitleSection
+    title="About SRF"
+    deck="Built on justice and is dedicated to building the equitable economies of the future."
+    accentImage={accentImg}
+  >
 		<div slot="text-container">
 			<h1>About SRF Impact</h1>
 			<p>
@@ -24,7 +31,7 @@ const seo = {
         id="home-hero-image"
       />
     </picture>
-	</HeroSection>
+	</TitleSection>
   <TextSection narrow>
     <h2>History</h2>
 
