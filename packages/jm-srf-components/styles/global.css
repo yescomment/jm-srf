@@ -9,6 +9,7 @@ body {
 	height: 100%;
 	background-color: var(--color-light);
 	color: var(--color-dark);
+	font-weight: 300;
 }
 
 body {
