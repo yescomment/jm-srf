@@ -31,27 +31,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow-x: scroll;
     font-size: 0.7rem;
     font-weight: 500;
     height: 3rem;
-    gap: 0.5rem;
-
     overflow-x: auto;
     white-space: nowrap;
 
-    background: linear-gradient();
-
     &.right {
       justify-content: flex-end;
-    }
-
-    a {
-      text-decoration: none;
-
-      &.hover {
-        background-color: var(--color-primary);
-      }
     }
   }
 
@@ -85,6 +72,43 @@
         left: 0;
         width: 20px;
         // TODO: I think .logo-container just needs to become absolute
+      }
+    }
+  }
+</style>
+
+<style is:global lang="scss">
+  // must be global as these are <slot/>s
+  nav > a {
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline: 0.4rem;
+
+    &:hover {
+      background-color: var(--color-light-tinted);
+    }
+
+    &.special {
+      padding: 0.5rem;
+      background-color: var(--color-pop);
+    }
+
+    &.to-srfcapital {
+      color: var(--color-light);
+      background-color: #223749; // --color-primary
+      &:hover {
+        background-color: #223749; // --color-primary-tinted
+      }
+    }
+
+    &.to-srfimpact {
+      color: var(--color-light);
+      background-color: #e74c34; // --color-primary
+      &:hover {
+        background-color: #c93d2f; // --color-primary-tinted
       }
     }
   }
