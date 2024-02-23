@@ -51,26 +51,19 @@
 
   @media (max-width: 512px) {
     header {
-      grid-template-columns: 50px min-content min-content;
-      overflow-x: scroll;
-      overflow-y: hidden;
+      grid-template-columns: 50px auto min-content;
 
-      nav {
+      nav.left {
         grid-area: mid;
-        margin-left: 1rem;
-        position: relative;
       }
 
-      nav.right {
-        position: relative;
-        left: 50%;
+      nav {
+        overflow-y: scroll;
       }
 
       .logo-container {
         grid-area: left;
-        position: sticky;
         left: 0;
-        width: 20px;
         // TODO: I think .logo-container just needs to become absolute
       }
     }
