@@ -243,7 +243,7 @@ const seo = {
 	}
 
 	#srf-map-descriptions .key.active {
-		color: #e74c34;
+		color: var(--color-pop);
 	}
 
 	$mapFeatures:
@@ -267,7 +267,7 @@ const seo = {
 			// starts with active feature if it represents it
 			g[serif\:id^=#{$feature}] {
 				circle, text {
-					fill: #e74c34 !important;
+					fill: var(--color-pop) !important;
 				}
 
 				path {
@@ -278,7 +278,7 @@ const seo = {
 			// contains active feature if it is secondary connection
 			g[serif\:id~=#{$feature}] {
 				text {
-					fill: #e74c34 !important;
+					fill: var(--color-pop) !important;
 				}
 
 				path#icon {
@@ -289,7 +289,7 @@ const seo = {
 			g[id^=line][id*=#{$feature}] {
 				z-index: 1;
 				path {
-					stroke: #e74c34 !important;
+					stroke: var(--color-pop) !important;
 				}
 			}
 		}
