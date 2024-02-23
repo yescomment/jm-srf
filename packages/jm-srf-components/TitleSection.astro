@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets'
+
+// defaults
+import birdsImg from '../../assets/imagery/plants/birds1.png'
+import holdingImg from '../../assets/imagery/people/pexels-emma-bauso-2833394.jpg';
+
+const {
+  title,
+  deck,
+  accentImage = birdsImg,
+  primaryImage = holdingImg,
+  primaryImageDesc = 'People thriving in community, in place'
+} = Astro.props
+---
+<section class="hero">
+  <div class="block" style={accentImage && `background-image: url(${accentImage.src})`}>
+    <div class="titles">
+      <h1>{title}</h1>
+      <h2>{deck}</h2>
+    </div>
+    <aside class="filmstrip">
+      <Image src={primaryImage} alt={primaryImageDesc}/>
+      <Image class="dupe" src={primaryImage} alt={`${primaryImageDesc} again, like a filmstrip`}/>
+    </aside>
+  </div>
+</section>
+<section class="intro">
+  <article>
+    <slot />
+  </article>
+</section>
+
+<style lang="scss">
+  h1 {
+    font-weight: 300;
+    font-size: 96px;
+    color: var(--color-secondary);
+  }
+
+  h2 {
+    font-size: 1rem;
+    font-family: var(--font-family-sans);
+    font-weight: 200;
+  }
+
+  .hero .block {
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+    min-height: fit-content;
+    background-color: var(--color-light);
+
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center left;
+
+    .titles {
+      width: 30vw;
+      min-width: 400px;
+    }
+
+    .filmstrip {
+      transform: translateY(6rem);
+      z-index: 0;
+
+      img {
+        height: auto;
+        position: relative;
+      }
+
+      .dupe {
+        position: absolute;
+        transform: translateY(calc(-100% - 4rem));
+        bottom: 0;
+      }
+    }
+  }
+
+  section.intro {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 4rem;
+  }
+</style>

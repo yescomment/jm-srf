@@ -1,13 +1,27 @@
+:root {
+	/* Theme Fonts */
+	--theme-font-family-serif: 'ivymode', Times, serif;
+	--theme-font-family-sans: 'ebony', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 html,
 body {
 	height: 100%;
 	background-color: var(--color-light);
+	color: var(--color-dark);
 }
 
 body {
 	max-width: 1920px;
 	margin: 0 auto;
 	position: relative;
+}
+
+section > article,
+section > .block {
+	max-width: 920px;
+	margin: auto;
+	padding: 2rem;
 }
 
 pre {

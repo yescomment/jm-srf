@@ -1,27 +1,24 @@
 ---
 import { TextSection, Container, FeatureCard } from 'srf-theme-components';
+import { TitleSection } from 'jm-srf-components'
 import Layout from '../layouts/Page.astro';
-import HeroSection from '../components/sections/heros/HeroSection.astro';
 
 const seo = {
 	title: 'SRF Impact ❦ Strategy',
-	description: 'We catalyze novel models and growth opportunities by providing (W)Health Capital to highly capable, but thinly capitalized impact entrepreneurs, and organizations.',
+	deck: 'We catalyze novel models and growth opportunities by providing (W)Health Capital to highly capable, but thinly capitalized impact entrepreneurs, and organizations.',
 };
 ---
 
 <Layout {seo}>
-	<HeroSection>
-		<div slot="text-container">
-			<h1>Our Strategy</h1>
-			<p>
-				The (W)Health Capital strategy provides capital that is patient, flexible and affordable with a focus on investment opportunities that reimagine the creation of wealth and health in equitable ways. We catalyze novel models and growth opportunities by providing (W)Health Capital to highly capable, but thinly capitalized impact entrepreneurs, and organizations.
-			</p>
-		</div>
-	</HeroSection>
-  <TextSection narrow>
+	<TitleSection
+    title='Our Strategy'
+    deck='The (W)Health Capital strategy provides capital that is patient, flexible and affordable with a focus on investment opportunities that reimagine the creation of wealth and health in equitable ways. We catalyze novel models and growth opportunities by providing (W)Health Capital to highly capable, but thinly capitalized impact entrepreneurs, and organizations.'
+  >
     <h2 id="whealth-capital">Vision for a (W)Healthy Community</h2>
 
     <p>A (W)Health-based investment strategy creates value across multiple asset areas that build on each other for multiple generations. We consider the well-being and mobility of all people in a community to provide true opportunities for people to develop comprehensive strategies and build health and wellness. An asset class that includes social, physical, financial, and political capital at the foundation is needed for a prosperous community and the equitable economies of the future.</p>
+  </TitleSection>
+  <TextSection narrow>
 
     <h2>What A (W)Healthy South Looks Like</h2>
 

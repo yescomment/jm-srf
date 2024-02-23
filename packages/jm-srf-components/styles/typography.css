@@ -2,6 +2,12 @@
 @import url("https://use.typekit.net/gqh5mma.css");
 
 :root {
+	/* Theme Fonts */
+	--font-family-serif: 'ivymode', Times, serif;
+	--font-family-sans: 'ebony', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root {
   --font-size-sm: clamp(14.4px, 0.07vw + 14.13px, 15px);
   --font-size-base: clamp(18px, 0.23vw + 17.09px, 20px);
   --font-size-md: clamp(22.5px, 0.47vw + 20.61px, 26.66px);

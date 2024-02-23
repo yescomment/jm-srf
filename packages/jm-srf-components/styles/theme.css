@@ -29,10 +29,6 @@
 	--container-padding: 0 1rem;
 
 	--theme-blog-post-header-width: 1200px;
-
-	/* Theme Fonts */
-	--theme-font-family-serif: 'ivymode', Times, serif;
-	--theme-font-family-sans: 'ebony', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 [data-theme='srf-impact'] {
