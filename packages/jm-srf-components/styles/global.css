@@ -33,3 +33,20 @@ pre {
 pre .language-id {
   display: none;
 }
+
+.columns {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.columns > * {
+	min-width: 12rem;
+	flex: 1;
+}
+
+.columns > * {
+	min-width: 12rem;
+	flex: 1;
+}
