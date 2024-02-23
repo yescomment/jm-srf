@@ -33,7 +33,7 @@ const {
 <style lang="scss">
   h1 {
     font-weight: 300;
-    font-size: 96px;
+    font-size: min(20vw, 96px);
     color: var(--color-secondary);
     text-shadow: 0 0 50px var(--color-light);
   }
@@ -60,16 +60,20 @@ const {
       background-repeat: no-repeat;
       background-size: 50%;
       background-position: bottom left;
+
+      width: 100%;
     }
 
     .titles {
       width: 30vw;
-      min-width: 400px;
+      min-width: 40%;
       z-index: 1;
+      flex: 1;
     }
 
     .filmstrip {
       transform: translateY(6rem);
+      max-width: 500px;
       z-index: 0;
 
       img {
@@ -86,6 +90,7 @@ const {
     @media (max-width: 768px) {
       .titles {
         width: 100%;
+        hyphens: auto;
       }
       .filmstrip {
         display: none;
