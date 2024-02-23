@@ -244,6 +244,10 @@ const seo = {
 
 	#srf-map-descriptions .key.active {
 		color: var(--color-pop);
+
+		h3 {
+			background-color: var(--color-pop);
+		}
 	}
 
 	$mapFeatures:
@@ -264,25 +268,25 @@ const seo = {
 
 	@each $feature in $mapFeatures {
 		:root:has(##{$feature}.active) svg {
+			// contains active feature if it is secondary connection
+			g:not([id^=line])[id*=#{$feature}] {
+				text {
+					fill: var(--color-pop) !important;
+				}
+
+				path {
+					fill: var(--color-pop) !important;
+				}
+			}
+
 			// starts with active feature if it represents it
-			g[serif\:id^=#{$feature}] {
+			g:not([id^=line])[id^=#{$feature}] {
 				circle, text {
 					fill: var(--color-pop) !important;
 				}
 
 				path {
-					fill: white !important;
-				}
-			}
-
-			// contains active feature if it is secondary connection
-			g[serif\:id~=#{$feature}] {
-				text {
-					fill: var(--color-pop) !important;
-				}
-
-				path#icon {
-					fill: white !important;
+					fill: var(--color-light) !important;
 				}
 			}
 
