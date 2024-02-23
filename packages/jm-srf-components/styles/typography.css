@@ -26,8 +26,7 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
 	font-family: var(--theme-font-family-serif);
 	font-weight: 700;
 }
