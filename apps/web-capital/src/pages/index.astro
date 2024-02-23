@@ -1,23 +1,92 @@
 ---
+import { TextSection } from 'srf-theme-components';
+import { TitleSection } from 'jm-srf-components'
 import Layout from '../layouts/Page.astro';
-import { HeroSection, BrightSection } from 'jm-srf-components';
-import { getImage } from 'astro:assets';
 
-import heroBgImg from '../../../../assets/imagery/people/pexels-cottonbro-studio-9629818-bw.jpg'
+import primaryImg from '../../../../assets/imagery/people/pexels-rhema-xplorer-14197790.jpg';
+import accentImg from '../../../../assets/imagery/plants/leaves6-edgeB.png';
 
-const optimizedBackgroundImage = await getImage({
-	src: heroBgImg,
-	format: 'webp',
-})
+const seo = {
+	title: 'SRF Capital ❦ About',
+	description: 'SRF Capital partners with and invests in the world’s leading changemakers towards building the sustainable and equitable economies of the future.',
+};
 ---
 
-<Layout>
-	<HeroSection backgroundImage={heroBgImg}>
-		<h1>SRF Capital</h1>
-		<h2>Expanding the Universe of impact and building the equitable economies of the future. </h2>
-	</HeroSection>
-	<BrightSection>
-		<p>Founded by the next generation of Impact investors seeking to find the highest and best use of capital , SRF was built on justice and is dedicated to building the equitable communities and economies of the future. SRF advances collective action and transformative impact through system-level investment strategies that foster wealth creation, social mobility, and better health outcomes in emergent and frontier communities. SRF employs its (W)Health Capital strategy to work in tandem with investors to radically multiply the impact of every invested asset towards growing the universe of impact and the foundation for communities to thrive in place.</p>
-		<p><a href="/about">Read more →</a></p>
-	</BrightSection>
+<Layout {seo}>
+	<TitleSection
+    title="SRF Capital"
+    deck="Seeking the highest and best use of capital."
+    accentImage={accentImg}
+    primaryImage={primaryImg}
+  >
+		<h1>Our Vision</h1>
+		<p>
+			Founded by the next generation of Impact investors seeking to find the highest and best use of capital, SRF Impact was built on justice and is dedicated to building the equitable economies of the future. SRF Impact advances collective action and transformative impact through system-level investment strategies that foster wealth creation, social mobility, and better health outcomes in emergent and frontier communities.
+		</p>
+	</TitleSection>
+  <TextSection narrow>
+    <h2>History</h2>
+
+    <p>SRF Impact employs a (W)Health Capital strategy to work in tandem with investors to radically multiply the impact of every invested asset towards growing the universe of impact and the foundation for communities to thrive in place.</p>
+
+    <p>Our mission is to partner and invest in the world’s leading change makers towards building the sustainable and equitable economies of the future.</p>
+
+    <p>We envision a global economy where value and utility are defined by the good of all humanity. Where investments are made by moral leaders dedicated to helping to build a sustainable future and helping individuals to find dignity, define their self-determinate joy, and to thrive in place.</p>
+    <p>Our team members have backgrounds in venture capital, private equity, investment banking, philanthropy, microfinance, entrepreneurship, operations management, and technology.</p>
+
+    <h2>What Makes Us Different</h2>
+
+    <h3>Equity-Oriented Goals</h3>
+    <p>SRF Impact was created to achieve equity, not just accommodate it. Every decision we make is based on how we expand opportunity by investing to move communities forward and towards their highest aspiration.</p>
+
+    <h3>Proximate Leadership</h3>
+    <p>We believe our proximity to our investments is a competitive advantage that allows us to discover hidden assets and support communities aspirations for transformations through impact alpha investments. Our approach to investing is grounded in this conviction.</p>
+
+    <h3>Public Kinship</h3>
+    <p>We are guided by our values and our care for the communities we work in. Our work requires a foundation of trust and commitment among investors and the broader community. We focus on creating opportunities for public kinship across racial, ethnic, and socioeconomic groups, and focus and promote communities’ assets, rather than their deficits.  There are no inherent deficiencies in communities, only historic and current policies that are designed to produce inequities.</p>
+
+    <h3>Transformative Investment in Spaces</h3>
+    <p>Everyone should have the opportunity to thrive in place. We help Impact Finance entrepreneurs and institutions find opportunities to utilize the full spectrum of investment vehicles to achieve restoration, innovation, and excellence.</p>
+
+    <h3>Mutual, Long-Term Accountability</h3>
+    <p>We value lasting relationships with community leaders as equal partners. We work to honor, complement, and accelerate the vision of local leaders and institutions. We work closely alongside the Impact entrepreneurs we fund, providing ample time for institutionalized changes and long-term resilience.</p>
+
+    <h2>(W)Health Capital</h2>
+    <p>We believe in leading with impact and in investing deeply in people who are value-aligned. The impact finance entrepreneurs and communities that we serve do not have a human capital problem, but rather a capitalization problem. To create equitable economies of the future, impact investors seeking proprietary deal flows should be close to corners of the market that have hidden and/or purposely neglected. We see the opportunity through bringing the full spectrum of investment capital to bear to generate impact alpha returns and generational (W)Health.</p>
+
+    <p>(W)Health Capital walks alongside individuals and communities as they rise to health, wealth, and prosperity.</p>
+
+    <h3>Collective Ambition</h3>
+    <p>We engage multiple partners—community, government, private, philanthropic and faith-based— to generate resources for sustainable impact.</p>
+
+    <h3>Long-Term Focus</h3>
+    <p>Our focus is long-term, and our funding is flexible. Investments that are sustained over multiple years, build capacity over time and target multi-generational change.</p>
+
+    <h3>Public Value</h3>
+    <p>We set goals that articulate the larger value to society, not to individual stakeholders. Establishing common goals across sectors promotes prosperity for all.</p>
+
+    <h3>Co-defined Outcomes</h3>
+    <p>Our leaders and partner organizations are vetted from within the community. Our outcomes are co-defined and designed for systemic change.</p>
+
+    <h3>Multi-generational Impact</h3>
+    <p>Every life changed matters, but we must seed change across generations to have a real impact</p>
+
+    <h3>Blended Value Returns</h3>
+    <p>We invest in creating the equitable economies of the future and are focused on social and economic value creation while delivering outsized community-based returns.</p>
+
+    <h3>Joy</h3>
+    <p>We are driven by people being able to experience and live out their highest calling and deepest joy.</p>
+
+    <h2>Partner With Us</h2>
+    <p>SRF strives to be the industry-leading specialist in expanding the universe of Impact and generating impact alpha returns to create the equitable economies of the future. SRF draws on outstanding investors, advanced management professionals, and researchers who wish to impact their lifetime of learning and experience to impact and create a world where all people have the opportunity to define their self-determined joy and to thrive in place. Like the markets and communities we work in, we promote and champion investment, operations and research professionals from diverse and international backgrounds driven to fulfill the promises of tomorrow.</p>
+
+    <p><strong>Benefits of becoming a partner include access to:</strong></p>
+    <ul>
+      <li>Deep proximate relationships and a history of commitment to equity;</li>
+      <li>A leveraging vehicle that enables large scale, place-based investment; and</li>
+      <li>Financial benefits from charitable contributions.</li>
+    </ul>
+
+    <code>TK: button to contact form?</code>
+  </TextSection>
 </Layout>

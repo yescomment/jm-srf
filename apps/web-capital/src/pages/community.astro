@@ -1,33 +1,27 @@
 ---
 import { TextSection } from 'srf-theme-components';
-import { PageSection } from 'jm-srf-components';
+import { PageSection, TitleSection } from 'jm-srf-components';
 import Layout from '../layouts/Page.astro';
 import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+import primaryImg from '../../../../assets/imagery/people/pexels-sabina-kallari-12835892.jpg';
+import accentImg from '../../../../assets/imagery/plants/leaves14.png';
 
 import CommunityMapImg from '../assets/srf_whealthy_community_map.svg'
 
 const seo = {
 	title: 'SRF Impact ❦ (W)Healthy Communities',
-	description: 'About Page',
+	description: '',
 };
 ---
 
 <Layout {seo}>
-	<HeroSection>
-		<div slot="text-container">
-			<h1>Community</h1>
-			<p>
-				Our vision for a (W)Healthy Community
-			</p>
-		</div>
-		<picture slot="image-container">
-			<img
-				src="/assets/images/home/ocean-hero.jpg"
-				alt="Astro Odyssee"
-				id="home-hero-image"
-			/>
-		</picture>
-	</HeroSection>
+	<TitleSection
+    title="Community"
+    deck="Our vision for a (W)Healthy Community"
+    accentImage={accentImg}
+    primaryImage={primaryImg}
+  />
 	<PageSection>
 		<svg slot="aside" id="whealthy-community-map" viewBox="0 0 1080 1081" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
 				<g id="whealthy-community-map" transform="matrix(-6.2903,-0.000881257,0,29.7022,7244.74,-3611.57)">
@@ -245,7 +239,7 @@ const seo = {
 	#whealthy-community-map {
 		max-height: 100vh;
 		position: sticky;
-		top: 0;
+		top: 4rem;
 	}
 
 	#srf-map-descriptions .key.active {
