@@ -51,7 +51,6 @@ const {
   .hero {
 
     .block {
-      padding-right: 0;
       display: flex;
       flex-direction: row;
       height: 90vh;
@@ -64,18 +63,13 @@ const {
     }
 
     .titles {
-      max-width: 100%;
-      flex-basis: 60%;
-      flex-shrink: 1;
-      flex-grow: 0;
+      width: 30vw;
+      min-width: 400px;
       z-index: 1;
     }
 
     .filmstrip {
       transform: translateY(6rem);
-      flex-basis: 40%;
-      flex-shrink: 1;
-      flex-grow: 0;
       z-index: 0;
 
       img {
@@ -85,8 +79,7 @@ const {
 
       .dupe {
         position: absolute;
-        transform: translateY(calc(-100% - 4rem));
-        bottom: 0;
+        transform: translateY(calc(-200% - 4rem));
       }
     }
   }
