@@ -1,14 +1,13 @@
 ---
 export interface Props {
 	seo?: BaseHeadProps;
-	theme: 'capital' | 'impact';
 }
 
 import { SkipLink } from 'srf-theme-components';
 import BaseHead from './BaseHead.astro';
 import type { Props as BaseHeadProps } from './BaseHead.astro';
 
-const { seo, theme } = Astro.props;
+const { seo } = Astro.props;
 
 import './styles/index.css';
 ---
