@@ -10,9 +10,13 @@ const optimizedBackgroundImage = await getImage({
 	src: heroBgImg,
 	format: 'webp',
 })
----
 
-<Layout>
+const seo = {
+	title: 'SRF Impact',
+	description: 'Building equitable economies for the future.',
+}
+---
+<Layout seo={seo}>
 	<HeroSection backgroundImage={heroBgImg}>
 		<h1>SRF Impact</h1>
 		<h2>Building equitable economies for the future.</h2>
