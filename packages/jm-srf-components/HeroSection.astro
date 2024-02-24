@@ -17,9 +17,8 @@ const { backgroundImage } = Astro.props
     background-color: var(--color-primary);
 
     article {
-      width: 40vw;
-      min-width: 400px;
-      margin: auto 4rem;
+      max-width: 600px;
+      margin: auto min(4rem, 10vw);
       color: white;
       text-shadow: 0 0 0.1rem #00000033;
     }
