@@ -5,14 +5,14 @@ const {
 } = Astro.props
 ---
 <video style={`mask-image: url(${maskImage.src})`} autoplay loop>
-  <source src={backgroundVideoUrl} type="video/mp4">
+	<source src={backgroundVideoUrl} type="video/mp4">
 </video>
 
 <style lang="scss">
-  video {
-  	object-fit: cover;
-    mask-position:center center;
-    mask-repeat:no-repeat;
-    mask-size:cover;
+	video {
+		object-fit: cover;
+		mask-position:center center;
+		mask-repeat:no-repeat;
+		mask-size:cover;
 	}
 </style>
