@@ -1,14 +1,11 @@
 ---
 import Layout from '../layouts/Page.astro';
-import { HeroSection, BrightSection } from 'jm-srf-components';
+import { HeroVideo, BrightSection } from 'jm-srf-components';
 import { getImage } from 'astro:assets';
 
 import heroBgImg from '../../../../assets/imagery/people/pexels-cottonbro-studio-9629818-bw.jpg'
 
-const optimizedBackgroundImage = await getImage({
-	src: heroBgImg,
-	format: 'webp',
-})
+const logoVideoUrl = '/assets/video/srf_capital_logo_loop.mp4'
 
 const seo = {
 	title: 'SRF Capital',
@@ -16,10 +13,10 @@ const seo = {
 }
 ---
 <Layout seo={seo}>
-	<HeroSection backgroundImage={heroBgImg}>
+	<HeroVideo videoUrl={logoVideoUrl}>
 		<h1>SRF Capital</h1>
-		<h2>Expanding the Universe of impact and building the equitable economies of the future.</h2>
-	</HeroSection>
+		<h2 class="deck">Expanding the Universe of impact and building the equitable economies of the future.</h2>
+	</HeroVideo>
 	<BrightSection>
 		<p>Founded by the next generation of Impact investors seeking to find the highest and best use of capital , SRF was built on justice and is dedicated to building the equitable communities and economies of the future. SRF advances collective action and transformative impact through system-level investment strategies that foster wealth creation, social mobility, and better health outcomes in emergent and frontier communities. SRF employs its (W)Health Capital strategy to work in tandem with investors to radically multiply the impact of every invested asset towards growing the universe of impact and the foundation for communities to thrive in place.</p>
 		<p><a href="/meet">Read more →</a></p>
