@@ -1,11 +1,10 @@
 ---
 import Container from '../core/Container.astro';
-import accentImg from '../../../assets/imagery/plants/leaves10-edgeB.png';
 
 const {narrow} = Astro.props;
 ---
 
-<Container narrow={narrow} accentImage={accentImg}>
+<Container narrow={narrow}>
   <section class="text__section">
     <slot></slot>
   </section>
@@ -13,8 +12,7 @@ const {narrow} = Astro.props;
 
 <style>
   .text__section {
-    max-width: 500px;
-    margin-left: auto;
+    margin: var(--section-margin) auto;
   }
 </style>
 

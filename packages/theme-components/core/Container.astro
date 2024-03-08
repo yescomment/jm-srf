@@ -1,16 +1,8 @@
 ---
-import birdsImg from '../../assets/imagery/plants/birds1.png'
-
-const {
-  narrow,
-  accentImage
-} = Astro.props;
+const {narrow} = Astro.props;
 ---
 
-<div
-  class={`content__container ${narrow ? `content__container--narrow` : ``}`}
-  style={accentImage && `background-image: url(${accentImage.src});`}
->
+<div class={`content__container ${narrow ? `content__container--narrow` : ``}`}>
   <slot></slot>
 </div>
 
@@ -19,9 +11,6 @@ const {
     margin: 0 auto;
     max-width: var(--container-max-width);
     padding: var(--container-padding);
-
-    background-position: bottom left;
-    background-repeat: no-repeat;
   }
   .content__container--narrow {
     max-width: var(--container-max-width-narrow);
