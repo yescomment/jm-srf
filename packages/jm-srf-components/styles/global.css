@@ -44,8 +44,3 @@ pre .language-id {
 	min-width: 12rem;
 	flex: 1;
 }
-
-.columns > * {
-	min-width: 12rem;
-	flex: 1;
-}
