@@ -8,6 +8,42 @@
   section.bright {
     background-color: var(--color-primary);
     color: var(--color-light);
-    padding: 4rem;
+    padding: 2rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    section.bright article :global(> *) {
+      transition: 2s ease;
+      will-change: opacity, transform;
+
+      opacity: 0;
+      transform: translateX(-2rem) rotate3d(1, -1, 0, 20deg);
+
+      &.deployed {
+        opacity: 1;
+        transform: none;
+      }
+    }
   }
 </style>
+
+<script is:inline>
+  const elementsToAnimate = document.querySelectorAll('section.bright article > *')
+
+  const scrollObserver = new IntersectionObserver(animateElementIn, {
+    root: null,
+  })
+
+  function animateElementIn(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        console.log('entry', entry)
+        entry.target.classList.add('deployed')
+      }
+    })
+  }
+
+  elementsToAnimate.forEach(element => {
+    scrollObserver.observe(element)
+  })
+</script>
