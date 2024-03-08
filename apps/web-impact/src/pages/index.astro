@@ -7,7 +7,7 @@ import { getImage } from 'astro:assets';
 import heroBgImg from '../../../../assets/imagery/plants/cloud3.png'
 
 import logoSvg from '../../../../assets/logos/srf_impact_brackets_white.svg'
-import logoMaskVideo from '../../../../assets/video/istockphoto-1475069111-640_adpp_is.mp4'
+const logoMaskVideoUrl = '/assets/video/istockphoto-1475069111-640_adpp_is.mp4'
 
 const optimizedBackgroundImage = await getImage({
 	src: heroBgImg,
@@ -23,7 +23,7 @@ const seo = {
 	<HeroLogo
 		backgroundImage={heroBgImg}
 		logoImage={logoSvg}
-		maskVideo={logoMaskVideo}
+		maskVideoUrl={logoMaskVideoUrl}
 	>
 		<h1>SRF Impact</h1>
 		<h2>Building equitable economies for the future.</h2>

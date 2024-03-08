@@ -2,7 +2,7 @@
 const {
   backgroundImage,
   logoImage,
-  maskVideo = false,
+  maskVideoUrl = false,
 } = Astro.props
 
 import MaskedVideo from './MaskedVideo.astro'
@@ -14,7 +14,7 @@ import MaskedVideo from './MaskedVideo.astro'
   <MaskedVideo
     class="video"
     maskImage={logoImage}
-    backgroundVideo={maskVideo}
+    backgroundVideoUrl={maskVideoUrl}
   />
 </section>
 
