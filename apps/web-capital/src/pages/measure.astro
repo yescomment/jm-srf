@@ -74,3 +74,45 @@ const seo = {
     <p> Just as a universal measurement framework does not exist in isolation neither does a universal outcome. SRF Capital focuses on crafting the (W)Health economy of the future and paving the way for a just transition to this economy. In opportunities that couple and stack the United Nations Sustainability and Development Goals, we can tackle adaptive challenges and build equitable economies.</p>
   </TextSection>
 </Layout>
+
+<style lang="scss">
+  .columns div:not(:last-of-type) h3 {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1rem;
+      height: 0;
+      animation: 4s chevron-right infinite;
+
+      // triangles
+      border-style: solid;
+      border-width: 1em 0 1em 1rem;
+      border-color: transparent transparent transparent var(--color-light);
+      z-index: -1;
+
+      @for $i from 0 through 3 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i}s;
+        }
+      }
+    }
+  }
+
+  @keyframes chevron-right {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    20%, 80% {
+      opacity: 1;
+    }
+    to {
+      transform: translateX(500%);
+      opacity: 0;
+    }
+  }
+</style>
