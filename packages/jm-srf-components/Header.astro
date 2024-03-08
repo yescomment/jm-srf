@@ -6,7 +6,8 @@
     <slot name="left"/>
   </nav>
   <a href="/" class="logo-container">
-    <slot name="logo" class="logo">Home</slot>
+    <slot name="logo-icon" class="logo-icon">Home</slot>
+    <slot name="logo-full" class="logo-full">Home</slot>
   </a>
   <nav class="right">
     <slot name="right"/>
@@ -48,6 +49,10 @@
     height: calc(100% + 5px);
     padding: 0.5rem;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+    :global(.logo-icon) {
+      display: none;
+    }
   }
 
   @media (max-width: 512px) {
@@ -64,6 +69,14 @@
 
       .logo-container {
         grid-area: left;
+
+        :global(.logo-full) {
+          display: none;
+        }
+
+        :global(.logo-icon) {
+          display: block;
+        }
       }
     }
   }
