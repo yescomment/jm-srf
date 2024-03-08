@@ -1,0 +1,52 @@
+---
+const {
+  backgroundImage,
+  logoImage,
+  maskVideo = false,
+} = Astro.props
+
+import MaskedVideo from './MaskedVideo.astro'
+---
+<section style={`background-image: url(${backgroundImage.src})`}>
+  <article>
+    <slot/>
+  </article>
+  <MaskedVideo
+    class="video"
+    maskImage={logoImage}
+    backgroundVideo={maskVideo}
+  />
+</section>
+
+<style lang="scss">
+  section {
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    min-height: fit-content;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-primary);
+
+    article {
+      max-width: 600px;
+      margin: auto 4rem;
+      color: white;
+      text-shadow: 0 0 0.1rem #00000033;
+    }
+
+    :global(video) {
+      aspect-ratio: 1/1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    section {
+      flex-direction: column;
+
+      article {
+        // order: 1;
+      }
+    }
+  }
+</style>
