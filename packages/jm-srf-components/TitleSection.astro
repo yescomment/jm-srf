@@ -39,7 +39,7 @@ const {
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-family: var(--font-family-sans);
     font-weight: 200;
     background-color: var(--color-light);
@@ -62,6 +62,8 @@ const {
       background-position: bottom left;
 
       width: 100%;
+
+      padding-left: 4rem
     }
 
     .titles {
@@ -69,16 +71,20 @@ const {
       min-width: 40%;
       z-index: 1;
       flex: 1;
+
+      margin-inline: 2rem;
     }
 
     .filmstrip {
-      transform: translateY(6rem);
+      transform: translateY(8rem);
       max-width: 500px;
       z-index: 0;
 
       img {
         height: auto;
         position: relative;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
       }
 
       .dupe {
