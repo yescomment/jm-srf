@@ -14,15 +14,14 @@ const {
   primaryImageDesc = 'People thriving in community, in place'
 } = Astro.props
 ---
-<section class="hero">
-  <div class="block" style={accentImage && `background-image: url(${accentImage.src})`}>
+<section class="hero" style={accentImage && `background-image: url(${accentImage.src})`}>
+  <div class="block">
     <div class="titles">
       <h1>{title}</h1>
       <h2>{deck}</h2>
     </div>
     <aside class="filmstrip">
       <Image src={primaryImage} alt={primaryImageDesc}/>
-      <Image class="dupe" src={primaryImage} alt={`${primaryImageDesc} again, like a filmstrip`}/>
     </aside>
   </div>
 </section>
@@ -49,17 +48,16 @@ const {
   }
 
   .hero {
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: bottom left;
 
     .block {
       display: flex;
       flex-direction: row;
       min-height: 90vh;
       height: fit-content;
-      background-color: var(--color-light);
 
-      background-repeat: no-repeat;
-      background-size: 50%;
-      background-position: bottom left;
 
       width: 100%;
 
