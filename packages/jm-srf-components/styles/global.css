@@ -2,6 +2,8 @@
 	/* Theme Fonts */
 	--theme-font-family-serif: 'ivymode', Times, serif;
 	--theme-font-family-sans: 'ebony', -apple-system, BlinkMacSystemFont, sans-serif;
+	--maxwidth-wide: 1440px;
+	--maxwidth-narrow: 960px;
 }
 
 html,
@@ -11,7 +13,6 @@ body {
 }
 
 body {
-	max-width: 1920px;
 	margin: 0 auto;
 	position: relative;
 }

@@ -41,10 +41,10 @@ const {
     font-size: 1.5rem;
     font-family: var(--font-family-sans);
     font-weight: 200;
-    background-color: var(--color-light);
-    border-top: 0.25rem solid var(--color-secondary);
-    border-bottom: 0.25rem solid var(--color-secondary);
+    border-left: 0.25rem solid var(--color-secondary);
     padding: 1rem;
+    margin: 1rem;
+    max-width: 500px;
   }
 
   .hero {
@@ -55,27 +55,19 @@ const {
     .block {
       display: flex;
       flex-direction: row;
-      min-height: 90vh;
+      min-height: 50vh;
       height: fit-content;
 
-
-      width: 100%;
-
-      padding-left: 4rem
+      max-width: var(--maxwidth-wide);
     }
 
     .titles {
-      width: 30vw;
-      min-width: 40%;
       z-index: 1;
       flex: 1;
-
-      margin-inline: 2rem;
     }
 
     .filmstrip {
       align-self: flex-end;
-      transform: translateY(8rem);
       max-width: 500px;
       z-index: 0;
 
@@ -85,11 +77,6 @@ const {
         aspect-ratio: 3 / 4;
         object-fit: cover;
       }
-
-      .dupe {
-        position: absolute;
-        transform: translateY(calc(-200% - 4rem));
-      }
     }
 
     @media (max-width: 768px) {
@@ -97,8 +84,8 @@ const {
         width: 100%;
         hyphens: auto;
       }
-      .filmstrip {
-        display: none;
+      .block {
+        flex-direction: column;
       }
     }
   }
