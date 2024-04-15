@@ -55,7 +55,7 @@ h4 {
 	display: inline-block;
 }
 
-section.bright h3, h4 {
+section.bright :is(h3, h4) {
   /* invert */
   background-color: var(--color-light);
   color: var(--color-primary);
