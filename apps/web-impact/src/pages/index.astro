@@ -1,18 +1,9 @@
 ---
 import Layout from '../layouts/Page.astro';
-import { Container, FeatureCard } from 'srf-theme-components';
-import { HeroLogo } from 'jm-srf-components';
+import { HeroVideo, BrightSection } from 'jm-srf-components';
 import { getImage } from 'astro:assets';
 
-import heroBgImg from '../../../../assets/imagery/plants/cloud3.png'
-
-import logoSvg from '../../../../assets/logos/srf_impact_brackets_white.svg'
-const logoMaskVideoUrl = '/assets/video/istockphoto-1475069111-640_adpp_is.mp4'
-
-const optimizedBackgroundImage = await getImage({
-	src: heroBgImg,
-	format: 'webp',
-})
+const logoVideoUrl = '/assets/video/srf_impact_logo_loop.mp4'
 
 const seo = {
 	title: 'SRF Impact',
@@ -20,12 +11,11 @@ const seo = {
 }
 ---
 <Layout seo={seo}>
-	<HeroLogo
-		backgroundImage={heroBgImg}
-		logoImage={logoSvg}
-		maskVideoUrl={logoMaskVideoUrl}
-	>
+	<HeroVideo videoUrl={logoVideoUrl}>
+		<h1>Expanding the Universe of impact and building the equitable economies of the future</h1>
+	</HeroVideo>
+	<BrightSection>
 		<h1>SRF Impact</h1>
 		<h2>Building equitable economies for the future.</h2>
-	</HeroLogo>
+	</BrightSection>
 </Layout>
