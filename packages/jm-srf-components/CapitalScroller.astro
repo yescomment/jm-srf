@@ -6,6 +6,11 @@
     <div class="pin-wrap">
       <slot/>
     </div>
+    <svg class="chart" viewBox="0 0 50 20">
+      <!-- https://yqnn.github.io/svg-path-editor/ -->
+      <path d="M 0 20 l 3 -1 l 2 0 l 3 -3 l 5 -2 l 5 3 l 4 -3 l 2 1 l 5 -5 l 5 1 l 7 -6 l 1 1 l 8 -6">
+    </svg>
+  </div>
 </section>
 
 <style lang="scss" is:global>
@@ -35,6 +40,19 @@
 
       width: 100vw;
       overflow-x: hidden;
+    }
+
+    .chart {
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+
+      path {
+        vector-effect: non-scaling-stroke;
+        stroke: var(--color-pop);
+        stroke-width: 0.25rem;
+        fill: none;
+      }
     }
 
     .pin-wrap {
