@@ -1,28 +1,12 @@
----
----
-
+<!-- CSS Scroll Timeline polyfill -->
 <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script>
-<div class="container">
-  <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
-    <div>
-      <h1><span>Horizontal</span> <span>scroll</span> <span>section</span></h1>
-      <p>With CSS view-timeline</p>
-    </div>
-  </section>
 
-  <section id="sectionPin">
-    <div class="pin-wrap-sticky">
-      <div class="pin-wrap">
-        <slot/>
-      </div>
+<section id="sectionPin">
+  <div class="pin-wrap-sticky">
+    <div class="pin-wrap">
+      <slot/>
     </div>
-  </section>
-
-  <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="../shared/pexels-photo-4791474.jpeg" alt="">
-    <h2 class="credit">
-      Created by <a href="https://twitter.com/bramus" target="_top" rel="noreferrer noopener">Bramus</a>.<br><br>Adapted from <a href="https://codepen.io/cameronknight/pen/qBNvrRQ" target="_top">the original by Cameron Knight</a>.</h2>
-  </section>
-</div>
+</section>
 
 <style lang="scss" is:global>
   // @supports(animation-timeline: view()) {
@@ -69,16 +53,16 @@
       /* Link animation to view-timeline */
       animation-timeline: --section-pin-tl;
       animation-range: contain 0% contain 100%;
-    }
 
-    .pin-wrap > * {
-      min-width: 60vmax;
-      padding: 0 5vmax;
-    }
+      > * {
+        min-width: 60vmax;
+        padding: 0 5vmax;
+      }
 
-    .pin-wrap > .slide {
-      width: 100vw;
-      padding: 1rem;
+      > .slide {
+        width: 100;
+        padding: 1rem;
+      }
     }
   // }
   </style>
