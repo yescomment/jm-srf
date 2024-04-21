@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets'
+import BrightSection from './BrightSection.astro'
+
+// defaults
+import birdsImg from '../../assets/imagery/plants/birds1.png'
+import holdingImg from '../../assets/imagery/people/pexels-emma-bauso-2833394.jpg';
+
+const {
+  title,
+  deck,
+  accentImage = birdsImg,
+  primaryImage = holdingImg,
+  primaryImageDesc = 'People thriving in community, in place'
+} = Astro.props
+---
+<section class="hero" style={accentImage && `background-image: url(${accentImage.src})`}>
+  <div class="block">
+    <div class="titles">
+      <h1>{title}</h1>
+      <h2>{deck}</h2>
+    </div>
+    <aside class="filmstrip">
+      <Image src={primaryImage} alt={primaryImageDesc}/>
+    </aside>
+  </div>
+</section>
+<BrightSection>
+  <slot />
+</BrightSection>
+
+<style lang="scss">
+  h1 {
+    font-weight: 300;
+    font-size: min(20vw, 96px);
+    color: var(--color-secondary);
+    text-shadow: 0 0 50px var(--color-light);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-family: var(--font-family-sans);
+    font-weight: 200;
+    border-left: 0.25rem solid var(--color-secondary);
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 500px;
+  }
+
+  .hero {
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: bottom left;
+
+    .block {
+      display: flex;
+      flex-direction: row;
+      min-height: 50vh;
+      height: fit-content;
+
+      max-width: var(--maxwidth-wide);
+    }
+
+    .titles {
+      z-index: 1;
+      flex: 1;
+    }
+
+    .filmstrip {
+      align-self: flex-end;
+      max-width: 500px;
+      z-index: 0;
+
+      img {
+        height: auto;
+        position: relative;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .titles {
+        width: 100%;
+        hyphens: auto;
+      }
+      .block {
+        flex-direction: column;
+      }
+    }
+  }
+</style>

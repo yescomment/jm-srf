@@ -1,0 +1,47 @@
+:root {
+	/* Theme Fonts */
+	--theme-font-family-serif: 'ivymode', Times, serif;
+	--theme-font-family-sans: 'ebony', -apple-system, BlinkMacSystemFont, sans-serif;
+	--maxwidth-wide: 1440px;
+	--maxwidth-narrow: 960px;
+}
+
+html,
+body {
+	background-color: var(--color-light);
+	color: var(--color-dark);
+}
+
+body {
+	margin: 0 auto;
+	position: relative;
+}
+
+section > article,
+section > .block {
+	max-width: 1920px;
+	margin: auto;
+	padding: 2rem;
+}
+
+pre {
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow: auto;
+}
+
+pre .language-id {
+  display: none;
+}
+
+.columns {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.columns > * {
+	min-width: 12rem;
+	flex: 1;
+}

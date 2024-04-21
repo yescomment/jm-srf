@@ -1,24 +1,21 @@
 ---
 import Layout from '../layouts/Page.astro';
-import { Container, FeatureCard } from 'srf-theme-components';
-import { HeroSection } from 'jm-srf-components';
+import { HeroVideo, BrightSection } from 'jm-srf-components';
 import { getImage } from 'astro:assets';
 
-import heroBgImg from '../../../../assets/imagery/people/pexels-isabella-mendes-1304519.jpg'
+const logoVideoUrl = '/assets/video/srf_capital_logo_loop.mp4'
 
-const optimizedBackgroundImage = await getImage({
-	src: heroBgImg,
-	format: 'webp',
-})
+const seo = {
+	title: 'SRF Capital',
+	description: 'Expanding the Universe of impact and building the equitable economies of the future.',
+}
 ---
-
-<Layout>
-	<HeroSection backgroundImage={heroBgImg}>
-		<h1>SRF Capital</h1>
-		<h2>Raising the economic foundation for communities to thrive in place.</h2>
-	</HeroSection>
-	<Container>
-		<section class="feature-card__section">
-		</section>
-	</Container>
+<Layout seo={seo}>
+	<HeroVideo videoUrl={logoVideoUrl}>
+		<h1>Expanding the Universe of impact and building the equitable economies of the future</h1>
+	</HeroVideo>
+	<BrightSection>
+		<p>Founded by the next generation of Impact investors seeking to find the highest and best use of capital , SRF was built on justice and is dedicated to building the equitable communities and economies of the future. SRF advances collective action and transformative impact through system-level investment strategies that foster wealth creation, social mobility, and better health outcomes in emergent and frontier communities. SRF employs its (W)Health Capital strategy to work in tandem with investors to radically multiply the impact of every invested asset towards growing the universe of impact and the foundation for communities to thrive in place.</p>
+		<p><a href="/meet">Read more →</a></p>
+	</BrightSection>
 </Layout>

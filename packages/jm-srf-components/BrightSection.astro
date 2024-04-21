@@ -1,0 +1,56 @@
+<section class="bright">
+  <article>
+    <slot />
+  </article>
+</section>
+
+<style lang="scss">
+  section.bright {
+    article {
+      max-width: var(--maxwidth-wide);
+    }
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 2rem;
+
+    :global(h2) {
+      color: var(--color-light);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    section.bright article :global(> *) {
+      transition: 2s ease opacity transform;
+      will-change: opacity, transform;
+
+      opacity: 0;
+      transform: translateX(-2rem) rotate3d(1, -1, 0, 20deg);
+
+      &.deployed {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+</style>
+
+<script is:inline>
+  const elementsToAnimate = document.querySelectorAll('section.bright article > *')
+
+  const scrollObserver = new IntersectionObserver(animateElementIn, {
+    root: null,
+  })
+
+  function animateElementIn(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        console.log('entry', entry)
+        entry.target.classList.add('deployed')
+      }
+    })
+  }
+
+  elementsToAnimate.forEach(element => {
+    scrollObserver.observe(element)
+  })
+</script>

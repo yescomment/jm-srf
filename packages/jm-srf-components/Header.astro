@@ -1,12 +1,13 @@
 ---
-// import { Icon } from 'astro-icon'
+
 ---
 <header>
   <nav class="left">
     <slot name="left"/>
   </nav>
   <a href="/" class="logo-container">
-    <slot name="logo" class="logo">Home</slot>
+    <slot name="logo-icon" class="logo-icon">Home</slot>
+    <slot name="logo-full" class="logo-full">Home</slot>
   </a>
   <nav class="right">
     <slot name="right"/>
@@ -17,35 +18,100 @@
   header {
     padding: 0 1rem;
     display: grid;
-    grid-template-columns: 1fr 50px 1fr;
+    grid-template-columns: 1fr 220px 1fr;
+    grid-template-areas: "left mid right";
     position: sticky;
     top: 0;
     height: 3rem;
     background: var(--color-light);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
   }
 
   nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow-x: scroll;
-    font-size: 16px;
+    font-size: 0.7rem;
+    font-weight: 500;
     height: 3rem;
-    gap: 0.5rem;
-
     overflow-x: auto;
     white-space: nowrap;
-  }
 
-  nav.right {
-    justify-content: flex-end;
+    &.right {
+      justify-content: flex-end;
+    }
   }
 
   .logo-container {
     background-color: var(--color-primary);
-    box-sizing: content-box;
+    box-sizing: border-box;
+    height: calc(100% + 5px);
     padding: 0.5rem;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+    :global(.logo-icon) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 512px) {
+    header {
+      grid-template-columns: 50px auto min-content;
+
+      nav.left {
+        grid-area: mid;
+      }
+
+      .logo-container {
+        grid-area: left;
+
+        :global(.logo-full) {
+          display: none;
+        }
+
+        :global(.logo-icon) {
+          display: block;
+        }
+      }
+    }
+  }
+</style>
+
+<style is:global lang="scss">
+  // must be global as these are <slot/>s
+  nav > a {
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline: 0.4rem;
+
+    &:hover {
+      background-color: var(--color-light-tinted);
+    }
+
+    &.special {
+      padding: 0.5rem;
+      background-color: var(--color-pop);
+      box-shadow: 0 0 5px grey;
+    }
+
+    &.to-srfcapital {
+      color: var(--color-light);
+      background-color: #223749; // --color-primary
+      &:hover {
+        background-color: #223749; // --color-primary-tinted
+      }
+    }
+
+    &.to-srfimpact {
+      color: var(--color-light);
+      background-color: #e74c34; // --color-primary
+      &:hover {
+        background-color: #c93d2f; // --color-primary-tinted
+      }
+    }
   }
 </style>

@@ -1,0 +1,28 @@
+---
+export interface Props {
+	seo?: BaseHeadProps;
+}
+
+import { SkipLink } from 'srf-theme-components';
+import BaseHead from './BaseHead.astro';
+import type { Props as BaseHeadProps } from './BaseHead.astro';
+
+const { seo } = Astro.props;
+
+import './styles/index.css';
+---
+
+<html lang="en">
+	<head>
+		<BaseHead {...seo} />
+	</head>
+	<body>
+		<SkipLink />
+    <slot name="announcement-bar" />
+		<slot name="header" />
+		<main id="content">
+			<slot />
+		</main>
+		<slot name="footer" />
+	</body>
+</html>

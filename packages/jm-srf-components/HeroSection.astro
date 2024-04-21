@@ -7,21 +7,20 @@ const { backgroundImage } = Astro.props
   </article>
 </section>
 
-<style>
+<style lang="scss">
   section {
-    background-color: var(--color-primary);
+    display: flex;
     height: 90vh;
+    min-height: fit-content;
     background-size: cover;
     background-position: center;
+    background-color: var(--color-primary);
 
-    display: flex;
-  }
-
-  article {
-    width: 40vw;
-    min-width: 400px;
-    margin: auto 4rem;
-    color: white;
-    text-shadow: 0 0 0.1rem #00000033;
+    article {
+      max-width: 600px;
+      margin: auto min(4rem, 10vw);
+      color: white;
+      text-shadow: 0 0 0.1rem #00000033;
+    }
   }
 </style>
