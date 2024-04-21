@@ -11,4 +11,6 @@ export { default as HeroVideo } from './HeroVideo.astro'
 export { default as HeroLogo } from './HeroLogo.astro'
 export { default as TitleSection } from './TitleSection.astro'
 export { default as BrightSection } from './BrightSection.astro'
+
 export { default as CommunityMap } from './CommunityMap.astro'
+export { default as CapitalScroller } from './CapitalScroller.astro'
