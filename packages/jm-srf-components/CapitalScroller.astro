@@ -15,10 +15,20 @@
 
 <style lang="scss" is:global>
   // @supports(animation-timeline: view()) {
-    @keyframes move {
-      to {
+    @keyframes advance-slides {
+      // TODO: WHY THESE VALUES
+      from, 5% {
+        transform: translateX(calc(-40% + 100vw));
+      }
+      20%, 30% {
+        transform: translateX(calc(-80% + 100vw));
+      }
+      61%, 71% {
+        transform: translateX(calc(-120% + 100vw));
+      }
+      90%, to {
         /* Move horizontally so that right edge is aligned against the viewport */
-        transform: translateX(calc(-100% + 100vw));
+        transform: translateX(calc(-160% + 100vw));
       }
     }
 
@@ -62,11 +72,10 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      padding: 50px 10vw;
 
       /* Hook animation */
       will-change: transform;
-      animation: linear move forwards;
+      animation: linear advance-slides forwards;
 
       /* Link animation to view-timeline */
       animation-timeline: --section-pin-tl;
@@ -78,8 +87,9 @@
       }
 
       > .slide {
-        width: 100;
-        padding: 1rem;
+        flex-shrink: 0;
+        width: 100vw;
+        padding: 50px 10vw;
       }
     }
   // }
