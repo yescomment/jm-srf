@@ -32,6 +32,12 @@
       }
     }
 
+    @keyframes draw-chart {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
     #sectionPin {
       /* Stretch it out, so that we create room for the horizontal scroll animation */
       height: 500vh;
@@ -58,10 +64,20 @@
       z-index: 1;
 
       path {
-        vector-effect: non-scaling-stroke;
+        // vector-effect: non-scaling-stroke;
         stroke: var(--color-pop);
-        stroke-width: 0.25rem;
+        stroke-width: 0.2px;
         fill: none;
+        stroke-linejoin: round;
+        stroke-linecap: square;
+        stroke-dasharray: 60.661;
+        stroke-dashoffset: 60.661;
+
+        will-change: stroke-dashoffset;
+        animation: ease-in draw-chart forwards;
+        animation-timeline: --section-pin-tl;
+        animation-range: contain 0% contain 100%;
+
       }
     }
 
@@ -89,7 +105,7 @@
       > .slide {
         flex-shrink: 0;
         width: 100vw;
-        padding: 50px 10vw;
+        padding: 2rem 10vw;
       }
     }
   // }
