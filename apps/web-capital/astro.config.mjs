@@ -14,6 +14,9 @@ const siteURL = VERCEL_PREVIEW_SITE || 'https://srf.capital/';
 // https://astro.build/config
 export default defineConfig({
   site: siteURL,
+  redirects: {
+    '/measure': '/whealth+'
+  },
   sitemap: false,
   // Generate sitemap (set to "false" to disable)
   integrations: [
