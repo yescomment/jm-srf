@@ -17,6 +17,7 @@
 		"@astrojs/lit": "^4.0.1",
 		"@astrojs/mdx": "^2.1.1",
 		"@astrojs/sitemap": "^3.1.1",
+		"@iconify-json/material-symbols": "^1.1.79",
 		"@iconify-json/ri": "^1.1.20",
 		"@webcomponents/template-shadowroot": "^0.2.1",
 		"astro": "^4.4.3",

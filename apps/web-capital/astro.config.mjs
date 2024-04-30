@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import lit from "@astrojs/lit";
+import icon from "astro-icon";
 
 const VERCEL_PREVIEW_SITE =
   process.env.VERCEL_ENV !== 'production' &&
@@ -18,6 +19,7 @@ export default defineConfig({
   integrations: [
     sitemap(),
     mdx(),
-    lit()
+    lit(),
+    icon(),
   ],
 });
