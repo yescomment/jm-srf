@@ -2,31 +2,33 @@
 import { TextSection } from 'srf-theme-components';
 import { TitleSection, CapitalScroller } from 'jm-srf-components';
 import Layout from '../layouts/Page.astro';
+import { Icon } from 'astro-icon/components';
 
 import primaryImg from '../../../../assets/imagery/people/pexels-rhema-xplorer-14197790.jpg';
 import accentImg from '../../../../assets/imagery/plants/leaves5-edgeB.png';
 
 const seo = {
 	title: 'SRF Capital ❦ (W)Health+',
-	description: 'SRF has partnered with leading Impact Finance minds to license a transformational proprietary measurement framework to create a Universal Impact measurement based on Quality-Adjusted Life Years (QALYs).',
+	description: 'Measuring Outcomes, Creating Blended Value Returns. (W)Health+ Universal Impact Measurement.',
 };
 ---
 
 <Layout {seo}>
   <TitleSection
     title="(W)Health+"
-    deck="SRF has partnered with leading Impact Finance minds to license a transformational proprietary measurement framework to create a Universal Impact measurement based on Quality-Adjusted Life Years (QALYs)."
+    deck="Measuring outcomes. Creating blended value returns."
     primaryImage={primaryImg}
     accentImage={accentImg}
   >
-    <h2>(W)Health Universal Impact Measurement</h2>
-    <p>SRF has partnered with leading Impact Finance minds to license a transformational proprietary measurement framework to create a Universal Impact measurement based on Quality-Adjusted Life Years (QALYs).</p>
+    <h2>(W)Health+ Universal Impact Measurement</h2>
+    <p>Capital and organizational value creation is whole and non-divisible. SRF Capital, with our partners, takes an ecosystem-level capital strategy that strengthens and accelerates entrepreneurs, managers, and institutions dedicated to building health and wealth in communities. We know that growth is only meaningful when it is scaled by investment with a clear impact and public value. Our investment thesis gives us the best opportunity to scale investments and lead with Impact.</p>
+    <p>SRF Capital’s investments move beyond surface-level investments and categories to provide funding that meaningfully impacts quality of life while producing Impact alpha returns.</p>
   </TitleSection>
 
   <CapitalScroller>
     <div class="slide">
       <h2>Feral Capital</h2>
-      <p>Capital that seeks to duplicate, concentrate, and insulate itself for the benefit of its owners</p>
+      <p>Capital that only seeks to duplicate, concentrate, and insulate itself for the benefit of its owners</p>
     </div>
 
     <div class="slide">
@@ -36,44 +38,33 @@ const seo = {
 
     <div class="slide">
       <h2>Healthy Capital</h2>
-      <p>Healing and well-being as an investable asset class </p>
+      <p>Healing and well-being as an investable asset class</p>
     </div>
 
     <div class="slide">
       <h2>(W)Health Capital</h2>
-      <p>Capital that seeks to improve the quality, duration, and resilience  of life through its investment in QALYs</p>
+      <p>Capital that seeks to improve the quality, duration, and resilience of life through its investment in QALYs</p>
     </div>
   </div>
   </CapitalScroller>
 
   <TextSection narrow>
-    <h2>Duration of Life</h2>
-    <ol>
-      <li>Greater life expectancy because of direct investments in projects that address the social determinants of health. Closing life expectancy gap from 75 to 79 and beyond and decreasing infant mortality rates.</li>
-      <li>Higher quality of life due to reduction in chronic disease through greater access to healthcare, healthy food, and safe neighborhoods.</li>
-      <li>Reduced rates of violence, including reduction in the homicide rate among diverse men and boys through greater economic opportunity, access to mental health services and healthcare generally, and neighborhood investment at all levels.</li>
-      <li>Reduced exposure to environmental hazards that contribute to poor health through redevelopment of brownfields and the creation of high-quality housing through new construction or home remodel.</li>
-    </ol>
+    <h3>Duration of Life <Icon name="material-symbols:avg-time-rounded" /></h3>
+    <p>Investments in assets that advance the social determinants of health and increase life expectancy through decreased morbidity and mortality rates.</p>
 
-    <h2>Quality of Life</h2>
-    <ol>
-      <li>Material Health and Physical Well-being – as measured by the ability to participate in the wellbeing of frontier and emergent communities physically, mentally, and financially.</li>
-      <li>Material well-being and financial security – as measured by the ability to earn beyond a livable wage to an investable wage and participate in, develop, and shape financial markets.</li>
-      <li>Increased educational attainment focused on preparing residents for a variety of career pathways that provide an investable wage and opportunities for promotion and ownership.</li>
-      <li>Greater lifetime earnings due to increased educational attainment.</li>
-    </ol>
+    <h3>Quality of Life <Icon name="material-symbols:heart-plus-rounded" /></h3>
+    <p>Investments in outcomes that drive financial stability to bring about greater resources, well-being, and financial security through increased educational attainment, ability to secure investable wages and promotion and ownership opportunities.</p>
 
-    <h2>Resilience of Life</h2>
-    <ol>
-      <li>Reduction in the rate of multidimensional poverty among residents/fewer dimensions of multidimensional poverty experienced by residents.</li>
-      <li>Greater ability to withstand financial emergencies due to increased savings.</li>
-      <li>Fewer cost-burdened residents (those spending more than 30% of their income on housing and utilities) because of increased quality housing.</li>
-      <li>Greater self-reported mental health because of more sustainable employment and household stability.</li>
-      <li>Families have the ability to transfer wealth across generations.</li>
-    </ol>
+    <h3>Resilience of Life <Icon name="material-symbols:shield-rounded" /></h3>
+    <p>Investments in outcomes that help communities withstand negative externalities and financial stress, while promoting generational wealth transfer.</p>
 
     <h2>Sustainable Development Goals Stacking</h2>
-    <p> Just as a universal measurement framework does not exist in isolation neither does a universal outcome. SRF Capital focuses on crafting the (W)Health economy of the future and paving the way for a just transition to this economy. In opportunities that couple and stack the United Nations Sustainability and Development Goals, we can tackle adaptive challenges and build equitable economies.</p>
+    <p>SRF Capital focuses on crafting the (W)Healthy economies of the future by identifying and investing in opportunities that couple and stack the United Nations’ Sustainability and Development Goals.</p>
+
+    <code>TK: ANIMATION OF GOALS STACKING LIKE BLOCKS</code>
+
+    <h2>Defining Success</h2>
+    <p>SRF Capital employs a capital strategy that strengthens and accelerates the entrepreneurs, leaders, and institutions that have long been dedicated to building health and wealth in their communities. Success is improvement across multiple dimensions of (W)Health on the investment and portfolio level.</p>
   </TextSection>
 </Layout>
 
