@@ -15,13 +15,33 @@ const seo = {
 		<h1>We invest in funds that expand the universe of Impact and infrastructure that builds the just economies of the future.</h1>
 	</HeroVideo>
 	<BrightSection>
-		<p>SRF Capital is an Impact investment platform strategically built to increase the wealth and health of emergent and frontier communities, with a special focus on the American and Global South. We build investments across private markets that support the just economies of the future while producing Impact alpha returns and opportunities for highly capable, but thinly capitalized individuals, institutions and communities to thrive in place.</p>
-		<h3>Simply put, we invest in things that make people and the planet healthier. We get excited about the hidden/overlooked corners of the market where Impact and alpha meet and where leveraging capital can create sustained value and ownership for individuals and communities.</h3>
-		<h2>Innovation</h2>
-		<p>Our Fund of Funds team is focused on direct co-investments in managers with innovative capital solutions.  Our fully integrated alternatives platform is  well positioned to support managers in the health and wellness spaces who are delivering value, growth and Impact solutions in private equity, credit, real assets, and venture.</p>
-		<h2>Infrastructure</h2>
-		<p>Our Infrastructure Team directs investments into transformative physical assets that help Anchor Institutions meet their missions to serve communities, and create a healthier, more sustainable planet.</p>
-		<h2>Information</h2>
-		<p>Our Information Team invests in technologies that promote the use of information and quality measurements to generate and support positive outcomes and create value.  These investments often complement funding associated with our Innovation and Infrastructure work.</p>
+		<div class="grid">
+			<p>SRF Capital is an Impact investment platform strategically built to increase the wealth and health of emergent and frontier communities, with a special focus on the American and Global South. We build investments across private markets that support the just economies of the future while producing Impact alpha returns and opportunities for highly capable, but thinly capitalized individuals, institutions and communities to thrive in place.</p>
+			<h3>Simply put, we invest in things that make people and the planet healthier. We get excited about the hidden/overlooked corners of the market where Impact and alpha meet and where leveraging capital can create sustained value and ownership for individuals and communities.</h3>
+			<div class="flex">
+				<h2>Innovation</h2>
+				<p>Our Fund of Funds team is focused on direct co-investments in managers with innovative capital solutions.  Our fully integrated alternatives platform is  well positioned to support managers in the health and wellness spaces who are delivering value, growth and Impact solutions in private equity, credit, real assets, and venture.</p>
+			</div>
+			<div class="flex">
+				<h2>Infrastructure</h2>
+				<p>Our Infrastructure Team directs investments into transformative physical assets that help Anchor Institutions meet their missions to serve communities, and create a healthier, more sustainable planet.</p>
+			</div>
+			<div class="flex">
+				<h2>Information</h2>
+				<p>Our Information Team invests in technologies that promote the use of information and quality measurements to generate and support positive outcomes and create value.  These investments often complement funding associated with our Innovation and Infrastructure work.</p>
+			</div>
+		</div>
 	</BrightSection>
 </Layout>
+
+<style lang="scss">
+	.flex {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+
+		:global(h1, h2, h3, h4, h5, h6) {
+			margin: 0;
+		}
+	}
+</style>
