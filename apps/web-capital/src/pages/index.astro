@@ -40,9 +40,17 @@ const seo = {
 		display: flex;
 		gap: 2rem;
 		align-items: center;
+		flex-wrap: wrap;
 
-		:global(h1, h2, h3, h4, h5, h6) {
+		h1, h2, h3, h4, h5, h6 {
 			margin: 0;
+			flex-basis: 4rem;
+			flex-grow: 1;
+		}
+
+		p {
+			flex-basis: 8rem;
+			flex-grow: 2;
 		}
 	}
 </style>
