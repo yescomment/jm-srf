@@ -27,22 +27,26 @@ const seo = {
 
   <CapitalScroller>
     <div class="slide">
-      <h2>Feral Capital</h2>
+      <h1>Feral</h1>
+      <h2>Capital</h2>
       <p>Capital that only seeks to duplicate, concentrate, and insulate itself for the benefit of its owners</p>
     </div>
 
     <div class="slide">
-      <h2>Wealthy Capital</h2>
+      <h1>Wealthy</h1>
+      <h2>Capital</h2>
       <p>Inclusion as an investable asset class</p>
     </div>
 
     <div class="slide">
-      <h2>Healthy Capital</h2>
+      <h1>Healthy</h1>
+      <h2>Capital</h2>
       <p>Healing and well-being as an investable asset class</p>
     </div>
 
     <div class="slide">
-      <h2>(W)Health Capital</h2>
+      <h1>(W)Health</h1>
+      <h2>Capital</h2>
       <p>Capital that seeks to improve the quality, duration, and resilience of life through its investment in QALYs</p>
     </div>
   </div>
@@ -70,6 +74,19 @@ const seo = {
 
 <style lang="scss">
   .slide {
+    * {
+      max-width: 400px;
+    }
+
+    h1, h2 {
+      font-family: var(--font-family-sans);
+      margin-block: 5px;
+    }
+
+    h1 {
+      font-size: 120px;
+    }
+
     h3 {
       background: none;
       padding: 0;
@@ -80,7 +97,7 @@ const seo = {
 
     p {
       font-size: 1.5rem;
-      color: var(--color-pop);
+      color: var(--color-light);
     }
   }
 

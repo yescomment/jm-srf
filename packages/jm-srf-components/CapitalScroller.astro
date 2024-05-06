@@ -16,19 +16,36 @@
 <style lang="scss" is:global>
   // @supports(animation-timeline: view()) {
     @keyframes advance-slides {
-      // TODO: WHY THESE VALUES
-      from, 5% {
+      0%, 10% {
         transform: translateX(calc(-40% + 100vw));
       }
-      20%, 30% {
+      30%, 40% {
         transform: translateX(calc(-80% + 100vw));
       }
-      61%, 71% {
+      60%, 70% {
         transform: translateX(calc(-120% + 100vw));
       }
-      90%, to {
+      90%, 100% {
         /* Move horizontally so that right edge is aligned against the viewport */
         transform: translateX(calc(-160% + 100vw));
+      }
+    }
+
+    @keyframes parallax-a {
+      from {
+        transform: translateX(80px);
+      }
+      to {
+        transform: translateX(10px);
+      }
+    }
+
+    @keyframes parallax-b {
+      from {
+        transform: translateX(100px);
+      }
+      to {
+        transform: translateX(180px);
       }
     }
 
@@ -41,10 +58,16 @@
     #sectionPin {
       /* Stretch it out, so that we create room for the horizontal scroll animation */
       height: 500vh;
-      overflow: visible; /* To make position sticky work … */
+      overflow: visible; /* To make position sticky work */
+
+      background-color: var(--color-primary);
 
       view-timeline-name: --section-pin-tl;
       view-timeline-axis: block;
+
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--color-light);
+      }
     }
 
     .pin-wrap-sticky {
@@ -74,7 +97,7 @@
         stroke-dashoffset: 60.661;
 
         will-change: stroke-dashoffset;
-        animation: ease-in draw-chart forwards;
+        animation: ease-in draw-chart both;
         animation-timeline: --section-pin-tl;
         animation-range: contain 0% contain 100%;
 
@@ -91,7 +114,7 @@
 
       /* Hook animation */
       will-change: transform;
-      animation: linear advance-slides forwards;
+      animation: linear advance-slides both;
 
       /* Link animation to view-timeline */
       animation-timeline: --section-pin-tl;
@@ -106,6 +129,16 @@
         flex-shrink: 0;
         width: 100vw;
         padding: 2rem 10vw;
+
+        h1 {
+          animation: linear parallax-a both;
+          animation-timeline: --section-pin-tl;
+        }
+
+        h2 {
+          animation: linear parallax-b both;
+          animation-timeline: --section-pin-tl;
+        }
       }
     }
   // }
