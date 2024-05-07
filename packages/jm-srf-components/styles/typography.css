@@ -40,10 +40,14 @@ h2 {
 
 h3 {
 	font-size: var(--font-size-md);
-	background-color: var(--color-primary);
 	color: var(--color-light);
 	padding: 0.25em 0.5em;
-	display: inline-block;
+	margin-inline: 0 auto !important;
+	text-decoration: underline;
+	text-decoration-thickness: 2em;
+	text-decoration-skip: none;
+	text-decoration-color: var(--color-primary);
+	text-underline-offset: -1em;
 }
 
 h4 {
