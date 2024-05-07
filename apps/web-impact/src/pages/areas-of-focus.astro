@@ -1,6 +1,5 @@
 ---
-import { TextSection } from 'srf-theme-components';
-import { TitleSection } from 'jm-srf-components'
+import { TitleSection, TextSection, ParallaxSection } from 'jm-srf-components'
 import Layout from '../layouts/Page.astro';
 
 import primaryImg from '../../../../assets/imagery/people/pexels-inchs-7849294.jpg';
@@ -22,7 +21,7 @@ const seo = {
 		<h2>(W)Health Capital</h2>
     <p>To create the equitable economies of the future, Impact investors seeking proprietary deal flows should be close to the hidden and/or purposely neglected corners of the market. We see the opportunity that exists in these spaces to elevate the full spectrum of capital that results in the creation of (W)Health.</p>
 	</TitleSection>
-  <TextSection narrow>
+  <TextSection>
     <h3>(W)Health</h3>
     <p>We define (W)Health as a person’s ability/freedom to fully engage their community and capital markets with their highest order of mental and physical facilities and the financial capacity to participate in and co-create capital markets, without bias or the unnecessary burden of systemic barriers.</p>
 
@@ -48,7 +47,8 @@ const seo = {
 
     <h4>Public Kinship</h4>
     <p>We are guided by the concept of public kinship - our values and our care for the communities in which we work. Our work requires a foundation of trust and commitment among investors and the broader community. We create opportunities to develop trust through public kinship across racial, ethnic, and socioeconomic groups. Further, we promote investment decisions and narratives that uplift and enhance  communities’ assets, rather than seeking to address their deficits. Our approach stems from the belief that even the most mundane aspects of our work are essential to building authentic relationships that lead to a better, more equitable society.</p>
-
+  </TextSection>
+  <ParallaxSection backgroundImage={primaryImg}>
     <h2>Increasing the Universe of Impact</h2>
 
     <p>SRF Impact’s line of inquiry on how to increase the universe of Impact leads to multidimensional solutions that:</p>
@@ -56,7 +56,7 @@ const seo = {
     <ol>
       <li><strong>Reimagine Markets.</strong> Improving our economy’s function by capitalizing and catalyzing inventive investment strategies that accelerate equitable economies and ownership.</li>
       <li><strong>Redefine Markets.</strong> Investing in systems-changing strategies using a collective impact lens.</li>
-        <li><strong>Reinvigorate Markets.</strong> Providing thought leadership and frameworks for mobilizing capital to evolve to a just, inclusive economy and the creation of thriving, self-determined communities.</li>
+      <li><strong>Reinvigorate Markets.</strong> Providing thought leadership and frameworks for mobilizing capital to evolve to a just, inclusive economy and the creation of thriving, self-determined communities.</li>
     </ol>
-  </TextSection>
+  </ParallaxSection>
 </Layout>
