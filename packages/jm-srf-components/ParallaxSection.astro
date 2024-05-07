@@ -13,22 +13,43 @@ const optimizedBackgroundImage = await getImage({
 <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script>
 
 <section class="parallax" style={`background-image: url(${optimizedBackgroundImage.src})`}>
-  <slot/>
+  <aside>
+    <slot/>
+  </aside>
 </section>
 
 <style lang="scss">
   .parallax {
-    :global(*) {
-      color: var(--color-light) !important;
-    }
-    padding: 4rem;
-    margin: 4rem -4rem;
-    min-height: 90vh;
-    background-color: var(--color-primary-tinted-translucent);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    width: 100vw;
-    left: 0;
-    z-index: 1;
+    aside {
+      z-index: 1;
+      :global(*) {
+        color: var(--color-light) !important;
+      }
+    }
+
+    padding: 4rem;
+    min-height: 90vh;
+    background-size: cover;
+
+    view-timeline-name: --parallax-section-scroll;
+    view-timeline-axis: block;
+    will-change: stroke-dashoffset;
+    animation: ease-in slide-background both;
+    animation-timeline: --parallax-section-scroll;
+
+    @keyframes slide-background {
+      from {
+        background-position-y: 0%;
+      }
+
+      to {
+        background-position-y: 100%;
+      }
+    }
 
     position: relative;
     &::before {
@@ -38,10 +59,10 @@ const optimizedBackgroundImage = await getImage({
       width: 100%;
       height: 100%;
       background-color: var(--color-primary-tinted);
-      opacity: 0.9;
+      opacity: 0.85;
       top: 0;
       left: 0;
-      z-index: -1;
+      z-index: 0;
     }
   }
 </style>
