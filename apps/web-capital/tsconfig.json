@@ -4,8 +4,16 @@
 		"module": "ESNext",
 		"moduleResolution": "node",
 		"experimentalDecorators": true,
-    "useDefineForClassFields": false,
+		"useDefineForClassFields": false,
 		// Add type definitions for our Vite runtime.
-		"types": ["vite/client"]
+		"types": ["vite/client"],
+		"baseUrl": ".",
+		"paths": {
+			"@components/*": ["../../components/*"],
+			"@assets/*": ["../../assets/*"],
+			"@people/*": ["../../assets/imagery/people/*"],
+			"@plants/*": ["../../assets/imagery/plants/*"],
+			"@landscape/*": ["../../assets/imagery/landscape/*"],
+		},
 	}
 }
