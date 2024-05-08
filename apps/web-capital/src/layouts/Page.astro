@@ -1,12 +1,13 @@
 ---
 import '../styles/theme.css'
 
-import { Button, Footer } from 'srf-theme-components';
-import { BaseHtml, Header, config } from 'jm-srf-components';
+import { Icon } from 'astro-icon/components'
+
+import { Button } from 'srf-theme-components';
+import { BaseHtml, Header, Footer, config } from 'jm-srf-components';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 import Logo from '../components/Logo.astro';
 import settings from '../config/settings';
-import { footerLists, footerSocials } from '../config/footer';
 
 export interface Props {
 	seo?: BaseHeadProps;
@@ -27,21 +28,29 @@ const { seo } = Astro.props as Props;
 		<img slot="logo-icon" class="logo-icon" src="/assets/images/srf_capital_stacked.svg" alt="SRF Impact Logo">
 		<Fragment slot="right">
 			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
-			<a class="special to-srfimpact" href={config.srfImpactUrl}>SRF Impact</a>
+			<a class="special to-srfimpact" href={config.srfImpactUrl}>
+				<img class="logo" src="/assets/images/srf_impact_wordmark.svg" alt="SRF Impact">
+			</a>
 		</Fragment>
 	</Header>
 	<div id="page">
 		<slot />
 	</div>
-	<Footer
-		slot="footer"
-		background="var(--theme-surface-1)"
-		color="var(--theme-on-surface-1)"
-		footerLists={footerLists}
-    footerSocials={footerSocials}
-		copyrightName={settings.name}
-    showLittleSticksPlug={settings.showLittleSticksPlug}
-	>
-		<Logo slot="logo" />
+	<Footer>
+		<a slot="about" href="mailto:info@srf.capital">
+			<Icon name="material-symbols:mail-rounded" /> Contact
+		</a>
+		<hr slot="about" />
+		<img class="logo" slot="about" src="/assets/images/srf_capital_wordmark_stacked_white.svg" alt="SRF Impact">
+
+		<a slot="sitenav" href="/meet">Meet</a>
+		<a slot="sitenav" href="/strategize">Strategize</a>
+		<a slot="sitenav" href="/theorize">Theorize</a>
+		<a slot="sitenav" href="/whealth+">(W)Health+</a>
+		<a slot="sitenav" href="/community">Community</a>
+
+		<a class="to-srfimpact button" slot="othersite" href={config.srfImpactUrl}>
+			<img class="logo" src="/assets/images/srf_impact_wordmark.svg" alt="SRF Impact">
+		</a>
 	</Footer>
 </BaseHtml>

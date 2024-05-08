@@ -5,6 +5,7 @@ export { default as BaseHtml } from './BaseHtml.astro'
 export { default as BaseHead } from './BaseHead.astro'
 
 export { default as Header } from './Header.astro'
+export { default as Footer } from './Footer.astro'
 export { default as PageSection } from './PageSection.astro'
 export { default as HeroSection } from './HeroSection.astro'
 export { default as HeroVideo } from './HeroVideo.astro'
