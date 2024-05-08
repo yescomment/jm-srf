@@ -1,10 +1,19 @@
 ---
 import { TextSection, TitleSection, ParallaxSection } from 'jm-srf-components';
+import { Picture, Image } from 'astro:assets';
 import Layout from '../layouts/Page.astro';
 
 import primaryImg from '@people/pexels-viktoria-alipatova-2098849.jpg';
 import accentImg from '@plants/leaves5-edgeB.png';
 import diversityCompetitiveImg from '@people/pexels-muhammadtaha-ibrahim-4476358.jpg'
+
+import headshotCharles from '@headshots/charles.jpg'
+import headshotChris from '@headshots/chris.jpg'
+import headshotDavid from '@headshots/david.jpg'
+import headshotDorian from '@headshots/dorian.jpg'
+import headshotNapoleon from '@headshots/napoleon.jpg'
+import headshotRonald from '@headshots/ronald.jpg'
+import groupShot from '@headshots/DavidDorianCharles_v1_040924.00_04_48_03.Still002.jpg'
 
 const seo = {
 	title: 'SRF Capital ❦ About',
@@ -55,97 +64,142 @@ const seo = {
     <h2>Work With Us</h2>
     <p>SRF Capital draws on investors, advanced management professionals, operators, and research professionals from diverse and international backgrounds who share our passion to invest in opportunities that reimagine the creation of wealth and health in more equitable ways. Come partner and work with a team where accountability and outcomes are rooted in communities’ values, aspirations, and visions and where we believe <strong>love and an understanding of culture, history and legacy is our competitive advantage</strong>.</p>
 
-    <div class="columns">
-      <div class="bio">
-        <h3><strong>Dr. Dorian Burton</strong>, CEO & Managing Partner</h3>
+    <section class="bios">
+      <div class="bio" id="dorian">
+        <Picture src={headshotDorian} alt="Dorian Burton"/>
+        <div class="text">
+          <h3><strong>Dr. Dorian Burton</strong>, CEO & Managing Partner</h3>
 
-        <p>15+ years in nonprofit management, impact, investing, community development, and philanthropy.</p>
+          <p>15+ years in nonprofit management, impact, investing, community development, and philanthropy.</p>
 
-        <h4>Fund Role</h4>
-        <p>Community building, deal sourcing and structuring, fundraising, and value creation</p>
+          <h4>Fund Role</h4>
+          <p>Community building, deal sourcing and structuring, fundraising, and value creation</p>
 
-        <h4>Professional experience</h4>
-        <p>Most recently served as Chief Social Impact Officer for Family Office. Formerly Co-Director of The TandemED Initiative for Black Male Achievement and Community Improvement at Harvard Law School’s Charles Hamilton Houston Institute for Race and Justice</p>
+          <h4>Professional experience</h4>
+          <p>Most recently served as Chief Social Impact Officer for Family Office. Formerly Co-Director of The TandemED Initiative for Black Male Achievement and Community Improvement at Harvard Law School’s Charles Hamilton Houston Institute for Race and Justice</p>
 
-        <h4>Education</h4>
-        <p>B.A. in Sociology from the Pennsylvania State University, an M.A. in Higher Education from NYU, an MBA from the University of Oxford, and a Doctorate in Education Leadership from Harvard.</p>
+          <h4>Education</h4>
+          <p>B.A. in Sociology from the Pennsylvania State University, an M.A. in Higher Education from NYU, an MBA from the University of Oxford, and a Doctorate in Education Leadership from Harvard.</p>
+        </div>
       </div>
 
       <div class="bio">
-        <h3><strong>Napoleon Wallace</strong>, CIO & Senior Advisor</h3>
+        <Picture src={headshotNapoleon} alt="Napoleon Wallace"/>
+        <div class="text">
+          <h3><strong>Napoleon Wallace</strong>, CIO & Senior Advisor</h3>
 
-        <p>20+ years investment and fund management experience in community development finance, philanthropy, impact investing, and commercial and investment banking.</p>
+          <p>20+ years investment and fund management experience in community development finance, philanthropy, impact investing, and commercial and investment banking.</p>
 
-        <h4>Fund Role</h4>
-        <p>Deal sourcing and structuring, due diligence, underwriting, value creation</p>
+          <h4>Fund Role</h4>
+          <p>Deal sourcing and structuring, due diligence, underwriting, value creation</p>
 
-        <h4>Professional experience</h4>
-        <p>Most recently served as Deputy Secretary of Commerce for the State of North Carolina. Founder of Activest (Fiscal Justice), former Social Investment Officer at Kresge Foundation, Executive Staff at Self-Help, Turnaround CEO of two CDFI credit unions, and a High-Yield Bond Analyst for Wells Fargo Securities.</p>
+          <h4>Professional experience</h4>
+          <p>Most recently served as Deputy Secretary of Commerce for the State of North Carolina. Founder of Activest (Fiscal Justice), former Social Investment Officer at Kresge Foundation, Executive Staff at Self-Help, Turnaround CEO of two CDFI credit unions, and a High-Yield Bond Analyst for Wells Fargo Securities.</p>
 
-        <h4>Education</h4>
-        <p>B.S. in Finance from North Carolina Central University (HBCU) and an MBA from the University of North Carolina at Chapel Hill.</p>
+          <h4>Education</h4>
+          <p>B.S. in Finance from North Carolina Central University (HBCU) and an MBA from the University of North Carolina at Chapel Hill.</p>
+        </div>
       </div>
 
       <div class="bio">
-        <h3><strong>Charles Rush</strong>, Partner & General Counsel</h3>
+        <Picture src={headshotCharles} alt="Charles Rush"/>
+        <div class="text">
+          <h3><strong>Charles Rush</strong>, Partner & General Counsel</h3>
 
-        <p>15+ years of experience in risk assessment, international law, finance, risk management, and regulatory analysis.</p>
+          <p>15+ years of experience in risk assessment, international law, finance, risk management, and regulatory analysis.</p>
 
-        <h4>Fund Role</h4>
-        <p>Regulatory compliance, deal sourcing and structuring, value creation, and legal affairs</p>
+          <h4>Fund Role</h4>
+          <p>Regulatory compliance, deal sourcing and structuring, value creation, and legal affairs</p>
 
-        <h4>Professional experience</h4>
-        <p>Most recently served as an associate in Morgan, Lewis, & Brockius’s International Trade and National Security practice. Former member of KPMG’s Trade and Customs practice and Senior Advisor for Addison-Clifton.</p>
+          <h4>Professional experience</h4>
+          <p>Most recently served as an associate in Morgan, Lewis, & Brockius’s International Trade and National Security practice. Former member of KPMG’s Trade and Customs practice and Senior Advisor for Addison-Clifton.</p>
 
-        <h4>Education</h4>
-        <p>B.S. in Economics from the Pennsylvania State University, MBA from the University of Pittsburgh, LL.M. in International Economic
-  Law from the City University of Hong Kong and a J.D. from the Villanova University.</p>
+          <h4>Education</h4>
+          <p>B.S. in Economics from the Pennsylvania State University, MBA from the University of Pittsburgh, LL.M. in International Economic Law from the City University of Hong Kong and a J.D. from the Villanova University.</p>
+        </div>
       </div>
 
       <div class="bio">
-        <h3><strong>Chris Preston</strong>, Exc. Vice President, Investor Relations</h3>
+        <Picture src={headshotChris} alt="Chris Preston"/>
+        <div class="text">
+          <h3><strong>Chris Preston</strong>, Exc. Vice President, Investor Relations</h3>
 
-        <p>20+ years in business development, strategic innovation and fundraising.</p>
+          <p>20+ years in business development, strategic innovation and fundraising.</p>
 
-        <h4>Fund Role</h4>
-        <p>Investor relations, external affairs, fund development, value creation</p>
+          <h4>Fund Role</h4>
+          <p>Investor relations, external affairs, fund development, value creation</p>
 
-        <h4>Professional experience</h4>
-        <p>Most recently served as Chief Development Officer for United Way of Metro Chicago. Chris held roles as senior VP of Strategic and Regional Management at the United Way of Greater Philadelphia and Southern New Jersey where he led the raise of $35 million annually. Chris currently serves as president of George Mason University alumni association. He was recently the recipient of the 2022 George Mason School of Business Alumni Service Award.</p>
+          <h4>Professional experience</h4>
+          <p>Most recently served as Chief Development Officer for United Way of Metro Chicago. Chris held roles as senior VP of Strategic and Regional Management at the United Way of Greater Philadelphia and Southern New Jersey where he led the raise of $35 million annually. Chris currently serves as president of George Mason University alumni association. He was recently the recipient of the 2022 George Mason School of Business Alumni Service Award.</p>
 
-        <h4>Education</h4>
-        <p>B.S. in Business Management from George Mason University.</p>
+          <h4>Education</h4>
+          <p>B.S. in Business Management from George Mason University.</p>
+        </div>
       </div>
 
       <div class="bio">
-        <h3><strong>David Dix</strong>, Partner, Government Affairs</h3>
+        <Picture src={headshotDavid} alt="David Dix"/>
+        <div class="text">
+          <h3><strong>David Dix</strong>, Partner, Government Affairs</h3>
 
-        <p>20+ years in the political forefront building synergies on both sides of the aisle.</p>
+          <p>20+ years in the political forefront building synergies on both sides of the aisle.</p>
 
-        <h4>Fund Role</h4>
-        <p>Government relations, legislative affairs, value creation</p>
+          <h4>Fund Role</h4>
+          <p>Government relations, legislative affairs, value creation</p>
 
-        <h4>Professional experience</h4>
-        <p>Most recently served as Managing Director of Luminous Strategies where he oversees the firm’s Government Relations Division. David has held key roles for governors Tom Ridge and Mark Schweiker. He has also served as Pennsylvania Finance Director for Obama for America (OFA); more recently David has been nominated by PA Governor Tom Wolf as Chairman of the Governor’s Advisory Commission on African American Affairs.</p>
+          <h4>Professional experience</h4>
+          <p>Most recently served as Managing Director of Luminous Strategies where he oversees the firm’s Government Relations Division. David has held key roles for governors Tom Ridge and Mark Schweiker. He has also served as Pennsylvania Finance Director for Obama for America (OFA); more recently David has been nominated by PA Governor Tom Wolf as Chairman of the Governor’s Advisory Commission on African American Affairs.</p>
 
-        <h4>Education</h4>
-        <p>B.S. in Political Science from Indiana University of Pennsylvania (IUP).</p>
+          <h4>Education</h4>
+          <p>B.S. in Political Science from Indiana University of Pennsylvania (IUP).</p>
+        </div>
       </div>
 
       <div class="bio">
-        <h3><strong>Ronald Miller</strong>, Exc. Vice President, Operations</h3>
+        <Picture src={headshotRonald} alt="Ronald Miller"/>
+        <div class="text">
+          <h3><strong>Ronald Miller</strong>, Exc. Vice President, Operations</h3>
 
-        <p>15 + years of experience in business development, operational management, strategic planning, and revenue growth.</p>
+          <p>15 + years of experience in business development, operational management, strategic planning, and revenue growth.</p>
 
-        <h4>Fund Role</h4>
-        <p>Portfolio operations, regulatory compliance, deal sourcing, value creation.</p>
+          <h4>Fund Role</h4>
+          <p>Portfolio operations, regulatory compliance, deal sourcing, value creation.</p>
 
-        <h4>Professional experience</h4>
-        <p>Most recently held executive role as a strategic sale leader for a Fortune 300 company. Ronald has led mergers and acquisitions within the environmental and recycling sustainability industry. Ron has also led business development efforts along the east coast of the United States for a Fortune 500 hospitality company.</p>
+          <h4>Professional experience</h4>
+          <p>Most recently held executive role as a strategic sale leader for a Fortune 300 company. Ronald has led mergers and acquisitions within the environmental and recycling sustainability industry. Ron has also led business development efforts along the east coast of the United States for a Fortune 500 hospitality company.</p>
 
-        <h4>Education</h4>
-        <p>B.S. in Hotel, Restaurant, and Institutional Management from the Pennsylvania State University and MBA from Saint Joseph’s University.</p>
+          <h4>Education</h4>
+          <p>B.S. in Hotel, Restaurant, and Institutional Management from the Pennsylvania State University and MBA from Saint Joseph’s University.</p>
+        </div>
       </div>
-    </div>
+      <Picture src={groupShot} alt="David, Dorian, and Charles" />
+    </section>
   </TextSection>
 </Layout>
+
+<style lang="scss">
+  .bio {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-block: 3rem;
+
+    @media (max-width: 500px) {
+      grid-auto-flow: row;
+    }
+
+    h3:first-child {
+      margin-top: 0;
+    }
+
+    :global(img) {
+      position: sticky;
+      top: 4rem;
+    }
+  }
+
+  :global(img) {
+    height: auto;
+  }
+</style>

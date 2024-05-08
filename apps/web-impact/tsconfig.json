@@ -14,6 +14,7 @@
 			"@people/*": ["../../assets/imagery/people/*"],
 			"@plants/*": ["../../assets/imagery/plants/*"],
 			"@landscape/*": ["../../assets/imagery/landscape/*"],
+			"@headshots/*": ["../../assets/imagery/headshots/*"],
 		},
 	}
 }
