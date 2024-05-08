@@ -1,10 +1,10 @@
 ---
-import { TextSection } from 'srf-theme-components';
-import { CommunityMap, TitleSection } from 'jm-srf-components';
+import { CommunityMap, TitleSection, TextSection, ParallaxSection } from 'jm-srf-components';
 import Layout from '../layouts/Page.astro';
 
 import primaryImg from '../../../../assets/imagery/people/pexels-sabina-kallari-12835892.jpg';
 import accentImg from '../../../../assets/imagery/plants/leaves14.png';
+import parallaxImg from '@landscape/pexels-michael-tuszynski-2255938.jpg'
 
 const seo = {
 	title: 'SRF Capital ❦ (W)Healthy Communities',
@@ -18,10 +18,13 @@ const seo = {
 		deck="Our vision for a (W)Healthy Community"
 		accentImage={accentImg}
 		primaryImage={primaryImg}
+		hideBrightSection={true}
 	>
+	</TitleSection>
+	<ParallaxSection backgroundImage={parallaxImg}>
 		<h2>What Does a (W)Healthy South Look Like?</h2>
 		<p>We envision thriving communities dotting the American South and the following are eight community characteristics that provide safety and opportunity for their residents.</p>
-	</TitleSection>
+	</ParallaxSection>
 	<CommunityMap />
 </Layout>
 

@@ -11,7 +11,8 @@ const {
   deck,
   accentImage = birdsImg,
   primaryImage = holdingImg,
-  primaryImageDesc = 'People thriving in community, in place'
+  primaryImageDesc = 'People thriving in community, in place',
+  hideBrightSection = false
 } = Astro.props
 ---
 <section class="hero" style={accentImage && `background-image: url(${accentImage.src})`}>
@@ -25,9 +26,11 @@ const {
     </aside>
   </div>
 </section>
-<BrightSection>
-  <slot />
-</BrightSection>
+{!hideBrightSection &&
+  <BrightSection>
+    <slot />
+  </BrightSection>
+}
 
 <style lang="scss">
   h1 {
