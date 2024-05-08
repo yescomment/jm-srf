@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components';
 
 import neighborhoodsImg from '@landscape/pexels-michael-tuszynski-2255938.jpg';
 import businessImg from '@people/pexels-caio-64609.jpg';
@@ -110,24 +111,48 @@ import identityImg from '@people/iStock-1364679535.jpg'
     </div>
   </div>
 
-  <section id="srfmap-diagram">
-    <a class="icon" href="#housing">Individuals</a>
-    <a class="icon" href="#neighborhoods">Buildings</a>
-    <a class="icon" href="#businesses">Commerce</a>
-    <a class="icon" href="#community">Community</a>
-    <a class="icon" href="#government">Government</a>
-    <a class="icon" href="#healthcare">Institutions</a>
-    <a class="icon" href="#culture">Culture</a>
-  </section>
+  <nav id="srfmap-diagram">
+    <div class="icon ao-business ao-housing ao-identity" id="srfmap-icon-individuals" href="#housing">
+      <span class="label">Individuals</span>
+      <Icon name="material-symbols:person-rounded" />
+    </div>
+    <div class="icon ao-neighborhoods ao-housing ao-education ao-health ao-government" id="srfmap-icon-infrastructure" href="#neighborhoods">
+      <span class="label">Infrastructure</span>
+      <Icon name="material-symbols:construction-rounded" />
+    </div>
+    <div class="icon ao-business ao-housing ao-identity" id="srfmap-icon-commerce" href="#businesses">
+      <span class="label">Commerce</span>
+      <Icon name="material-symbols:sell" />
+    </div>
+    <!--
+    <div class="icon" id="srfmap-icon-community" href="#community">
+      <span class="label">Community</span>
+      <Icon name="material-symbols:group-rounded" />
+    </div>
+    -->
+    <div class="icon ao-law ao-government" id="srfmap-icon-government" href="#government">
+      <span class="label">Government</span>
+      <Icon name="material-symbols:gavel-rounded" />
+    </div>
+    <div class="icon ao-education ao-law ao-government" id="srfmap-icon-institutions" href="#healthcare">
+      <span class="label">Institutions</span>
+      <Icon name="material-symbols:account-balance-rounded" />
+    </div>
+    <div class="icon ao-identity ao-neighborhoods" id="srfmap-icon-culture" href="#identity">
+      <span class="label">Culture</span>
+      <Icon name="material-symbols:draw-abstract" />
+    </div>
+  </nav>
+
   <nav id="srfmap-nav">
-    <a href="#neighborhoods"></a>
-    <a href="#business"></a>
-    <a href="#housing"></a>
-    <a href="#education"></a>
-    <a href="#law"></a>
-    <a href="#health"></a>
-    <a href="#government"></a>
-    <a href="#identity"></a>
+    <a class="ao-neighborhoods" href="#neighborhoods"></a>
+    <a class="ao-business" href="#business"></a>
+    <a class="ao-housing" href="#housing"></a>
+    <a class="ao-education" href="#education"></a>
+    <a class="ao-law" href="#law"></a>
+    <a class="ao-health" href="#health"></a>
+    <a class="ao-government" href="#government"></a>
+    <a class="ao-identity" href="#identity"></a>
   </nav>
 </section>
 
@@ -135,7 +160,8 @@ import identityImg from '@people/iStock-1364679535.jpg'
   :global(html) {
     height: 100dvh;
     overflow-y: scroll;
-    scroll-snap-type: y;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 3rem; // header height
 
     section {
       scroll-snap-align: start;
@@ -159,7 +185,6 @@ import identityImg from '@people/iStock-1364679535.jpg'
     h2 {
       font-size: 3rem;
       color: var(--color-secondary);
-      margin-top: 0;
     }
 
     h3 {
@@ -198,7 +223,7 @@ import identityImg from '@people/iStock-1364679535.jpg'
       padding: 1rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      // justify-content: center;
       // TODO: animate pos-y for parallax
       z-index: 1;
       background-color: var(--color-light);
@@ -220,60 +245,114 @@ import identityImg from '@people/iStock-1364679535.jpg'
     a {
       display: block;
       height: 2rem;
-      background-color: var(--color-pop);
+      background-color: var(--color-light-tinted);
       opacity: 0.8;
       margin: 0.5rem;
+
+      &.active {
+        background-color: var(--color-pop);
+        box-shadow: 0 0 3px 1px var(--color-dark);
+      }
     }
   }
 
   #srfmap-diagram {
+    margin-block: 2rem;
     z-index: 1;
     position: sticky;
     bottom: 1rem;
     left: 1rem;
-    width: 60%; // match .text
+    width: min-content;
     min-width: 700px;
     max-width: 90vw;
-    border-radius: 1000px;
     display: flex;
     justify-content: space-between;
     overflow-x: scroll;
-    box-shadow: 0 0 5px var(--color-dark);
 
     .icon {
-      display: block;
-      box-sizing: border-box;
-      background-color: var(--color-light);
-      padding: 1rem;
-
-      [href='#housing'] {
-
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-inline: 1rem;
+      &:first-of-type {
+        margin-inline-start: 0;
+      }
+      &:last-of-type {
+        margin-inline-end: 0;
       }
 
-      [href='#neighborhoods'] {
-
+      :global(svg) {
+        width: 2rem;
+        height: 2rem;
+        box-sizing: content-box;
+        padding: 1rem;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        background-color: transparent;
+        transition: all 1s ease;
       }
 
-      [href='#business'] {
-
+      .label {
+        visibility: hidden;
+        margin-block: 0.5rem;
+        margin-inline: 0;
+        font-size: 12px;
+        font-weight: 500;
       }
 
-      [href='#community'] {
+      transition: all 1s ease;
+      &.active {
+        margin-inline: 0;
 
+        .label {
+          visibility: visible;
+        }
+
+        :global(svg) {
+          border-color: var(--color-dark);
+          background-color: var(--color-light);
+        }
       }
 
-      [href='#government'] {
+      &:hover {
+        .label {
+          visibility: visible;
+        }
 
-      }
-
-      [href='#healthcare'] {
-
-      }
-
-      [href='#culture'] {
-
+        :global(svg) {
+          background-color: var(--color-light-tinted);
+        }
       }
     }
   }
+
+  *[class^='ao-'] {
+    transition: all 1s ease;
+  }
 </style>
 
+<script is:inline>
+  let currentlyActiveId = null;
+  let observer = new window.IntersectionObserver(updateMap, {
+    rootMargin: '-50% 0% -50% 0%',
+  })
+
+  function updateMap(entries, observer) {
+    console.log(entries)
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.target.id != currentlyActiveId) {
+        currentlyActiveId = entry.target.id
+        document.querySelectorAll('.active').forEach(
+          el => el.classList.remove('active')
+        )
+        document.querySelectorAll(`.ao-${currentlyActiveId}`).forEach(
+          el => el.classList.add('active')
+        )
+      }
+    })
+  }
+
+  document.querySelectorAll('.srfmap-slide').forEach(slide => {
+    observer.observe(slide)
+  })
+</script>
