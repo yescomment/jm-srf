@@ -58,12 +58,24 @@ import neighborhoodsImg from '@landscape/pexels-michael-tuszynski-2255938.jpg';
 </section>
 
 <style lang="scss">
+  :global(html) {
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y;
+
+    section {
+      scroll-snap-align: start;
+    }
+  }
+
   #srfmap-container {
     max-width: 1440px;
     margin-inline: auto;
   }
 
   .srfmap-slide {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     display: flex;
     gap: 1rem;
     flex-direction: row-reverse;
