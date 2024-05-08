@@ -14,5 +14,4 @@ export { default as TextSection } from './TextSection.astro'
 export { default as BrightSection } from './BrightSection.astro'
 export { default as ParallaxSection } from './ParallaxSection.astro'
 
-export { default as CommunityMap } from './CommunityMap.astro'
 export { default as CapitalScroller } from './CapitalScroller.astro'
