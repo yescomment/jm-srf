@@ -160,11 +160,17 @@ import identityImg from '@people/iStock-1364679535.jpg'
   :global(html) {
     height: 100dvh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y;
     scroll-padding-top: 3rem; // header height
 
     section {
+      // scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+
+    .srfmap-slide {
       scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
   }
 
@@ -174,8 +180,6 @@ import identityImg from '@people/iStock-1364679535.jpg'
   }
 
   .srfmap-slide {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     display: flex;
     gap: 1rem;
     flex-direction: row-reverse;
@@ -290,6 +294,7 @@ import identityImg from '@people/iStock-1364679535.jpg'
         border: 3px solid transparent;
         background-color: transparent;
         transition: all 1s ease;
+        color: var(--color-pop);
       }
 
       .label {
@@ -309,6 +314,7 @@ import identityImg from '@people/iStock-1364679535.jpg'
         }
 
         :global(svg) {
+          color: var(--color-dark);
           border-color: var(--color-dark);
           background-color: var(--color-light);
         }
