@@ -62,10 +62,13 @@ const seo = {
     <h3>Resilience of Life <Icon name="material-symbols:shield-rounded" /></h3>
     <p>Investments in outcomes that help communities withstand negative externalities and financial stress, while promoting generational wealth transfer.</p>
 
-    <h2>Sustainable Development Goals Stacking</h2>
-    <p>SRF Capital focuses on crafting the (W)Healthy economies of the future by identifying and investing in opportunities that couple and stack the United Nations’ Sustainability and Development Goals.</p>
-
-    <code>TK: ANIMATION OF GOALS STACKING LIKE BLOCKS</code>
+    <div class="stack">
+        <h2><span class="stick">Sustainable</span> <span class="spacer">Development Goals Stacking</span></h2>
+        <h2><span class="spacer">Sustainable</span> <span class="stick">Development</span> <span class="spacer">Goals Stacking</span></h2>
+        <h2><span class="spacer">Sustainable Development</span> <span class="stick">Goals</span> <span class="spacer">Stacking</span></h2>
+        <h2><span class="spacer">Sustainable Development Goals</span> <span class="stick">Stacking</span></h2>
+    </div>
+    <p>SRF Capital focuses on crafting the (W)Healthy economies of the future by identifying and investing in opportunities that couple and stack the <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/">United Nations’ Sustainability and Development Goals</a>.</p>
 
     <h2>Defining Success</h2>
     <p>SRF Capital employs a capital strategy that strengthens and accelerates the entrepreneurs, leaders, and institutions that have long been dedicated to building health and wealth in their communities. Success is improvement across multiple dimensions of (W)Health on the investment and portfolio level.</p>
@@ -138,6 +141,19 @@ const seo = {
     to {
       transform: translateX(500%);
       opacity: 0;
+    }
+  }
+
+  .stack {
+    h2 {
+      position: sticky;
+      top: 50%;
+      .spacer {
+        opacity: 0.1;
+      }
+      .stick {
+        z-index: 1;
+      }
     }
   }
 </style>
