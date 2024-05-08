@@ -2,16 +2,8 @@
 import { Image } from 'astro:assets'
 import neighborhoodsImg from '../../assets/imagery/map/pexels-michael-tuszynski-2255938.jpg';
 ---
-<section id="srf-map-diagram">
-  <a class="icon" href="#neighborhoods">Neighborhoods</a>
-  <a class="icon" href="#businesses">Businesses</a>
-  <a class="icon" href="#housing">Housing</a>
-  <a class="icon" href="#government">Government</a>
-  <a class="icon" href="#healthcare">Healthcare</a>
-  <a class="icon" href="#culture">Culture</a>
-</section>
-<section id="srf-map-body">
-  <div class="srf-map-element" id="neighborhoods">
+<section id="srf-map-container">
+  <div class="srf-map-slide" id="neighborhoods">
     <div class="image">
       <Image src={neighborhoodsImg} alt="Top-down view of a residential neighborhood"/>
     </div>
@@ -22,7 +14,7 @@ import neighborhoodsImg from '../../assets/imagery/map/pexels-michael-tuszynski-
     </div>
   </div>
 
-  <div class="srf-map-element" id="neighborhoods">
+  <div class="srf-map-slide" id="neighborhoods">
     <div class="image">
       <Image src={neighborhoodsImg} alt="Top-down view of a residential neighborhood"/>
     </div>
@@ -32,7 +24,7 @@ import neighborhoodsImg from '../../assets/imagery/map/pexels-michael-tuszynski-
       <p>Neighbors should have the collective autonomy and resources to find solutions to their problems, with the unencumbered and “no-strings-attached” support of private and public partners.</p>
     </div>
   </div>
-  <div class="srf-map-element" id="neighborhoods">
+  <div class="srf-map-slide" id="neighborhoods">
     <div class="image">
       <Image src={neighborhoodsImg} alt="Top-down view of a residential neighborhood"/>
     </div>
@@ -42,7 +34,7 @@ import neighborhoodsImg from '../../assets/imagery/map/pexels-michael-tuszynski-
       <p>Neighbors should have the collective autonomy and resources to find solutions to their problems, with the unencumbered and “no-strings-attached” support of private and public partners.</p>
     </div>
   </div>
-  <div class="srf-map-element" id="neighborhoods">
+  <div class="srf-map-slide" id="neighborhoods">
     <div class="image">
       <Image src={neighborhoodsImg} alt="Top-down view of a residential neighborhood"/>
     </div>
@@ -52,6 +44,16 @@ import neighborhoodsImg from '../../assets/imagery/map/pexels-michael-tuszynski-
       <p>Neighbors should have the collective autonomy and resources to find solutions to their problems, with the unencumbered and “no-strings-attached” support of private and public partners.</p>
     </div>
   </div>
+
+  <section id="srf-map-diagram">
+    <a class="icon" href="#housing">Housing</a>
+    <a class="icon" href="#neighborhoods">Neighborhoods</a>
+    <a class="icon" href="#businesses">Businesses</a>
+    <a class="icon" href="#community">Community</a>
+    <a class="icon" href="#government">Government</a>
+    <a class="icon" href="#healthcare">Healthcare</a>
+    <a class="icon" href="#culture">Culture</a>
+  </section>
 </section>
 
 </div>
@@ -119,22 +121,21 @@ import neighborhoodsImg from '../../assets/imagery/map/pexels-michael-tuszynski-
     }
   }
 
-  .srf-map-element {
+  .srf-map-slide {
     display: flex;
     flex-direction: row-reverse;
     min-height: 100dvh;
-    overflow-y: scroll;
 
-    .image, .text {
-      width: 50%;
+    .image {
+      flex-basis: 30%;
     }
 
     .image {
       img {
-        position: sticky;
-        top: 50vh;
+        position: fixed;
         fit-content: cover;
         height: 100%;
+        width: auto;
       }
     }
 

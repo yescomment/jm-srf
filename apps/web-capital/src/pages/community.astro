@@ -14,8 +14,8 @@ const seo = {
 
 <Layout {seo}>
 	<TitleSection
-		title="Community"
-		deck="Our vision for a (W)Healthy Community"
+		title="Vision for a (W)Healthy Community"
+		deck="A (W)Health-based investment strategy creates value across diverse asset areas that build on each other over generations. To achieve this, we develop comprehensive strategies to build health and wellness as an asset class that includes social, physical, and financial capital at its foundation."
 		accentImage={accentImg}
 		primaryImage={primaryImg}
 		hideBrightSection={true}
@@ -23,101 +23,7 @@ const seo = {
 	</TitleSection>
 	<ParallaxSection backgroundImage={parallaxImg}>
 		<h2>What Does a (W)Healthy South Look Like?</h2>
-		<p>We envision thriving communities dotting the American South and the following are eight community characteristics that provide safety and opportunity for their residents.</p>
+		<p>We envision thriving (W)Healthy communities dotting the globe that embody eight community characteristics:</p>
 	</ParallaxSection>
 	<CommunityMap />
 </Layout>
-
-<style lang="scss">
-	img,
-	picture {
-		width: unset;
-		display: block;
-	}
-
-	#whealthy-community-map {
-		max-height: 100vh;
-		position: sticky;
-		top: 4rem;
-	}
-
-	#srf-map-descriptions .key.active {
-		color: var(--color-pop);
-
-		h3 {
-			background-color: var(--color-pop);
-		}
-	}
-
-	$mapFeatures:
-		'neighborhoods',
-		'businesses',
-		'government',
-		'people',
-		'housing',
-		'healthcare',
-		'culture';
-
-		// - [ ] add education? (primary)
-		// - [ ] add law? (primary)
-		// - [ ] add banks? (always secondary)
-		// - [ ] add media? (always secondary)
-		// - [x] utilties -> healthcare
-		// - [x] communities -> culture
-
-	@each $feature in $mapFeatures {
-		:root:has(##{$feature}.active) svg {
-			// contains active feature if it is secondary connection
-			g:not([id^=line])[id*=#{$feature}] {
-				text {
-					fill: var(--color-pop) !important;
-				}
-
-				path {
-					fill: var(--color-pop) !important;
-				}
-			}
-
-			// starts with active feature if it represents it
-			g:not([id^=line])[id^=#{$feature}] {
-				circle, text {
-					fill: var(--color-pop) !important;
-				}
-
-				path {
-					fill: var(--color-light) !important;
-				}
-			}
-
-			g[id^=line][id*=#{$feature}] {
-				z-index: 1;
-				path {
-					stroke: var(--color-pop) !important;
-				}
-			}
-		}
-	}
-</style>
-
-<script is:inline>
-	let mapKeys = document.querySelectorAll('#srf-map-descriptions div.key')
-	let mapSvgElement = document.querySelector('#whealthy-community-map')
-	let observer = new window.IntersectionObserver(updateMap, {
-		rootMargin: '-50% 0% -50% 0%',
-	})
-
-	function updateMap(entries, observer) {
-		console.log(entries)
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				entry.target.classList.add('active')
-			} else {
-				entry.target.classList.remove('active')
-			}
-		})
-	}
-
-	mapKeys.forEach(mapKey => {
-		observer.observe(mapKey)
-	})
-</script>
