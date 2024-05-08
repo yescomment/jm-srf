@@ -1,8 +1,17 @@
 ---
 import { Image } from 'astro:assets'
+
 import neighborhoodsImg from '@landscape/pexels-michael-tuszynski-2255938.jpg';
+import businessImg from '@people/pexels-caio-64609.jpg';
+import housingImg from '@people/pexels-cottonbro-4568712.jpg'
+import educationImg from '@people/pexels-mary-taylor-5896812.jpg'
+import lawImg from '@people/pexels-ekaterina-bolovtsova-6077447.jpg'
+import healthImg from '@people/iStock-1058393584.jpg'
+import governmentImg from '@people/pexels-mikhail-nilov-8846069.jpg'
+import identityImg from '@people/iStock-1364679535.jpg'
 ---
 <section id="srfmap-container">
+
   <div class="srfmap-slide" id="neighborhoods">
     <div class="image">
       <Image src={neighborhoodsImg} alt="Top-down view of a residential neighborhood"/>
@@ -15,44 +24,99 @@ import neighborhoodsImg from '@landscape/pexels-michael-tuszynski-2255938.jpg';
     </div>
   </div>
 
-  <div class="srfmap-slide" id="neighborhoods">
+  <div class="srfmap-slide" id="business">
     <div class="image">
-      <Image src={neighborhoodsImg} alt="Top-down view of a residential neighborhood"/>
+      <Image src={businessImg} alt="Young man cutting keys in a workshop"/>
     </div>
     <div class="text">
-      <h3>Safe Neighborhoods & Community Autonomy</h3>
-      <p>Residents should feel secure and safe in their home and in their neighborhood, free from the presence of violence and/or overly policed environments.</p>
-      <p>Neighbors should have the collective autonomy and resources to find solutions to their problems, with the unencumbered and “no-strings-attached” support of private and public partners.</p>
-    </div>
-  </div>
-  <div class="srfmap-slide" id="neighborhoods">
-    <div class="image">
-      <Image src={neighborhoodsImg} alt="Top-down view of a residential neighborhood"/>
-    </div>
-    <div class="text">
-      <h3>Safe Neighborhoods & Community Autonomy</h3>
-      <p>Residents should feel secure and safe in their home and in their neighborhood, free from the presence of violence and/or overly policed environments.</p>
-      <p>Neighbors should have the collective autonomy and resources to find solutions to their problems, with the unencumbered and “no-strings-attached” support of private and public partners.</p>
-    </div>
-  </div>
-  <div class="srfmap-slide" id="neighborhoods">
-    <div class="image">
-      <Image src={neighborhoodsImg} alt="Top-down view of a residential neighborhood"/>
-    </div>
-    <div class="text">
-      <h3>Safe Neighborhoods & Community Autonomy</h3>
-      <p>Residents should feel secure and safe in their home and in their neighborhood, free from the presence of violence and/or overly policed environments.</p>
-      <p>Neighbors should have the collective autonomy and resources to find solutions to their problems, with the unencumbered and “no-strings-attached” support of private and public partners.</p>
+      <h2>Business</h2>
+      <h3>Plentiful Employment and Business Opportunities</h3>
+      <p>Residents must have the basic means to acquire and access work opportunities within their community that provide a safety net, while working to develop and  invest in wealth-building opportunities.</p>
+      <p>Jobs should have basic benefits, career building opportunities, wealth-building opportunities, and a fair and engaging workplace.</p>
+      <p>Communities should have a critical mass of business ownership to prevent economic leakage by ensuring that dollars and resources remain in the community and that long-term wealth generation can be built.</p>
+      <p>Local businesses should be competitive and integrated into their regional economies. They should be included in the finance, technology, and information networks regarding trading partners to learn how information flows to both existing businesses and new entrepreneurs.</p>
     </div>
   </div>
 
-  <section id="srfmap-key">
-    <a class="icon" href="#housing">Housing</a>
-    <a class="icon" href="#neighborhoods">Neighborhoods</a>
-    <a class="icon" href="#businesses">Businesses</a>
+  <div class="srfmap-slide" id="housing">
+    <div class="image">
+      <Image src={housingImg} alt="A young girl plays with bubble wrap, unpacking in a new home"/>
+    </div>
+    <div class="text">
+      <h2>Housing</h2>
+      <h3>Safe, Affordable and Secure Housing</h3>
+      <p>Well-maintained housing should be affordable for current residents and market rate financing and insurance should be affordable for housing investments.</p>
+    </div>
+  </div>
+
+  <div class="srfmap-slide" id="education">
+    <div class="image">
+      <Image src={educationImg} alt="Kids playing in a schoolyard"/>
+    </div>
+    <div class="text">
+      <h2>Education</h2>
+      <h3>Safe & Effective Schools</h3>
+      <p>Schools should provide students civics lessons and teach them how our government entities operate. Students should acquire the skills and necessary habits to make educated decisions and to positively contribute to our democratic system. </p>
+      <p>Students should acquire levels of academic proficiency needed to attend college or  secure some type of post-secondary vocational certification with labor market value that leads to gainful employment and a career of their choosing.</p>
+      <p>School curriculums and instructions should be culturally competent and responsive, while ensuring that students learn social connectivity and self-efficacy/agency.</p>
+    </div>
+  </div>
+
+  <div class="srfmap-slide" id="law">
+    <div class="image">
+      <Image src={lawImg} alt="Judge writing, behind a court gavel"/>
+    </div>
+    <div class="text">
+      <h2>Law</h2>
+      <h3>A Fair Justice System</h3>
+      <p>People should be tried by a jury of their peers and people from their immediate communities when they are brought to trial.</p>
+      <p>Neighbors should be supported by the criminal justice system in their community-based (W)Health justice practices and self-policing activity.</p>
+    </div>
+  </div>
+
+  <div class="srfmap-slide" id="health">
+    <div class="image">
+      <Image src={healthImg} alt="Doctors walking in a hospital"/>
+    </div>
+    <div class="text">
+      <h2>Health</h2>
+      <h3>Access to Reliable and Affordable Health Care</h3>
+      <p>Reliable and affordable health care should be readily available with quality physicians and practitioners focused on the health and well-being of their patients through quality health care, nutritious food, and physical activity.</p>
+      <p>Communities should have access to fresh, affordable produce and local groceries in close proximity to where they live.</p>
+    </div>
+  </div>
+
+  <div class="srfmap-slide" id="government">
+    <div class="image">
+      <Image src={governmentImg} alt="Young man filling out a ballot"/>
+    </div>
+    <div class="text">
+      <h2>Government</h2>
+      <h3>Truly Representative Local Governments</h3>
+      <p>Neighborhoods should have equal voice in determining local political outcomes without systemic barriers and, as tax-paying citizens, receive quality services without having to spend continuous energy and resources on advocacy.</p>
+      <p>Communities should be <strong>free of predatory revenue streams</strong> collected by municipalities, counties, and cities, and predatory financial institutions.</p>
+    </div>
+  </div>
+
+  <div class="srfmap-slide" id="identity">
+    <div class="image">
+      <Image src={identityImg} alt="Folks of all ages in a community garden, learning"/>
+    </div>
+    <div class="text">
+      <h2>Identity</h2>
+      <h3>Control over Their Public Identity and Cultural Institutions</h3>
+      <p>Communities should have equal representation in media outlets while being able to offer comprehensive narratives on their community and the way media represents them to external parties.</p>
+      <p>Public arts and cultural institutions should have dedicated spaces that reflect community interest. Institutions that celebrate a community’s culture and heritage should be readily available, as should creative spaces that expose residents to a diversity of different cultural, ethnic, social, and sexual orientations.</p>
+    </div>
+  </div>
+
+  <section id="srfmap-diagram">
+    <a class="icon" href="#housing">Individuals</a>
+    <a class="icon" href="#neighborhoods">Buildings</a>
+    <a class="icon" href="#businesses">Commerce</a>
     <a class="icon" href="#community">Community</a>
     <a class="icon" href="#government">Government</a>
-    <a class="icon" href="#healthcare">Healthcare</a>
+    <a class="icon" href="#healthcare">Institutions</a>
     <a class="icon" href="#culture">Culture</a>
   </section>
 </section>
@@ -79,7 +143,7 @@ import neighborhoodsImg from '@landscape/pexels-michael-tuszynski-2255938.jpg';
     display: flex;
     gap: 1rem;
     flex-direction: row-reverse;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: center;
 
     h2 {
@@ -96,8 +160,8 @@ import neighborhoodsImg from '@landscape/pexels-michael-tuszynski-2255938.jpg';
     }
 
     .image {
-      flex-basis: 40%;
-      justify-self: stretch;
+      flex-basis: 45%;
+      min-height: 100vh;
 
       :global(img) {
         height: 100%;
@@ -132,20 +196,53 @@ import neighborhoodsImg from '@landscape/pexels-michael-tuszynski-2255938.jpg';
     }
   }
 
-  #srfmap-key {
-    background: var(--color-light-tinted);
+  #srfmap-diagram {
+    z-index: 1;
+    position: sticky;
+    bottom: 1rem;
+    left: 1rem;
+    width: 60%; // match .text
+    min-width: 700px;
+    max-width: 90vw;
+    border-radius: 1000px;
     display: flex;
     justify-content: space-between;
-    position: sticky;
-    top: 50px;
-    padding: 2rem;
-    border-bottom: 1rem solid var(--color-primary);
     overflow-x: scroll;
+    box-shadow: 0 0 5px var(--color-dark);
 
     .icon {
+      display: block;
       box-sizing: border-box;
       background-color: var(--color-light);
       padding: 1rem;
+
+      [href='#housing'] {
+
+      }
+
+      [href='#neighborhoods'] {
+
+      }
+
+      [href='#business'] {
+
+      }
+
+      [href='#community'] {
+
+      }
+
+      [href='#government'] {
+
+      }
+
+      [href='#healthcare'] {
+
+      }
+
+      [href='#culture'] {
+
+      }
     }
   }
 </style>
