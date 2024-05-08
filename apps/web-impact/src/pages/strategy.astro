@@ -1,7 +1,9 @@
 ---
-import { TextSection, Container, FeatureCard } from 'srf-theme-components';
-import { TitleSection } from 'jm-srf-components'
+import { Container, FeatureCard } from 'srf-theme-components';
+import { TitleSection, TextSection, ParallaxSection } from 'jm-srf-components'
 import Layout from '../layouts/Page.astro';
+
+import parallaxImg from '@people/iStock-1058393584.jpg'
 
 const seo = {
 	title: 'SRF Impact ❦ Strategy',
@@ -13,12 +15,14 @@ const seo = {
 	<TitleSection
 		title='Our Strategy'
 		deck='SRF Impact’s (W)Health Capital strategy prioritizes asking the right questions and supporting the people that have the greatest potential to create the right solutions.'
+		hideBrightSection={true}
 	>
+	</TitleSection>
+	<ParallaxSection backgroundImage={parallaxImg}>
 		<h2 id="whealth-capital">Vision for a (W)Healthy Community</h2>
 		<p>A (W)Health-based investment strategy creates value across multiple asset areas that build on each other for multiple generations. We consider the well-being and mobility of all people in a community to provide true opportunities for people to develop comprehensive strategies and build health and wellness. An asset class that includes social, physical, financial, and political capital at the foundation is needed for a prosperous community and the equitable economies of the future.</p>
-	</TitleSection>
-	<TextSection narrow>
-
+	</ParallaxSection>
+	<TextSection>
 		<h2>The SRF Institute</h2>
 		<p>
 			What do the equitable economies of the future look like? What is possible when communities are built on a foundation of equity and fairness? How do we redefine value and utility? And how do we accelerate that vision and the universe of Impact?
