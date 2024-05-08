@@ -35,13 +35,14 @@ pre .language-id {
 }
 
 .columns {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	gap: 2rem;
+	max-width: 900px;
 }
 
 .columns > * {
-	min-width: 12rem;
+	min-width: 15rem;
+	max-width: 20rem;
 	flex: 1;
 }
