@@ -106,6 +106,19 @@ import neighborhoodsImg from '@landscape/pexels-michael-tuszynski-2255938.jpg';
       }
     }
 
+    @media (max-width: 768px) {
+      & {
+        flex-direction: column;
+
+        .image {
+          position: sticky;
+          top: 0;
+          height: 150vh;
+          margin-bottom: -100vh;
+        }
+      }
+    }
+
     .text {
       flex: 1;
       padding: 1rem;
@@ -113,6 +126,9 @@ import neighborhoodsImg from '@landscape/pexels-michael-tuszynski-2255938.jpg';
       flex-direction: column;
       justify-content: center;
       // TODO: animate pos-y for parallax
+      z-index: 1;
+      background-color: var(--color-light);
+      opacity: 0.95;
     }
   }
 
