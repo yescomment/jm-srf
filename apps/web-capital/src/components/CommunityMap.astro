@@ -216,8 +216,11 @@ import identityImg from '@people/iStock-1364679535.jpg'
         .image {
           position: sticky;
           top: 0;
-          height: 150vh;
-          margin-bottom: -100vh;
+          margin-bottom: -100%;
+
+          :global(img) {
+            height: 300px;
+          }
         }
       }
     }
@@ -272,6 +275,10 @@ import identityImg from '@people/iStock-1364679535.jpg'
     display: flex;
     justify-content: space-between;
     overflow-x: scroll;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
 
     .icon {
       display: flex;
