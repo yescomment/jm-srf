@@ -97,7 +97,7 @@
         stroke-dashoffset: 60.661;
 
         will-change: stroke-dashoffset;
-        animation: ease-in draw-chart both;
+        animation: ease-out draw-chart both;
         animation-timeline: --section-pin-tl;
         animation-range: contain 0% contain 100%;
       }
@@ -135,9 +135,15 @@
           width: fit-content;
           animation: linear parallax-a both;
           animation-timeline: --section-pin-tl;
+          text-decoration: underline;
+          text-decoration-color: var(--color-secondary);
+          text-decoration-thickness: 5px;
         }
 
         h2 {
+          text-align: right;
+          margin-left: 10rem;
+          font-weight: 300;
           width: fit-content;
           animation: linear parallax-b both;
           animation-timeline: --section-pin-tl;
