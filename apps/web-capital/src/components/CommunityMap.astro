@@ -160,17 +160,11 @@ import identityImg from '@people/iStock-1364679535.jpg'
   :global(html) {
     height: 100dvh;
     overflow-y: scroll;
-    scroll-snap-type: y;
+    scroll-snap-type: y mandatory;
     scroll-padding-top: 3rem; // header height
 
-    section {
-      // scroll-snap-align: center;
-      scroll-snap-stop: always;
-    }
-
-    .srfmap-slide {
+    :global(.hero, .parallax), .srfmap-slide {
       scroll-snap-align: start;
-      scroll-snap-stop: always;
     }
   }
 
