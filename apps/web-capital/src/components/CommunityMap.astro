@@ -119,6 +119,16 @@ import identityImg from '@people/iStock-1364679535.jpg'
     <a class="icon" href="#healthcare">Institutions</a>
     <a class="icon" href="#culture">Culture</a>
   </section>
+  <nav id="srfmap-nav">
+    <a href="#neighborhoods"></a>
+    <a href="#business"></a>
+    <a href="#housing"></a>
+    <a href="#education"></a>
+    <a href="#law"></a>
+    <a href="#health"></a>
+    <a href="#government"></a>
+    <a href="#identity"></a>
+  </nav>
 </section>
 
 <style lang="scss">
@@ -193,6 +203,26 @@ import identityImg from '@people/iStock-1364679535.jpg'
       z-index: 1;
       background-color: var(--color-light);
       opacity: 0.95;
+    }
+  }
+
+  #srfmap-nav {
+    z-index: 1;
+    position: fixed;
+    height: 100vh;
+    right: 2rem;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: content-box;
+
+    a {
+      display: block;
+      height: 2rem;
+      background-color: var(--color-pop);
+      opacity: 0.8;
+      margin: 0.5rem;
     }
   }
 
