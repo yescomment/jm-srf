@@ -26,6 +26,17 @@ body {
 	font-weight: 200;
 }
 
+strong {
+	font-weight: 400;
+}
+
+a {
+	color: var(--color-primary-tinted);
+	&:hover {
+		color: var(--color-pop);
+	}
+}
+
 h1 {
 	font-family: var(--theme-font-family-serif);
 	font-size: var(--font-size-xxl);
