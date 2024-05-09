@@ -63,6 +63,13 @@
         grid-area: mid;
       }
 
+      :global(.special) {
+        padding: 0;
+        :global(img) {
+          rotate: 90deg;
+        }
+      }
+
       .logo-container {
         grid-area: left;
 
@@ -102,9 +109,13 @@
       box-shadow: 0 0 5px grey;
     }
 
-    &.to-srfcapital {
+    &.to-srfcapital,
+    &.to-srfimpact {
       min-width: 2rem;
       color: var(--color-light);
+    }
+
+    &.to-srfcapital {
       background-color: #223749; // --color-primary
       &:hover {
         background-color: #223749; // --color-primary-tinted
@@ -112,8 +123,6 @@
     }
 
     &.to-srfimpact {
-      min-width: 3rem;
-      color: var(--color-light);
       background-color: #e74c34; // --color-primary
       &:hover {
         background-color: #c93d2f; // --color-primary-tinted
