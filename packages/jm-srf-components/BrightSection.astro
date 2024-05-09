@@ -35,7 +35,8 @@
   }
 </style>
 
-<script>
+<script data-astro-rerun>
+  // data-astro-rerun to make it refire with ViewTransitions
   const elementsToAnimate = document.querySelectorAll('section.bright article > *')
 
   const scrollObserver = new IntersectionObserver(animateElementIn, {
