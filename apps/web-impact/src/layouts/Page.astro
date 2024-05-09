@@ -1,7 +1,7 @@
 ---
 import '../styles/theme.css'
 
-// import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components'
 
 import { Button } from 'srf-theme-components';
 import { BaseHtml, Header, Footer, config } from 'jm-srf-components';
@@ -38,8 +38,7 @@ const { seo } = Astro.props as Props;
 	</div>
 	<Footer>
 		<a slot="about" href="mailto:info@srf.capital">
-			<!-- <Icon name="material-symbols:mail-rounded" /> -->
-			Contact
+			<Icon name="material-symbols:mail-rounded" /> Contact
 		</a>
 		<hr slot="about" />
 		<img class="logo" slot="about" src="/assets/images/srf_capital_wordmark_stacked_white.svg" alt="SRF Impact">
