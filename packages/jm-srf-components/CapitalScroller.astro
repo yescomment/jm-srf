@@ -17,17 +17,17 @@
   // @supports(animation-timeline: view()) {
     @keyframes advance-slides {
       0%, 10% {
-        transform: translateX(calc(-40% + 100vw));
+        transform: translateX(calc(-25% + 100vw));
       }
       30%, 40% {
-        transform: translateX(calc(-80% + 100vw));
+        transform: translateX(calc(-50% + 100vw));
       }
       60%, 70% {
-        transform: translateX(calc(-120% + 100vw));
+        transform: translateX(calc(-75% + 100vw));
       }
       90%, 100% {
         /* Move horizontally so that right edge is aligned against the viewport */
-        transform: translateX(calc(-160% + 100vw));
+        transform: translateX(calc(-100% + 100vw));
       }
     }
 
@@ -52,6 +52,7 @@
     @keyframes draw-chart {
       to {
         stroke-dashoffset: 0;
+        stroke: var(--color-light);
       }
     }
 
@@ -105,7 +106,9 @@
 
     .pin-wrap {
       height: 100vh;
-      width: 250vw;
+      width: 400vw;
+      flex: 0 0 400vw;
+      background: linear-gradient(to right, #b91b16 0%, var(--color-primary-tinted) 50%, var(--color-pop) 100%);
 
       display: flex;
       justify-content: flex-start;
