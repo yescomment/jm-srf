@@ -23,6 +23,8 @@ export default defineConfig({
     sitemap(),
     mdx(),
     lit(),
-    icon(),
+    icon({
+      iconDir: 'src/icons',
+    }),
   ],
 });
