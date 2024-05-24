@@ -51,10 +51,7 @@ h2 {
 
 h3 {
 	font-size: var(--font-size-md);
-	background-color: var(--color-primary);
-	color: var(--color-light);
-	padding: 0.25em 0.5em;
-	display: inline-block;
+	color: var(--color-primary);
 }
 
 h4 {
