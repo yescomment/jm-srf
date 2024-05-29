@@ -43,14 +43,15 @@ import Sigma from "sigma";
     graph.addNode("government", { size: 7, label: "Government", type: "image", color: GREEN });
     graph.addNode("identity", { size: 7, label: "Identity", type: "image", color: GREEN });
 
-    graph.addEdge("neighborhoods", "housing", { type: "line", label: "contain", size: 5 });
-    graph.addEdge("housing", "identity", { type: "line", label: "builds belonging", size: 5 });
-    graph.addEdge("law", "business", { type: "arrow", label: "protects", size: 5 });
-    graph.addEdge("education", "law", { type: "arrow", label: "ensures quality", size: 5 });
-    graph.addEdge("identity", "neighborhoods", { type: "arrow", label: "defines uniqueness", size: 5 });
-    graph.addEdge("health", "business", { type: "arrow", label: "is an opportunity for", size: 5 });
-    graph.addEdge("government", "law", { type: "arrow", label: "enforces", size: 5 });
-    graph.addEdge("law", "government", { type: "arrow", label: "limits", size: 5 });
+    graph.addEdge("neighborhoods", "housing", { type: "line", label: "contain", size: 8 });
+    graph.addEdge("housing", "identity", { type: "line", label: "builds belonging", size: 8 });
+    graph.addEdge("law", "business", { type: "arrow", label: "protects", size: 8 });
+    graph.addEdge("education", "law", { type: "arrow", label: "ensures quality", size: 8 });
+    graph.addEdge("identity", "neighborhoods", { type: "arrow", label: "defines uniqueness", size: 8 });
+    graph.addEdge("health", "business", { type: "arrow", label: "is an opportunity for", size: 8 });
+    graph.addEdge("government", "law", { type: "arrow", label: "enforces", size: 8 });
+    graph.addEdge("law", "government", { type: "arrow", label: "limits", size: 8 });
+    graph.addEdge("law", "housing", { type: "arrow", label: "protects", size: 8 });
 
     graph.nodes().forEach((node, i) => {
       const angle = (i * 2 * Math.PI) / graph.order;
