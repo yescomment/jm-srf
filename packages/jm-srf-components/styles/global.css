@@ -46,3 +46,15 @@ pre .language-id {
 	max-width: 20rem;
 	flex: 1;
 }
+
+.headgrid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.headgrid > * {
+	flex: 1;
+	min-width: 250px;
+	aspect-ratio: 1/1;
+}
