@@ -27,39 +27,54 @@
   import ForceSupervisor from "graphology-layout-force/worker";
   import Sigma from "sigma";
 
+  import iconHouse from '@material-symbols/svg-400/rounded/house.svg'
+  import iconHouses from '@material-symbols/svg-400/rounded/other_houses.svg'
+  import iconEducation from '@material-symbols/svg-400/rounded/school.svg'
+  import iconFactory from '@material-symbols/svg-400/rounded/factory.svg'
+  import iconLaw from '@material-symbols/svg-400/rounded/gavel.svg'
+  import iconHealth from '@material-symbols/svg-400/rounded/healing.svg'
+  import iconGovernment from '@material-symbols/svg-400/rounded/account_balance.svg'
+  import iconIdentity from '@material-symbols/svg-400/rounded/fingerprint.svg'
+  import iconWages from '@material-symbols/svg-400/rounded/payments.svg'
+  import iconPolice from '@material-symbols/svg-400/rounded/local_police.svg'
+
   const container = document.getElementById("sigma-container");
   const graph = new Graph();
 
-  const defaultNode = {
+  const dN = {
     size: 20,
-    type: "circle",
+    color: 'white',
+    type: "image",
     forceLabel: true,
   }
 
-  const defaultEdge = {
+  const dE = {
     type: "arrow",
+    color: '#323835',
     size: 5,
     forceLabel: true,
   }
 
-  graph.addNode("neighborhoods", {...defaultNode, label: "Neighborhoods"});
-  graph.addNode("business",      {...defaultNode, label: "Business"});
-  graph.addNode("housing",       {...defaultNode, label: "Housing"});
-  graph.addNode("education",     {...defaultNode, label: "Education"});
-  graph.addNode("law",           {...defaultNode, label: "Law"});
-  graph.addNode("health",        {...defaultNode, label: "Health"});
-  graph.addNode("government",    {...defaultNode, label: "Government"});
-  graph.addNode("identity",      {...defaultNode, label: "Identity"});
+  graph.addNode("neighborhoods", {...dN, label: "Neighborhoods", image: iconHouses.src});
+  graph.addNode("housing", {...dN, label: "Housing", image: iconHouse.src});
+  graph.addNode("education", {...dN, label: "Education", image: iconEducation.src});
+  graph.addNode("manufacturing", {...dN, label: "Manufacturing", image: iconFactory.src});
+  graph.addNode("law", {...dN, label: "Law", image: iconLaw.src});
+  graph.addNode("healthcare", {...dN, label: "Healthcare", image: iconHealth.src});
+  graph.addNode("legislators", {...dN, label: "Legislators", image: iconGovernment.src});
+  graph.addNode("police", {...dN, label: "Police", image: iconPolice.src});
+  graph.addNode("identity", {...dN, label: "Identity", image: iconIdentity.src});
+  graph.addNode("wages", {...dN, label: "Wages", image: iconWages.src});
 
-  graph.addEdge("neighborhoods", "housing",  {...defaultEdge, label: "contain"});
-  graph.addEdge("housing", "identity",       {...defaultEdge, label: "builds belonging"});
-  graph.addEdge("law", "business",           {...defaultEdge, label: "protects"});
-  graph.addEdge("education", "law",          {...defaultEdge, label: "ensures quality"});
-  graph.addEdge("identity", "neighborhoods", {...defaultEdge, label: "defines uniqueness"});
-  graph.addEdge("health", "business",        {...defaultEdge, label: "is an opportunity for"});
-  graph.addEdge("government", "law",         {...defaultEdge, label: "enforces"});
-  graph.addEdge("law", "government",         {...defaultEdge, label: "limits"});
-  graph.addEdge("law", "housing",            {...defaultEdge, label: "protects"});
+  graph.addEdge("neighborhoods", "housing", {...dE, label: "contain"});
+  graph.addEdge("housing", "identity", {...dE, label: "builds belonging"});
+  graph.addEdge("law", "manufacturing", {...dE, label: "protects"});
+  graph.addEdge("education", "law", {...dE, label: "ensures quality"});
+  graph.addEdge("identity", "neighborhoods", {...dE, label: "defines uniqueness"});
+  graph.addEdge("healthcare", "manufacturing", {...dE, label: "is an opportunity for"});
+  graph.addEdge("police", "law", {...dE, label: "enforces"});
+  graph.addEdge("law", "police", {...dE, label: "limits"});
+  graph.addEdge("law", "housing", {...dE, label: "protects"});
 
   graph.nodes().forEach((node, i) => {
     const angle = (i * 2 * Math.PI) / graph.order;
