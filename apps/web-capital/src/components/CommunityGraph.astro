@@ -28,16 +28,17 @@
   import Sigma from "sigma";
 
   const container = document.getElementById("sigma-container");
-
   const graph = new Graph();
-
-  const RED = "#FA4F40";
-  const BLUE = "#727EE0";
-  const GREEN = "#5DB346";
 
   const defaultNode = {
     size: 20,
     type: "circle",
+    forceLabel: true,
+  }
+
+  const defaultEdge = {
+    type: "arrow",
+    size: 5,
     forceLabel: true,
   }
 
@@ -49,12 +50,6 @@
   graph.addNode("health",        {...defaultNode, label: "Health"});
   graph.addNode("government",    {...defaultNode, label: "Government"});
   graph.addNode("identity",      {...defaultNode, label: "Identity"});
-
-  const defaultEdge = {
-    type: "arrow",
-    size: 5,
-    forceLabel: true,
-  }
 
   graph.addEdge("neighborhoods", "housing",  {...defaultEdge, label: "contain"});
   graph.addEdge("housing", "identity",       {...defaultEdge, label: "builds belonging"});
@@ -71,6 +66,9 @@
     graph.setNodeAttribute(node, "x", 100 * Math.cos(angle));
     graph.setNodeAttribute(node, "y", 100 * Math.sin(angle));
   });
+
+
+  // RENDERING
 
   const renderer = new Sigma(graph, container, {
     nodeProgramClasses: {
@@ -128,5 +126,6 @@
       repulsion: 0.9,
     }
   });
+
   layout.start();
 </script>
