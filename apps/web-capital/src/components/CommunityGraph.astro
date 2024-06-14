@@ -22,6 +22,7 @@
 
 <script>
 import { createNodeImageProgram } from "@sigma/node-image";
+import EdgeCurveProgram from "@sigma/edge-curve"
 import Graph from "graphology";
 import ForceSupervisor from "graphology-layout-force/worker";
 import Sigma from "sigma";
@@ -34,24 +35,36 @@ import Sigma from "sigma";
     const BLUE = "#727EE0";
     const GREEN = "#5DB346";
 
-    graph.addNode("neighborhoods", { size: 15, label: "Neighborhoods", type: "image", image: "./user.svg", color: RED });
-    graph.addNode("business", { size: 15, label: "Business", type: "image", image: "./user.svg", color: RED });
-    graph.addNode("housing", { size: 15, label: "Housing", type: "image", image: "./user.svg", color: RED });
-    graph.addNode("education", { size: 15, label: "Education", type: "image", image: "./city.svg", color: BLUE });
-    graph.addNode("law", { size: 15, label: "Law", type: "image", image: "./city.svg", color: BLUE });
-    graph.addNode("health", { size: 7, label: "Health", type: "image", color: GREEN });
-    graph.addNode("government", { size: 7, label: "Government", type: "image", color: GREEN });
-    graph.addNode("identity", { size: 7, label: "Identity", type: "image", color: GREEN });
+    const defaultNode = {
+      size: 20,
+      type: "circle",
+      forceLabel: true,
+    }
 
-    graph.addEdge("neighborhoods", "housing", { type: "line", label: "contain", size: 8 });
-    graph.addEdge("housing", "identity", { type: "line", label: "builds belonging", size: 8 });
-    graph.addEdge("law", "business", { type: "arrow", label: "protects", size: 8 });
-    graph.addEdge("education", "law", { type: "arrow", label: "ensures quality", size: 8 });
-    graph.addEdge("identity", "neighborhoods", { type: "arrow", label: "defines uniqueness", size: 8 });
-    graph.addEdge("health", "business", { type: "arrow", label: "is an opportunity for", size: 8 });
-    graph.addEdge("government", "law", { type: "arrow", label: "enforces", size: 8 });
-    graph.addEdge("law", "government", { type: "arrow", label: "limits", size: 8 });
-    graph.addEdge("law", "housing", { type: "arrow", label: "protects", size: 8 });
+    graph.addNode("neighborhoods", {...defaultNode, label: "Neighborhoods"});
+    graph.addNode("business",      {...defaultNode, label: "Business"});
+    graph.addNode("housing",       {...defaultNode, label: "Housing"});
+    graph.addNode("education",     {...defaultNode, label: "Education"});
+    graph.addNode("law",           {...defaultNode, label: "Law"});
+    graph.addNode("health",        {...defaultNode, label: "Health"});
+    graph.addNode("government",    {...defaultNode, label: "Government"});
+    graph.addNode("identity",      {...defaultNode, label: "Identity"});
+
+    const defaultEdge = {
+      type: "arrow",
+      size: 5,
+      forceLabel: true,
+    }
+
+    graph.addEdge("neighborhoods", "housing",  {...defaultEdge, label: "contain"});
+    graph.addEdge("housing", "identity",       {...defaultEdge, label: "builds belonging"});
+    graph.addEdge("law", "business",           {...defaultEdge, label: "protects"});
+    graph.addEdge("education", "law",          {...defaultEdge, label: "ensures quality"});
+    graph.addEdge("identity", "neighborhoods", {...defaultEdge, label: "defines uniqueness"});
+    graph.addEdge("health", "business",        {...defaultEdge, label: "is an opportunity for"});
+    graph.addEdge("government", "law",         {...defaultEdge, label: "enforces"});
+    graph.addEdge("law", "government",         {...defaultEdge, label: "limits"});
+    graph.addEdge("law", "housing",            {...defaultEdge, label: "protects"});
 
     graph.nodes().forEach((node, i) => {
       const angle = (i * 2 * Math.PI) / graph.order;
@@ -60,15 +73,60 @@ import Sigma from "sigma";
     });
 
     const renderer = new Sigma(graph, container, {
-      // We don't have to declare edgeProgramClasses here, because we only use the default ones ("line" and "arrow")
       nodeProgramClasses: {
         image: createNodeImageProgram(),
-        // gradient: NodeGradientProgram,
+      },
+      edgeProgramClasses: {
+        curved: EdgeCurveProgram,
       },
       renderEdgeLabels: true,
     });
 
+    let draggedNode: string | null = null;
+    let isDragging = false;
+
+    renderer.on("downNode", (e) => {
+      isDragging = true;
+      draggedNode = e.node;
+      graph.setNodeAttribute(draggedNode, "highlighted", true);
+    });
+
+    // On mouse move, if the drag mode is enabled, we change the position of the draggedNode
+    renderer.getMouseCaptor().on("mousemovebody", (e) => {
+      if (!isDragging || !draggedNode) return;
+
+      // Get new position of node
+      const pos = renderer.viewportToGraph(e);
+
+      graph.setNodeAttribute(draggedNode, "x", pos.x);
+      graph.setNodeAttribute(draggedNode, "y", pos.y);
+
+      // Prevent sigma to move camera:
+      e.preventSigmaDefault();
+      e.original.preventDefault();
+      e.original.stopPropagation();
+    });
+
+    // On mouse up, we reset the autoscale and the dragging mode
+    renderer.getMouseCaptor().on("mouseup", () => {
+      if (draggedNode) {
+        graph.removeNodeAttribute(draggedNode, "highlighted");
+      }
+      isDragging = false;
+      draggedNode = null;
+    });
+
+    // Disable the autoscale at the first down interaction
+    renderer.getMouseCaptor().on("mousedown", () => {
+      if (!renderer.getCustomBBox()) renderer.setCustomBBox(renderer.getBBox());
+    });
+
     // Create the spring layout and start it
-    const layout = new ForceSupervisor(graph);
+    const layout = new ForceSupervisor(graph, {
+      settings: {
+        attraction: .000008,
+        repulsion: 0.9,
+      }
+    });
     layout.start();
 </script>
