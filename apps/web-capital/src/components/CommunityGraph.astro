@@ -1,9 +1,188 @@
 ---
+import iconHouse from '@material-symbols/svg-400/rounded/house.svg'
+import iconOtherHouses from '@material-symbols/svg-400/rounded/other_houses.svg'
+import iconSchool from '@material-symbols/svg-400/rounded/school.svg'
+import iconFactory from '@material-symbols/svg-400/rounded/factory.svg'
+import iconLaw from '@material-symbols/svg-400/rounded/gavel.svg'
+import iconHealing from '@material-symbols/svg-400/rounded/healing.svg'
+import iconGovernment from '@material-symbols/svg-400/rounded/account_balance.svg'
+import iconIdentity from '@material-symbols/svg-400/rounded/fingerprint.svg'
+import iconWages from '@material-symbols/svg-400/rounded/payments.svg'
+import iconPolice from '@material-symbols/svg-400/rounded/local_police.svg'
+import iconGrocery from '@material-symbols/svg-400/rounded/grocery.svg'
 
+const NODES = [
+  {
+    name: 'Neighborhoods',
+    icon: iconOtherHouses.src,
+  },
+  {
+    name: 'Housing',
+    icon: iconHouse.src,
+  },
+  {
+    name: 'Education',
+    icon: iconSchool.src,
+  },
+  {
+    name: 'Manufacturing',
+    icon: iconFactory.src,
+  },
+  {
+    name: 'Law',
+    icon: iconLaw.src,
+  },
+  {
+    name: 'Healthcare',
+    icon: iconHealing.src,
+  },
+  {
+    name: 'Legislators',
+    icon: iconGovernment.src,
+  },
+  {
+    name: 'Police',
+    icon: iconIdentity.src,
+  },
+  {
+    name: 'Identity',
+    icon: iconWages.src,
+  },
+  {
+    name: 'Wages',
+    icon: iconPolice.src,
+  },
+  {
+    name: 'Essential Retail',
+    icon: iconGrocery.src,
+  },
+]
+
+const EDGES = [
+  {
+    from: 'Neighborhoods',
+    to: 'Housing',
+    label: 'contain',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Housing',
+    to: 'Identity',
+    label: 'builds belonging',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Legislators',
+    to: 'Law',
+    label: 'enact',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Law',
+    to: 'Manufacturing',
+    label: 'protects',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Education',
+    to: 'Law',
+    label: 'ensures quality',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Identity',
+    to: 'Neighborhoods',
+    label: 'defines uniqueness',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Healthcare',
+    to: 'Manufacturing',
+    label: 'is an opportunity for',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Police',
+    to: 'Law',
+    label: 'enforces',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Legislators',
+    to: 'Police',
+    label: 'limits',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Law',
+    to: 'Housing',
+    label: 'protects',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Essential Retail',
+    to: 'Wages',
+    label: 'pays employees',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Essential Retail',
+    to: 'Healthcare',
+    label: 'lowers reliance on',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+  {
+    from: 'Manufacturing',
+    to: 'Essential Retail',
+    label: 'wholesales to',
+    sdgs: [],
+    invesments: [],
+    header: '',
+    text: '',
+  },
+]
 ---
-<section id="window">
-  <div id="sigma-container"></div>
-</section>
+<community-graph data-nodes={JSON.stringify(NODES)} data-edges={JSON.stringify(EDGES)}>
+  <section id="window">
+    <div id="sigma-container"></div>
+  </section>
+<community-graph/>
 
 <style lang:scss>
   #window {
@@ -27,80 +206,40 @@
   import ForceSupervisor from "graphology-layout-force/worker";
   import Sigma from "sigma";
 
-  import iconHouse from '@material-symbols/svg-400/rounded/house.svg'
-  import iconHouses from '@material-symbols/svg-400/rounded/other_houses.svg'
-  import iconEducation from '@material-symbols/svg-400/rounded/school.svg'
-  import iconFactory from '@material-symbols/svg-400/rounded/factory.svg'
-  import iconLaw from '@material-symbols/svg-400/rounded/gavel.svg'
-  import iconHealth from '@material-symbols/svg-400/rounded/healing.svg'
-  import iconGovernment from '@material-symbols/svg-400/rounded/account_balance.svg'
-  import iconIdentity from '@material-symbols/svg-400/rounded/fingerprint.svg'
-  import iconWages from '@material-symbols/svg-400/rounded/payments.svg'
-  import iconPolice from '@material-symbols/svg-400/rounded/local_police.svg'
-  import iconGrocery from '@material-symbols/svg-400/rounded/grocery.svg'
-
   const container = document.getElementById("sigma-container");
   const graph = new Graph();
 
-  const dN = {
-    size: 20,
-    color: '#edede9',
-    type: "image",
-    forceLabel: true,
+  class CommunityGraph extends HTMLElement {
+    constructor() {
+      super();
+
+      console.log(this.dataset.nodes)
+
+      JSON.parse(this.dataset.nodes).forEach(node => {
+        graph.addNode(
+          node.name, {
+          size: 20,
+          color: '#edede9',
+          type: "image",
+          forceLabel: true,
+          label: node.label,
+          image: node.icon,
+        });
+      })
+
+      JSON.parse(this.dataset.edges).forEach(edge => {
+        graph.addEdge(edge.from, edge.to, {
+          type: "arrow",
+          color: '#323835',
+          size: 5,
+          forceLabel: true,
+          label: edge.label,
+        });
+      })
+    }
   }
 
-  const dE = {
-    type: "arrow",
-    color: '#323835',
-    size: 5,
-    forceLabel: true,
-  }
-
-  function newNode(label, icon) {
-    graph.addNode(label.toLowerCase(), {
-      ...dN,
-      label: label,
-      image: icon.src,
-    });
-  }
-
-  function newEdge(from, action, to) {
-    const fromId = from.toLowerCase()
-    const toId = to.toLowerCase()
-
-    graph.addEdge(fromId, toId, {
-      ...dE,
-      label: action
-    });
-  }
-
-  graph.addNode("neighborhoods", {...dN, label: "Neighborhoods", image: iconHouses.src});
-  graph.addNode("housing", {...dN, label: "Housing", image: iconHouse.src});
-  graph.addNode("education", {...dN, label: "Education", image: iconEducation.src});
-  graph.addNode("manufacturing", {...dN, label: "Manufacturing", image: iconFactory.src});
-  graph.addNode("law", {...dN, label: "Law", image: iconLaw.src});
-  graph.addNode("healthcare", {...dN, label: "Healthcare", image: iconHealth.src});
-  graph.addNode("legislators", {...dN, label: "Legislators", image: iconGovernment.src});
-  graph.addNode("police", {...dN, label: "Police", image: iconPolice.src});
-  graph.addNode("identity", {...dN, label: "Identity", image: iconIdentity.src});
-  graph.addNode("wages", {...dN, label: "Wages", image: iconWages.src});
-
-  graph.addEdge("neighborhoods", "housing", {...dE, label: "contain"});
-  graph.addEdge("housing", "identity", {...dE, label: "builds belonging"});
-  graph.addEdge("legislators", "law", {...dE, label: "enact"})
-  graph.addEdge("law", "manufacturing", {...dE, label: "protects"});
-  graph.addEdge("education", "law", {...dE, label: "ensures quality"});
-  graph.addEdge("identity", "neighborhoods", {...dE, label: "defines uniqueness"});
-  graph.addEdge("healthcare", "manufacturing", {...dE, label: "is an opportunity for"});
-  graph.addEdge("police", "law", {...dE, label: "enforces"});
-  graph.addEdge("legislators", "police", {...dE, label: "limits"});
-  graph.addEdge("law", "housing", {...dE, label: "protects"});
-
-  newNode('Essential Retail', iconGrocery);
-  newEdge('Essential Retail', 'pays employees', 'Wages')
-  newEdge('Essential Retail', 'lowers reliance on', 'Healthcare')
-
-  newEdge("Manufacturing", "wholesales to", "Essential Retail")
+  customElements.define('community-graph', CommunityGraph);
 
   graph.nodes().forEach((node, i) => {
     const angle = (i * 2 * Math.PI) / graph.order;
