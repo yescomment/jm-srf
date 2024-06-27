@@ -178,9 +178,26 @@ const EDGES = [
   },
 ]
 ---
+<head>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css"> <!-- animatedModel.js -->
+</head>
 <community-graph data-nodes={JSON.stringify(NODES)} data-edges={JSON.stringify(EDGES)}>
   <section id="window">
     <div id="sigma-container"></div>
+  </section>
+  <section>
+    <!--DEMO01-->
+    <div id="animatedModal">
+        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+        <div class="close-animatedModal">
+            CLOSE MODAL
+        </div>
+        <div class="modal-content">
+                  <!--Your modal content goes here-->
+        </div>
+    </div>
+
+    <a id="demo01" href="#animatedModal">DEMO01</a>
   </section>
 <community-graph/>
 
@@ -191,7 +208,6 @@ const EDGES = [
   }
 
   #sigma-container {
-    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
@@ -308,4 +324,11 @@ const EDGES = [
   });
 
   layout.start();
+</script>
+
+<!-- animatedModal -->
+<script is:inline src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script is:inline src="/scripts/animatedModal.min.js"></script>
+<script>
+  $("#demo01").animatedModal();
 </script>
