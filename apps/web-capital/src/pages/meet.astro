@@ -1,5 +1,5 @@
 ---
-import { TextSection, TitleSection, ParallaxSection } from 'jm-srf-components';
+import { TextSection, TitleSection, ParallaxSection, FlipHeadshot } from 'jm-srf-components';
 import { Picture, Image } from 'astro:assets';
 import Layout from '../layouts/Page.astro';
 
@@ -63,6 +63,15 @@ const seo = {
   <TextSection>
     <h2>Work With Us</h2>
     <p>SRF Capital draws on investors, advanced management professionals, operators, and research professionals from diverse and international backgrounds who share our passion to invest in opportunities that reimagine the creation of wealth and health in more equitable ways. Come partner and work with a team where accountability and outcomes are rooted in communities’ values, aspirations, and visions and where we believe <strong>love and an understanding of culture, history and legacy is our competitive advantage</strong>.</p>
+
+    <section class="bios headgrid">
+      <FlipHeadshot href='/meet/dorian' image={headshotDorian} name="Dorian Burton"/>
+      <FlipHeadshot href='/meet/napoleon' image={headshotNapoleon} name="Napoleon Wallace"/>
+      <FlipHeadshot href='/meet/charles' image={headshotCharles} name="Charles Rush"/>
+      <FlipHeadshot href='/meet/chris' image={headshotChris} name="Chris Preston"/>
+      <FlipHeadshot href='/meet/david' image={headshotDavid} name="David Dix"/>
+      <FlipHeadshot href='/meet/ronald' image={headshotRonald} name="Ronald Miller"/>
+    </section>
 
     <section class="bios">
       <div class="bio" id="dorian">
