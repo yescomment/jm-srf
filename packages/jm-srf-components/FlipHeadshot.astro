@@ -6,43 +6,28 @@ const {
 	backText = `Meet ${name.split(" ")[0]}`,
 } = Astro.props
 
-import { getImage } from 'astro:assets'
-
-const optimizedImage = await getImage({
-	src: image,
-	format: 'webp',
-})
+import { Image } from 'astro:assets'
 ---
 <a href={href} class="holder">
-	<div class="front"></div>
+	<Image src={image} alt={`Portrait of ${name}`}/>
 	<h3>{name}</h3>
   <slot/>
 </a>
 
 <style lang="scss">
 	a {
+		perspective: 800px;
+	}
+
+	img {
 		display: block;
 		position: relative;
-		background-size: cover;
-		transition: transform 1s;
-		backface-visibility: hidden;
+		transition: transform 1s, filter 1.5s;
 
-		&:hover {
-			transform: rotateY(180deg);
-		}
+	}
 
-		&::after {
-			content: 'Meet NAME';
-			display: block;
-			text-align: center;
-			align-content: center;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			background-color: var(--color-pop);
-			transform: rotateY(180deg);
-		}
+	a:hover img {
+		transform: rotateY(16deg) rotateX(3deg);
+		filter: brightness(1.2);
 	}
 </style>
