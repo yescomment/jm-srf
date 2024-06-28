@@ -57,10 +57,7 @@ h3 {
 h4 {
 	/* more like tags */
 	text-transform: uppercase;
-	background-color: var(--color-primary);
-	color: var(--color-light);
-	padding: 0.25em 0.5em;
-	display: inline-block;
+	border-bottom: 3px solid currentColor;
 }
 
 section.bright :is(h3, h4) {
