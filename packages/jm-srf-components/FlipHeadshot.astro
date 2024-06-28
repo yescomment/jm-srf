@@ -2,6 +2,7 @@
 const {
 	image,
 	name,
+	title,
 	href,
 	backText = `Meet ${name.split(" ")[0]}`,
 } = Astro.props
@@ -10,13 +11,28 @@ import { Image } from 'astro:assets'
 ---
 <a href={href} class="holder">
 	<Image src={image} alt={`Portrait of ${name}`}/>
-	<h3>{name}</h3>
+	<p class="name">{name}</p>
+	<p class="title">{title}</p>
   <slot/>
 </a>
 
 <style lang="scss">
 	a {
 		perspective: 800px;
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-pop);
+		}
+	}
+
+	.name {
+		font-size: 1.2rem;
+		font-weight: 600;
+	}
+
+	.title {
+		font-weight: 300;
 	}
 
 	img {
