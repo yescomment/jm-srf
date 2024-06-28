@@ -15,5 +15,5 @@ export { default as TextSection } from './TextSection.astro'
 export { default as BrightSection } from './BrightSection.astro'
 export { default as ParallaxSection } from './ParallaxSection.astro'
 export { default as FlipHeadshot } from './FlipHeadshot.astro'
-
+export { default as BioLayout } from './BioLayout.astro'
 export { default as CapitalScroller } from './CapitalScroller.astro'

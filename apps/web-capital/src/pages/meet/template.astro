@@ -1,0 +1,32 @@
+---
+import { BioLayout } from 'jm-srf-components';
+import Layout from '../../layouts/Page.astro';
+
+import headshot from '@headshots/TK.jpg'
+
+const seo = {
+	title: 'SRF ❦ TK',
+};
+---
+
+<Layout {seo}>
+  <BioLayout
+    image={headshot}
+    fullName='TK'
+    title='TK'
+  >
+    <p class="experience">TK</p>
+
+    <h2>Education</h2>
+    <ul>
+      <li>TK</li>
+      <li>TK</li>
+      <li>TK</li>
+      <li>TK</li>
+    </ul>
+
+    <h2>TK</h2>
+    <p>TK</p>
+  </BioLayout>
+</Layout>
+

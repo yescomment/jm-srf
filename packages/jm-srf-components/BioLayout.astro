@@ -1,0 +1,61 @@
+---
+import { TextSection } from 'jm-srf-components'
+
+const {
+  image,
+  fullName,
+  title,
+} = Astro.props
+
+import { Picture } from 'astro:assets'
+---
+<TextSection>
+  <nav>
+    <a href="/meet#team">← Back to the SRF Team</a>
+  </nav>
+  <h1>Meet {fullName}</h1>
+  <h2>{title}</h2>
+  <div class="bio" id="dorian">
+    <Picture src={image} alt={`Portrait of ${fullName}`}/>
+    <div class="text">
+      <slot/>
+    </div>
+  </div>
+  <nav>
+    <a href="/meet#team">← Back to the SRF Team</a>
+  </nav>
+</TextSection>
+
+<style lang="scss">
+  .bio {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-block: 3rem;
+
+    @media (max-width: 500px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h3:first-child {
+      margin-top: 0;
+    }
+
+    :global(img) {
+      position: sticky;
+      top: 4rem;
+    }
+  }
+
+  :global(img) {
+    height: auto;
+  }
+
+  :global(p.experience) {
+    font-size: 1.5rem;
+    font-weight: 200;
+    font-style: italic;
+  }
+</style>
