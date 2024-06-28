@@ -63,7 +63,10 @@ const EDGES = [
     from: 'Neighborhoods',
     to: 'Housing',
     label: 'contain',
-    sdgs: [],
+    sdgs: [
+      'Sustainable Cities & Communities',
+      'Good Heath & Wellbeing',
+    ],
     invesments: [],
     header: '',
     text: '',
@@ -72,7 +75,9 @@ const EDGES = [
     from: 'Housing',
     to: 'Identity',
     label: 'builds belonging',
-    sdgs: [],
+    sdgs: [
+      'Good Heath & Wellbeing',
+    ],
     invesments: [],
     header: '',
     text: '',
@@ -81,7 +86,9 @@ const EDGES = [
     from: 'Legislators',
     to: 'Law',
     label: 'enact',
-    sdgs: [],
+    sdgs: [
+      'Reduced Inequalities',
+    ],
     invesments: [],
     header: '',
     text: '',
@@ -185,20 +192,18 @@ const EDGES = [
   <section id="window">
     <div id="sigma-container"></div>
   </section>
-  <section>
-    <!--DEMO01-->
-    <div id="animatedModal">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-        <div class="close-animatedModal">
-            CLOSE MODAL
-        </div>
-        <div class="modal-content">
-                  <!--Your modal content goes here-->
-        </div>
-    </div>
+  {EDGES.map(edge =>
+    <div id={`${edge.from}-${edge.to}-modal`}>
+      <a id={`open-${edge.from}-${edge.to}-modal`} href={`#${edge.from}-${edge.to}-modal`}>Open</a>
+      <div class={`close-${edge.from}-${edge.to}-modal`}>
+        CLOSE MODAL
+      </div>
+      <h1>{edge.from} {edge.label} {edge.to}</h1>
+      <h2>SDGs Activated</h2>
 
-    <a id="demo01" href="#animatedModal">DEMO01</a>
-  </section>
+      <h2>Active Investments</h2>
+    </div>
+  )}
 <community-graph/>
 
 <style lang:scss>
@@ -243,14 +248,21 @@ const EDGES = [
         });
       })
 
+      window.edgeIdToModalId = {}
+
       JSON.parse(this.dataset.edges).forEach(edge => {
-        graph.addEdge(edge.from, edge.to, {
+        let edgeId = graph.addEdge(edge.from, edge.to, {
+          id: `${edge.from}-${edge.to}`,
           type: "arrow",
-          color: '#323835',
+          color: '#223749',
           size: 5,
           forceLabel: true,
           label: edge.label,
         });
+
+        let modalId = `${edge.from}-${edge.to}-modal`
+
+        window.edgeIdToModalId[edgeId] = modalId
       })
     }
   }
@@ -266,6 +278,7 @@ const EDGES = [
 
   // RENDERING
 
+  let hoveredEdge = null
   const renderer = new Sigma(graph, container, {
     nodeProgramClasses: {
       image: createNodeImageProgram(),
@@ -275,8 +288,12 @@ const EDGES = [
     },
     renderEdgeLabels: true,
     mouseWheelEnabled: false,
-    enableEdgeHovering: true,
-    enableEdgeClicking: true,
+    enableEdgeEvents: true,
+    edgeReducer(edge, data) {
+      const res = { ...data };
+      if (edge === hoveredEdge) res.color = "#719aaa";
+      return res;
+    },
   });
 
   let draggedNode: string | null = null;
@@ -286,6 +303,24 @@ const EDGES = [
     isDragging = true;
     draggedNode = e.node;
     graph.setNodeAttribute(draggedNode, "highlighted", true);
+  });
+
+  renderer.on("enterEdge", ({ edge }) => {
+    hoveredEdge = edge;
+    renderer.refresh();
+  });
+
+  renderer.on("leaveEdge", ({ edge }) => {
+    hoveredEdge = null;
+    renderer.refresh();
+  });
+
+  renderer.on("clickEdge", ({ edge }) => {
+    const modalId = window.edgeIdToModalId[edge]
+    console.log('modalId', modalId)
+    console.log(document.querySelector(`#open-${modalId}`))
+    document.querySelector(`#open-${modalId}`).click()
+    console.log(edge)
   });
 
   // On mouse move, if the drag mode is enabled, we change the position of the draggedNode
@@ -327,11 +362,16 @@ const EDGES = [
   });
 
   layout.start();
+
+  Object.values(window.edgeIdToModalId).map(modalId => {
+    let openLink = document.querySelector(`#open-${modalId}`)
+    console.log('openLink', openLink)
+    if (openLink) {
+      openLink.animatedModal();
+    }
+  })
 </script>
 
 <!-- animatedModal -->
 <script is:inline src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script is:inline src="/scripts/animatedModal.js"></script>
-<script>
-  $("#demo01").animatedModal();
-</script>
