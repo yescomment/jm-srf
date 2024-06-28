@@ -192,18 +192,28 @@ const EDGES = [
   <section id="window">
     <div id="sigma-container"></div>
   </section>
-  {EDGES.map(edge =>
-    <div id={`${edge.from}-${edge.to}-modal`}>
-      <a id={`open-${edge.from}-${edge.to}-modal`} href={`#${edge.from}-${edge.to}-modal`}>Open</a>
-      <div class={`close-${edge.from}-${edge.to}-modal`}>
-        CLOSE MODAL
-      </div>
-      <h1>{edge.from} {edge.label} {edge.to}</h1>
-      <h2>SDGs Activated</h2>
 
-      <h2>Active Investments</h2>
+    <div class="popup" id={`Neighborhoods-Housing-modal`}>
+      <a id={`open-Neighborhoods-Housing-modal`} href={`#Neighborhoods-Housing-modal`}>Open</a>
+      <div class={`close-Neighborhoods-Housing-modal`}>
+        ×
+      </div>
+      <h1>Neighborhoods contain → Housing</h1>
+      <h2>SDGs Activated</h2>
+      <h3>Reduced Inequalities</h3>
+      <p>Accessible design becomes more efficient with more residents.</p>
+      <p>Housing available for all means fewer without a home.</p>
+
+      <h3>Sustainable Cities & Communities</h3>
+      <p>More efficient infrastructure with shorter distances and higher usage.</p>
+
+      <h3>Active Investments</h3>
+      <ul>
+        <li>TK</li>
+        <li>TK</li>
+      </ul>
     </div>
-  )}
+
 <community-graph/>
 
 <style lang:scss>
@@ -319,7 +329,7 @@ const EDGES = [
     const modalId = window.edgeIdToModalId[edge]
     console.log('modalId', modalId)
     console.log(document.querySelector(`#open-${modalId}`))
-    document.querySelector(`#open-${modalId}`).click()
+    document.querySelector(`#open-Neighborhoods-Housing-modal`).click()
     console.log(edge)
   });
 
@@ -375,3 +385,6 @@ const EDGES = [
 <!-- animatedModal -->
 <script is:inline src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script is:inline src="/scripts/animatedModal.js"></script>
+<script>
+  $("#open-Neighborhoods-Housing-modal").animatedModal();
+</script>
