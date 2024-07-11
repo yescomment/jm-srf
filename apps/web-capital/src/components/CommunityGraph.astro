@@ -316,8 +316,7 @@ const EDGES: Array<EdgeDef> = [
           label: edge.label,
         });
 
-        let modalId = `${edge.from}-${edge.to}-modal`
-
+        let modalId = `modal-${edge.from}-${edge.to}`
         window.edgeIdToModalId[edgeId] = modalId
       })
     }
@@ -325,15 +324,16 @@ const EDGES: Array<EdgeDef> = [
 
   customElements.define('community-graph', CommunityGraph);
 
+  // RENDERING
+
+  // scatter nodes to start
   graph.nodes().forEach((node, i) => {
     const angle = (i * 2 * Math.PI) / graph.order;
     graph.setNodeAttribute(node, "x", 100 * Math.cos(angle));
     graph.setNodeAttribute(node, "y", 100 * Math.sin(angle));
   });
 
-
-  // RENDERING
-
+  // while running
   let hoveredEdge = null
   const renderer = new Sigma(graph, container, {
     nodeProgramClasses: {
@@ -431,6 +431,3 @@ const EDGES: Array<EdgeDef> = [
 <!-- animatedModal -->
 <script is:inline src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script is:inline src="/scripts/animatedModal.js"></script>
-<script>
-  $("#open-Neighborhoods-Housing-modal").animatedModal();
-</script>
