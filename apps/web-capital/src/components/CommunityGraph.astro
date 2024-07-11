@@ -371,14 +371,6 @@ const EDGES: Array<EdgeDef> = [
     renderer.refresh();
   });
 
-  renderer.on("clickEdge", ({ edge }) => {
-    const modalId = window.edgeIdToModalId[edge]
-    console.log('modalId', modalId)
-    console.log(document.querySelector(`#open-${modalId}`))
-    document.querySelector(`#open-Neighborhoods-Housing-modal`).click()
-    console.log(edge)
-  });
-
   // On mouse move, if the drag mode is enabled, we change the position of the draggedNode
   renderer.getMouseCaptor().on("mousemovebody", (e) => {
     if (!isDragging || !draggedNode) return;
@@ -417,15 +409,20 @@ const EDGES: Array<EdgeDef> = [
     }
   });
 
-  layout.start();
-
+  // POPUP MODALS
   Object.values(window.edgeIdToModalId).map(modalId => {
-    let openLink = document.querySelector(`#open-${modalId}`)
-    console.log('openLink', openLink)
-    if (openLink) {
-      openLink.animatedModal();
-    }
+    $(`#open-${modalId}`).animatedModal();
   })
+
+  renderer.on("clickEdge", ({ edge }) => {
+    const modalId = window.edgeIdToModalId[edge]
+    console.log('modalId', modalId)
+    console.log(document.querySelector(`#open-${modalId}`))
+    document.querySelector(`#open-${modalId}`).click()
+    console.log(edge)
+  });
+
+  layout.start();
 </script>
 
 <!-- animatedModal -->
