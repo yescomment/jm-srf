@@ -58,130 +58,174 @@ const NODES = [
   },
 ]
 
-const EDGES = [
+type SDG = {
+  title: string;
+  deets: string[];
+}
+
+type Investment = {
+  title: string;
+  link: string;
+}
+
+type EdgeDef = {
+  from: string;
+  label: string;
+  to: string;
+  sdgs: SDG[];
+  investments: Investment[];
+}
+
+const EDGES: Array<EdgeDef> = [
   {
-    from: 'Neighborhoods',
-    to: 'Housing',
-    label: 'contain',
+    from: 'Housing',
+    label: 'forms',
+    to: 'Neighborhoods',
     sdgs: [
-      'Sustainable Cities & Communities',
-      'Good Heath & Wellbeing',
+      {
+        title: 'Reduced Inequalities',
+        deets: [
+          'Accessible design becomes more efficient with more residents.',
+          'Housing available for all means fewer without a home.',
+        ],
+      },
+      {
+        title: 'Sustainable Cities & Communities',
+        deets: [
+          'More efficient infrastructure with shorter distances and higher usage.'
+        ],
+      },
     ],
-    investments: [],
-    header: '',
-    text: '',
+    investments: [
+      {
+        title: '',
+        link: '',
+      },
+    ],
   },
   {
     from: 'Housing',
     to: 'Identity',
     label: 'builds belonging',
     sdgs: [
-      'Good Heath & Wellbeing',
+      {
+        title: 'Good Health & Wellbeing',
+        deets: [],
+      },
     ],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Legislators',
     to: 'Law',
     label: 'enact',
     sdgs: [
-      'Reduced Inequalities',
+      {
+        title: 'Reduced Inequalities',
+        deets: [],
+      },
     ],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Law',
     to: 'Manufacturing',
     label: 'protects',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Education',
     to: 'Law',
     label: 'ensures quality',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Identity',
     to: 'Neighborhoods',
     label: 'defines uniqueness',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Healthcare',
     to: 'Manufacturing',
     label: 'is an opportunity for',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Police',
     to: 'Law',
     label: 'enforces',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Legislators',
     to: 'Police',
     label: 'limits',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Law',
     to: 'Housing',
     label: 'protects',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Essential Retail',
     to: 'Wages',
     label: 'pays employees',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Essential Retail',
     to: 'Healthcare',
     label: 'lowers reliance on',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
   {
     from: 'Manufacturing',
     to: 'Essential Retail',
     label: 'wholesales to',
-    sdgs: [],
+    sdgs: [{
+      title: '',
+      deets: [],
+    }],
     investments: [],
-    header: '',
-    text: '',
   },
 ]
 ---
@@ -193,15 +237,20 @@ const EDGES = [
     <div id="sigma-container"></div>
   </section>
 
-    <div class="popup" id={`Neighborhoods-Housing-modal`}>
-      <a id={`open-Neighborhoods-Housing-modal`} href={`#Neighborhoods-Housing-modal`}>Open</a>
-      <div class={`close-Neighborhoods-Housing-modal`}>
+  {EDGES.map(edge =>
+    <div class="popup" id={`modal-${edge.from}-${edge.to}`}>
+      <a id={`open-modal-${edge.from}-${edge.to}`} href={`#modal-${edge.from}-${edge.to}`}>Info: </a>
+      <div class={`close-modal-${edge.from}-${edge.to}`}>
         ×
       </div>
-      <h1>Neighborhoods contain → Housing</h1>
-      <h2>SDGs Activated</h2>
-      <h3>Reduced Inequalities</h3>
-      <p>Accessible design becomes more efficient with more residents.</p>
+      <h1>{edge.from} {edge.label} → {edge.to}</h1>
+      <h2><a href="/whealth+#sdgs" target="_blank">SDGs</a> Activated</h2>
+      ${edge.sdgs.map(sdg =>
+        <>
+          <h3>{sdg.title}</h3>
+          {sdg?.deets.map(deet => <p>{deet}</p>)}
+        </>
+      )}
       <p>Housing available for all means fewer without a home.</p>
 
       <h3>Sustainable Cities & Communities</h3>
@@ -209,10 +258,10 @@ const EDGES = [
 
       <h3>Active Investments</h3>
       <ul>
-        <li>TK</li>
-        <li>TK</li>
+        ${edge.investments.map(investment => <li>{investment}</li>)}
       </ul>
     </div>
+  )}
 
 <community-graph/>
 
@@ -244,16 +293,13 @@ const EDGES = [
     constructor() {
       super();
 
-      console.log(this.dataset.nodes)
-
       JSON.parse(this.dataset.nodes).forEach(node => {
-        graph.addNode(
-          node.name, {
+        graph.addNode(node.name, {
           size: 20,
           color: '#edede9',
           type: "image",
           forceLabel: true,
-          label: node.label,
+          label: node.name,
           image: node.icon,
         });
       })
