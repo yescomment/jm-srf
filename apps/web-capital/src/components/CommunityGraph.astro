@@ -267,7 +267,9 @@ const EDGES: Array<EdgeDef> = [
           <h2>Active Investments</h2>
           <ul>
             {edge.investments.map(investment =>
-              <li>{investment}</li>
+              investment?.link
+              ? <li><a href={investment.link} target="_blank">{investment}</li></a>
+              : <li>{investment}</li>
             )}
           </ul>
         </>
