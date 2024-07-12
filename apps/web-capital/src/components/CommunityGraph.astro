@@ -432,7 +432,14 @@ const EDGES: Array<EdgeDef> = [
     document.querySelector(`#open-${modalId}`).click()
   });
 
-  layout.start();
+  function startLayout() {
+    layout.start();
+  }
+
+  // start graph movement when scrolled to or after 20sec, whichever sooner
+  const graphVisibleObserver = new IntersectionObserver(startLayout)
+  graphVisibleObserver.observe(container)
+  setTimeout(startLayout, 20000)
 </script>
 
 <!-- animatedModal -->
