@@ -147,8 +147,20 @@ const EDGES: Array<EdgeDef> = [
           'Community members who feel they own their community, build that community.'
         ],
       },
+      {
+        number: 16,
+        notes: [
+          'Volunteer culture fosters neighbors who know each others’ needs.',
+          'Community participation strengthens civic engagement.',
+          'Civic belonging promotes peaceful and inclusive society.',
+        ],
+      },
     ],
-    investments: [],
+    investments: [
+      'Develop community centers and support services.',
+      'Fund initiatives promoting civic engagement.',
+      'Fund community-building events and initiatives.',
+    ],
   },
   {
     from: 'Legislators',
@@ -157,77 +169,193 @@ const EDGES: Array<EdgeDef> = [
     sdgs: [
       {
         number: 10,
-        notes: [],
+        notes: [
+          'Formalize the reduction of inequality and promotion justice.',
+        ],
+      },
+      {
+        number: 16,
+        notes: [
+          'Prevent justice from becoming mere charity.',
+        ],
       },
     ],
-    investments: [],
+    investments: [
+      'Support diversity and anti-discrimination programs.',
+      'Promote diversity training.'
+    ],
   },
   {
     from: 'Law',
     label: 'ensures safe',
     to: 'Manufacturing',
-    sdgs: [],
+    sdgs: [
+      {
+        number: 13,
+        notes: [
+          'Regulation protects the envoriment from industry.',
+          'Climate protection incentivizes innovation in materials and processes.',
+        ]
+      },
+      {
+        number: 14,
+        notes: [
+          'Water supplies are protected from pollution',
+        ]
+      },
+      {
+        number: 15,
+        notes: [
+          'Land is seen as a limited, shared resource.',
+        ]
+      }
+    ],
     investments: [],
   },
   {
     from: 'Education',
     label: 'ensures quality',
     to: 'Law',
-    sdgs: [],
-    investments: [],
+    sdgs: [
+      {
+        number: 16,
+        notes: [
+          'Comprehensive violence prevention strategies require research and wisdom.'
+        ]
+      }
+    ],
+    investments: [
+      'Support diversity and anti-discrimination programs.',
+      'Promote diversity training.',
+      'Develop and support violence prevention programs.',
+      'Fund scholarship programs and support affordable education.',
+    ],
+  },
+  {
+    from: 'Education',
+    label: 'empowers self-',
+    to: 'Healthcare',
+    sdgs: [
+      {
+        number: 3,
+        notes: [
+          'Public health education campaigns promotes health literacy.'
+        ]
+      }
+    ],
+    investments: [
+      'Fund public health education initiatives.',
+      'Fund scholarship programs and support affordable education.',
+    ],
   },
   {
     from: 'Identity',
     label: 'defines uniqueness',
     to: 'Neighborhoods',
-    sdgs: [],
-    investments: [],
+    investments: [
+      'Fund early childhood education infrastructure.',
+      'Fund grants for artists, makers, and local connectors.',
+      'Fund scholarship programs and support affordable education.',
+    ],
   },
   {
     from: 'Healthcare',
     label: 'is an opportunity for',
     to: 'Manufacturing',
-    sdgs: [],
+    sdgs: [
+      {
+        number: 3,
+        notes: [
+          'Public health education campaigns promotes health literacy.'
+        ]
+      }
+    ],
     investments: [],
   },
   {
     from: 'Police',
     label: 'enforce',
     to: 'Law',
-    sdgs: [],
-    investments: [],
+    sdgs: [
+      {
+        number: 16,
+        notes: [
+          'Anti-discrimination laws must be enforced.',
+        ]
+      }
+    ],
+    investments: [
+      'Support diversity and anti-discrimination programs.',
+      'Promote diversity training.',
+    ],
   },
   {
     from: 'Legislators',
     label: 'limit',
     to: 'Police',
-    sdgs: [],
-    investments: [],
+    sdgs: [
+      {
+        number: 16,
+        notes: [
+          'Law itself must limit the law enforcers.'
+        ]
+      }
+    ],
+    investments: [
+      'Develop and support violence prevention programs.',
+      'Fund community-building events and initiatives.',
+    ],
   },
   {
     from: 'Law',
     label: 'protects',
     to: 'Housing',
-    sdgs: [],
-    investments: [],
+    // TODO
   },
   {
     from: 'Essential Retail',
     label: 'pays employees',
     to: 'Wages',
-    sdgs: [],
+    sdgs: [
+      {
+        number: 1,
+        notes: [
+          'Reduce poverty with decent work.'
+        ]
+      },
+      {
+        number: 8,
+        notes: [
+          'Quality jobs with fair wages allow families to live with dignity.'
+        ]
+      }
+    ],
     investments: [
-      'Support businesses that pay Investible wages.'
+      'Support businesses that pay Investible wages.',
     ],
   },
   {
     from: 'Essential Retail',
     label: 'lowers reliance on',
     to: 'Healthcare',
-    sdgs: [],
+    sdgs: [
+      {
+        number: 2,
+        notes: [
+          'Urban farming and local food markets form resilient, distributed food networks.',
+        ]
+      },
+      {
+        number: 11,
+        notes: [
+          'Sustainable agriculture is integral to resilient cities.',
+        ]
+      },
+    ],
     investments: [
       'Invest in positive social determinants of health.',
       'Invest in subsidized healthy food.',
+      'Invest in urban agriculture and local food systems.',
     ],
   },
   {
@@ -238,13 +366,16 @@ const EDGES: Array<EdgeDef> = [
       {
         number: 3,
         notes: [
-          ''
+          'Ensure healthy lives and promote well-being.'
         ]
       },
     ],
     investments: [
+      'Support public health insurance programs.',
       'Invest in positive social determinants of health.',
+      'Invest in community health center infrastructure.',
       'Provide subsidies for essential, healthy goods and services.',
+      'Support the development of universal healthcare systems.',
     ],
   },
   {
