@@ -237,10 +237,13 @@ const EDGES: Array<EdgeDef> = [
     <div id="sigma-container"></div>
   </section>
 
-  {EDGES.map(edge =>
-    <div class="popup" id={`modal-${edge.from}-${edge.to}`}>
-      <a id={`open-modal-${edge.from}-${edge.to}`} href={`#modal-${edge.from}-${edge.to}`}>Info: </a>
-      <div class={`close-modal-${edge.from}-${edge.to}`}>
+  {EDGES.map(edge => {
+
+    const modalId = `modal-${edge.from}-${edge.to}`.replace(/[^a-zA-Z0-9-_]/g, '')
+
+    return <div class="popup" id={modalId}>
+      <a id={`open-${modalId}`} href={`#${modalId}`}></a>
+      <div class={`close-${modalId}`}>
         ×
       </div>
       <h1>{edge.from} {edge.label} → {edge.to}</h1>
@@ -261,7 +264,7 @@ const EDGES: Array<EdgeDef> = [
         {edge.investments.map(investment => <li>{investment}</li>)}
       </ul>
     </div>
-  )}
+  })}
 
 <community-graph/>
 
@@ -292,33 +295,41 @@ const EDGES: Array<EdgeDef> = [
   class CommunityGraph extends HTMLElement {
     constructor() {
       super();
+      if (!window.edgeIdToModalId || Object.keys(window.edgeIdToModalId).length === 0) {
+        window.edgeIdToModalId = {}
+      }
 
-      JSON.parse(this.dataset.nodes).forEach(node => {
-        graph.addNode(node.name, {
-          size: 20,
-          color: '#edede9',
-          type: "image",
-          forceLabel: true,
-          label: node.name,
-          image: node.icon,
-        });
-      })
+      if (this.dataset?.nodes?.length) {
+        JSON.parse(this.dataset.nodes).forEach(node => {
+          graph.addNode(node.name, {
+            size: 20,
+            color: '#edede9',
+            type: "image",
+            forceLabel: true,
+            label: node.name,
+            image: node.icon,
+          });
+        })
+      }
 
-      window.edgeIdToModalId = {}
+      if (this.dataset?.edges?.length) {
+        JSON.parse(this.dataset.edges).forEach(edge => {
+          let edgeId = graph.addEdge(edge.from, edge.to, {
+            id: `${edge.from}-${edge.to}`,
+            type: "arrow",
+            color: '#223749',
+            size: 5,
+            forceLabel: true,
+            label: edge.label,
+          });
 
-      JSON.parse(this.dataset.edges).forEach(edge => {
-        let edgeId = graph.addEdge(edge.from, edge.to, {
-          id: `${edge.from}-${edge.to}`,
-          type: "arrow",
-          color: '#223749',
-          size: 5,
-          forceLabel: true,
-          label: edge.label,
-        });
+          console.log('edge created:', edgeId)
 
-        let modalId = `modal-${edge.from}-${edge.to}`
-        window.edgeIdToModalId[edgeId] = modalId
-      })
+          let modalId = `modal-${edge.from}-${edge.to}`.replace(/[^a-zA-Z0-9-_]/g, '')
+          console.log('modalId', modalId)
+          window.edgeIdToModalId[edgeId] = modalId
+        })
+      }
     }
   }
 
@@ -415,6 +426,8 @@ const EDGES: Array<EdgeDef> = [
   })
 
   renderer.on("clickEdge", ({ edge }) => {
+    console.log('edgeId', edge)
+    console.log('window.edgeIdToModalId', window.edgeIdToModalId)
     const modalId = window.edgeIdToModalId[edge]
     console.log('modalId', modalId)
     console.log(document.querySelector(`#open-${modalId}`))
