@@ -247,18 +247,31 @@ const EDGES: Array<EdgeDef> = [
         ×
       </div>
       <h1>{edge.from} {edge.label} → {edge.to}</h1>
-      <h2><a href="/whealth+#sdgs" target="_blank">SDGs</a> Activated</h2>
-      {edge.sdgs.map(sdg =>
-        <>
-          <h3>{sdg.title}</h3>
-          {sdg?.deets.map(deet => <p>{deet}</p>)}
-        </>
-      )}
 
-      <h2>Active Investments</h2>
-      <ul>
-        {edge.investments.map(investment => <li>{investment}</li>)}
-      </ul>
+      {edge.sdgs?.length > 0 &&
+        <>
+          <h2><a href="/whealth+#sdgs" target="_blank">SDGs</a> Activated</h2>
+          {edge.sdgs.map(sdg =>
+            <>
+              <h3>{sdg.title}</h3>
+              {sdg?.deets.map(deet =>
+                <p>{deet}</p>
+              )}
+            </>
+          )}
+        </>
+      }
+
+      {edge.investments?.length > 0 &&
+        <>
+          <h2>Active Investments</h2>
+          <ul>
+            {edge.investments.map(investment =>
+              <li>{investment}</li>
+            )}
+          </ul>
+        </>
+      }
     </div>
   })}
 
