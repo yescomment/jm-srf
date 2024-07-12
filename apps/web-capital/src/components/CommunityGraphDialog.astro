@@ -114,7 +114,10 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
       <h2><a href="/whealth+#sdgs" target="_blank">SDGs</a> Activated</h2>
       {sdgs.map(sdg =>
         <>
-          <h3>{sdg.title}</h3>
+          <h3 class="sdg">
+            <a class="number" href={SDGS[sdg.number].link} style={`color: ${SDGS[sdg.number].color}`}>{sdg.number}</a>
+            {SDGS[sdg.number].title}
+          </h3>
           {sdg?.notes.map(note =>
             <p>{note}</p>
           )}
