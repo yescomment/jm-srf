@@ -147,7 +147,7 @@ const EDGES: Array<EdgeDef> = [
   },
   {
     from: 'Legislators',
-    label: 'protects',
+    label: 'enact',
     to: 'Law',
     sdgs: [
       {
@@ -159,7 +159,7 @@ const EDGES: Array<EdgeDef> = [
   },
   {
     from: 'Law',
-    label: 'enact',
+    label: 'ensures safe',
     to: 'Manufacturing',
     sdgs: [],
     investments: [],
@@ -201,8 +201,8 @@ const EDGES: Array<EdgeDef> = [
   },
   {
     from: 'Law',
-    to: 'Housing',
     label: 'protects',
+    to: 'Housing',
     sdgs: [],
     investments: [],
   },
