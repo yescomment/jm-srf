@@ -429,8 +429,16 @@ const EDGES: Array<EdgeDef> = [
 
   renderer.on("clickEdge", ({ edge }) => {
     const modalId = window.edgeIdToModalId[edge]
-    document.querySelector(`#open-${modalId}`).click()
+    openModal(modalId)
   });
+
+  function openModal(modalId: string) {
+    document.querySelector(`#open-${modalId}`).click()
+  }
+
+  function closeAllModals() {
+    document.querySelector(`[id^='close-${modalId}'`).click()
+  }
 
   function startLayout() {
     layout.start();
