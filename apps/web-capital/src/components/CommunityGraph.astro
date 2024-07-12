@@ -241,7 +241,7 @@ const EDGES: Array<EdgeDef> = [
 
     const modalId = `modal-${edge.from}-${edge.to}`.replace(/[^a-zA-Z0-9-_]/g, '')
 
-    return <div class="popup" id={modalId}>
+    return <div class="dialog" id={modalId}>
       <a id={`open-${modalId}`} href={`#${modalId}`}></a>
       <div class={`close-${modalId}`}>
         ×
@@ -290,6 +290,32 @@ const EDGES: Array<EdgeDef> = [
     left: 0;
     height: 100vh;
     width: 100vw;
+  }
+
+  .dialog {
+    background-color: var(--color-light-tinted) !important;
+    background-blend-mode: difference;
+    padding: min(2rem, 10%);
+    color: var(--color-dark-tinted);
+
+    & > * {
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    [class^=close-] {
+      position: sticky;
+      top: 0;
+      text-align: right;
+      color: var(--color-dark-tinted);
+      font-weight: bold;
+      font-size: 32px;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-light);
+      }
+    }
   }
 </style>
 
