@@ -323,10 +323,7 @@ const EDGES: Array<EdgeDef> = [
             label: edge.label,
           });
 
-          console.log('edge created:', edgeId)
-
           let modalId = `modal-${edge.from}-${edge.to}`.replace(/[^a-zA-Z0-9-_]/g, '')
-          console.log('modalId', modalId)
           window.edgeIdToModalId[edgeId] = modalId
         })
       }
@@ -426,13 +423,8 @@ const EDGES: Array<EdgeDef> = [
   })
 
   renderer.on("clickEdge", ({ edge }) => {
-    console.log('edgeId', edge)
-    console.log('window.edgeIdToModalId', window.edgeIdToModalId)
     const modalId = window.edgeIdToModalId[edge]
-    console.log('modalId', modalId)
-    console.log(document.querySelector(`#open-${modalId}`))
     document.querySelector(`#open-${modalId}`).click()
-    console.log(edge)
   });
 
   layout.start();
