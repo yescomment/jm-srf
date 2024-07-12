@@ -427,6 +427,13 @@ const EDGES: Array<EdgeDef> = [
     $(`#open-${modalId}`).animatedModal();
   })
 
+  renderer.on("clickNode", ({ node }) => {
+    const connectedEdges = graph.filterEdges((e) => graph.extremities(e).some((n) => n === node))
+    const randomEdge = connectedEdges[Math.floor(Math.random() * connectedEdges.length)];
+    const modalId = window.edgeIdToModalId[randomEdge]
+    openModal(modalId)
+  });
+
   renderer.on("clickEdge", ({ edge }) => {
     const modalId = window.edgeIdToModalId[edge]
     openModal(modalId)
