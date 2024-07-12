@@ -128,9 +128,7 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
       <h2>Active Investments</h2>
       <ul>
         {investments.map(investment =>
-          investment?.link
-          ? <li><a href={investment.link} target="_blank">{investment}</li></a>
-          : <li>{investment}</li>
+          <li>{investment}</li>
         )}
       </ul>
     </>
