@@ -6,8 +6,14 @@ import { Icon } from 'astro-icon/components'
 import { Button } from 'srf-theme-components';
 import { BaseHtml, Header, Footer, config } from 'jm-srf-components';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
-import Logo from '../components/Logo.astro';
 import settings from '../config/settings';
+
+import logoImpHoriPrimy from '@assets/logos/srf_impact_wordmark_horizontal_primary.svg';
+import logoImpIconPrimy from '@assets/logos/srf_impact_icon_primary.svg';
+import logoImpStacWhite from '@assets/logos/srf_impact_wordmark_stacked_white.svg';
+
+import logoCapHoriPrimy from '@assets/logos/srf_capital_wordmark_horizontal_primary.svg';
+import logoCapStacWhite from '@assets/logos/srf_capital_wordmark_stacked_white.svg';
 
 export interface Props {
 	seo?: BaseHeadProps;
@@ -17,6 +23,8 @@ const { seo } = Astro.props as Props;
 ---
 <BaseHtml seo={seo}>
 	<Header slot="header">
+		<img slot="logo-full" class="logo-full" src={logoImpHoriPrimy.src} alt="SRF Impact Logo">
+		<img slot="logo-icon" class="logo-icon" src={logoImpIconPrimy.src} alt="SRF Impact Logo">
 		<Fragment slot="left">
 			<a href="/about">About</a>
 			<a href="/areas-of-focus">Areas of Focus</a>
@@ -24,11 +32,10 @@ const { seo } = Astro.props as Props;
 			<a href="/get-involved">Get Involved</a>
 			<a href="/whealth-capital-project">The (W)Health Capital Project</a>
 		</Fragment>
-		<img slot="logo-full" class="logo-full" src="/assets/images/srf_impact_wordmark.svg" alt="SRF Impact Logo">
-		<img slot="logo-icon" class="logo-icon" src="/assets/images/srf_impact_stacked.svg" alt="SRF Impact Logo">
 		<Fragment slot="right">
-			<a class="special to-srfcapital" href={config.srfImpactUrl}>
-				<img class="logo" src="/assets/images/srf_capital_wordmark.svg" alt="SRF Capital">
+			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
+			<a class="to-srfimpact" href={config.srfCapitalUrl}>
+				<img class="logo" src={logoCapHoriPrimy.src} alt="SRF Capital">
 			</a>
 		</Fragment>
 	</Header>
@@ -40,7 +47,7 @@ const { seo } = Astro.props as Props;
 			<Icon name="material-symbols:mail-rounded" /> Contact
 		</a>
 		<hr slot="about" />
-		<img class="logo" slot="about" src="/assets/images/srf_impact_wordmark_stacked_white.svg" alt="SRF Impact">
+		<img class="logo" slot="about" src={logoImpStacWhite.src} alt="SRF Impact">
 
 		<a slot="sitenav" href="/about">About</a>
 		<a slot="sitenav" href="/areas-of-focus">Areas of Focus</a>
@@ -49,7 +56,7 @@ const { seo } = Astro.props as Props;
 		<a slot="sitenav" href="/whealth-capital-project">The (W)Health Capital Project</a>
 
 		<a class="to-srfcapital button" slot="othersite" href={config.srfCapitalUrl}>
-			<img class="logo" src="/assets/images/srf_capital_wordmark.svg" alt="SRF Capital">
+			<img class="logo" src={logoCapStacWhite.src} alt="SRF Capital">
 		</a>
 	</Footer>
 </BaseHtml>

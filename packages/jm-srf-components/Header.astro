@@ -3,12 +3,12 @@
 ---
 <header>
   <nav class="left">
+    <a href="/" class="logo-container">
+      <slot name="logo-icon" class="logo-icon">Home</slot>
+      <slot name="logo-full" class="logo-full">Home</slot>
+    </a>
     <slot name="left"/>
   </nav>
-  <a href="/" class="logo-container">
-    <slot name="logo-icon" class="logo-icon">Home</slot>
-    <slot name="logo-full" class="logo-full">Home</slot>
-  </a>
   <nav class="right">
     <slot name="right"/>
   </nav>
@@ -17,9 +17,8 @@
 <style lang="scss">
   header {
     padding: 0 1rem;
-    display: grid;
-    grid-template-columns: 1fr 220px 1fr;
-    grid-template-areas: "left mid right";
+    display: flex;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     height: 3rem;
@@ -37,18 +36,12 @@
     height: 3rem;
     overflow-x: auto;
     white-space: nowrap;
-
-    &.right {
-      justify-content: flex-end;
-    }
   }
 
   .logo-container {
-    background-color: var(--color-primary);
     box-sizing: border-box;
     height: calc(100% + 5px);
     padding: 0.5rem;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 
     :global(.logo-icon) {
       display: none;
@@ -88,6 +81,7 @@
 <style is:global lang="scss">
   // must be global as these are <slot/>s
   nav > a {
+    font-size: 14px;
     text-decoration: none;
     height: 100%;
     display: flex;
@@ -112,21 +106,6 @@
     &.to-srfcapital,
     &.to-srfimpact {
       min-width: 2rem;
-      color: var(--color-light);
-    }
-
-    &.to-srfcapital {
-      background-color: #223749; // --color-primary
-      &:hover {
-        background-color: #223749; // --color-primary-tinted
-      }
-    }
-
-    &.to-srfimpact {
-      background-color: #e74c34; // --color-primary
-      &:hover {
-        background-color: #c93d2f; // --color-primary-tinted
-      }
     }
   }
 </style>
