@@ -1,0 +1,138 @@
+---
+import type { EdgeDef } from './CommunityGraph.astro'
+
+interface Props extends EdgeDef{}
+
+const {
+  to = null,
+  from = null,
+  label = null,
+  sdgs = null,
+  investments = null,
+} = Astro.props
+
+const SDGS = {
+   1: {
+    title: 'No Poverty',
+    color: '#e5243b',
+    link: '/whealth+#sdg1'
+   },
+   2: {
+    title: 'Zero Hunger',
+    color: '#dda63a',
+    link: '/whealth+#sdg2'
+   },
+   3: {
+    title: 'Good Health',
+    color: '#4c9f38',
+    link: '/whealth+#sdg3'
+   },
+   4: {
+    title: 'Quality Education',
+    color: '#c5192d',
+    link: '/whealth+#sdg4'
+   },
+   5: {
+    title: 'Gender Equality',
+    color: '#ff3a21',
+    link: '/whealth+#sdg5'
+   },
+   6: {
+    title: 'Clean Water',
+    color: '#26bde2',
+    link: '/whealth+#sdg6'
+   },
+   7: {
+    title: 'Affordable Energy',
+    color: '#fcc30b',
+    link: '/whealth+#sdg7'
+   },
+   8: {
+    title: 'Decent Work',
+    color: '#a21942',
+    link: '/whealth+#sdg8'
+   },
+   9: {
+    title: 'Industry, Innovation, & Infrastructure',
+    color: '#fd6925',
+    link: '/whealth+#sdg9'
+   },
+  10: {
+    title: 'Reduced Inequalities',
+    color: '#dd1367',
+    link: '/whealth+#sdg10'
+  },
+  11: {
+    title: 'Sustainable Cities',
+    color: '#fd9d24',
+    link: '/whealth+#sdg11'
+  },
+  12: {
+    title: 'Responsible Consumption',
+    color: '#bf8b2e',
+    link: '/whealth+#sdg12'
+  },
+  13: {
+    title: 'Climate Action',
+    color: '#3f7e44',
+    link: '/whealth+#sdg13'
+  },
+  14: {
+    title: 'Life Below Water',
+    color: '#0a97d9',
+    link: '/whealth+#sdg14'
+  },
+  15: {
+    title: 'Life on Land',
+    color: '#56c02b',
+    link: '/whealth+#sdg15'
+  },
+  16: {
+    title: 'Peace, Justice, & Strong Institutions',
+    color: '#00689d',
+    link: '/whealth+#sdg16'
+  },
+  17: {
+    title: 'Partnerships',
+    color: '#19486a',
+    link: '/whealth+#sdg17'
+  },
+}
+
+const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
+---
+
+<div class="dialog" id={modalId}>
+  <a id={`open-${modalId}`} href={`#${modalId}`}></a>
+  <div class={`close-${modalId}`}>
+    ×
+  </div>
+  <h1>{from} {label} → {to}</h1>
+
+  {sdgs?.length > 0 &&
+    <>
+      <h2><a href="/whealth+#sdgs" target="_blank">SDGs</a> Activated</h2>
+      {sdgs.map(sdg =>
+        <>
+          <h3>{sdg.title}</h3>
+          {sdg?.notes.map(note =>
+            <p>{note}</p>
+          )}
+        </>
+      )}
+    </>
+  }
+
+  {investments?.length > 0 &&
+    <>
+      <h2>Active Investments</h2>
+      <ul>
+        {investments.map(investment =>
+          investment?.link
+          ? <li><a href={investment.link} target="_blank">{investment}</li></a>
+          : <li>{investment}</li>
+        )}
+      </ul>
+    </>
+  }
+</div>

@@ -1,4 +1,6 @@
 ---
+import CommunityGraphDialog from './CommunityGraphDialog.astro'
+
 import iconHouse from '@material-symbols/svg-400/rounded/house.svg'
 import iconOtherHouses from '@material-symbols/svg-400/rounded/other_houses.svg'
 import iconSchool from '@material-symbols/svg-400/rounded/school.svg'
@@ -59,8 +61,8 @@ const NODES = [
 ]
 
 type SDG = {
-  title: string;
-  deets: string[];
+  number: number; // 1-17
+  notes: string[];
 }
 
 type Investment = {
@@ -68,13 +70,33 @@ type Investment = {
   link: string;
 }
 
-type EdgeDef = {
+export type EdgeDef = {
   from: string;
   label: string;
   to: string;
   sdgs: SDG[];
   investments: Investment[];
 }
+
+/* SDGs quickref
+   1 : 'No Poverty',
+   2 : 'Zero Hunger',
+   3 : 'Good Health',
+   4 : 'Quality Education',
+   5 : 'Gender Equality',
+   6 : 'Clean Water',
+   7 : 'Affordable Energy',
+   8 : 'Decent Work',
+   9 : 'Industry, Innovation, & Infrastructure',
+  10 : 'Reduced Inequalities',
+  11 : 'Sustainable Cities',
+  12 : 'Responsible Consumption',
+  13 : 'Climate Action',
+  14 : 'Life Below Water',
+  15 : 'Life on Land',
+  16 : 'Peace, Justice, & Strong Institutions',
+  17 : 'Partnerships',
+*/
 
 const EDGES: Array<EdgeDef> = [
   {
@@ -83,34 +105,42 @@ const EDGES: Array<EdgeDef> = [
     to: 'Neighborhoods',
     sdgs: [
       {
-        title: 'Reduced Inequalities',
-        deets: [
+        number: 10,
+        notes: [
           'Accessible design becomes more efficient with more residents.',
           'Housing available for all means fewer without a home.',
         ],
       },
       {
-        title: 'Sustainable Cities & Communities',
-        deets: [
-          'More efficient infrastructure with shorter distances and higher usage.'
+        number: 11,
+        notes: [
+          'More efficient infrastructure with shorter distances and higher usage.',
+        ],
+      },
+      {
+        number: 16,
+        notes: [
+          'Affordable housing brings more permanent residents who build generational belonging.',
+          'Informed residents improve and regluate their own living standards.',
         ],
       },
     ],
     investments: [
       {
-        title: '',
-        link: '',
+        title: 'Invest in affordable housing projects.',
       },
     ],
   },
   {
-    to: 'Identity',
     from: 'Housing',
     label: 'builds belonging',
+    to: 'Identity',
     sdgs: [
       {
-        title: 'Good Health & Wellbeing',
-        deets: [],
+        number: 3,
+        notes: [
+          'Community members who feel they own their community, build that community.'
+        ],
       },
     ],
     investments: [],
@@ -121,8 +151,8 @@ const EDGES: Array<EdgeDef> = [
     to: 'Law',
     sdgs: [
       {
-        title: 'Reduced Inequalities',
-        deets: [],
+        number: 10,
+        notes: [],
       },
     ],
     investments: [],
@@ -201,21 +231,20 @@ const EDGES: Array<EdgeDef> = [
     from: 'Essential Retail',
     label: 'pays employees',
     to: 'Wages',
-    sdgs: [{
-      title: '',
-      deets: [],
-    }],
-    investments: [],
+    sdgs: [],
+    investments: [
+      'Support businesses that pay Investible wages.'
+    ],
   },
   {
     from: 'Essential Retail',
     label: 'lowers reliance on',
     to: 'Healthcare',
-    sdgs: [{
-      title: '',
-      deets: [],
-    }],
-    investments: [],
+    sdgs: [],
+    investments: [
+      'Invest in positive social determinants of health.',
+      'Invest in subsidized healthy food.',
+    ],
   },
   {
     from: 'Manufacturing',
@@ -237,45 +266,7 @@ const EDGES: Array<EdgeDef> = [
     <div id="sigma-container"></div>
   </section>
 
-  {EDGES.map(edge => {
-
-    const modalId = `modal-${edge.from}-${edge.to}`.replace(/[^a-zA-Z0-9-_]/g, '')
-
-    return <div class="dialog" id={modalId}>
-      <a id={`open-${modalId}`} href={`#${modalId}`}></a>
-      <div class={`close-${modalId}`}>
-        ×
-      </div>
-      <h1>{edge.from} {edge.label} → {edge.to}</h1>
-
-      {edge.sdgs?.length > 0 &&
-        <>
-          <h2><a href="/whealth+#sdgs" target="_blank">SDGs</a> Activated</h2>
-          {edge.sdgs.map(sdg =>
-            <>
-              <h3>{sdg.title}</h3>
-              {sdg?.deets.map(deet =>
-                <p>{deet}</p>
-              )}
-            </>
-          )}
-        </>
-      }
-
-      {edge.investments?.length > 0 &&
-        <>
-          <h2>Active Investments</h2>
-          <ul>
-            {edge.investments.map(investment =>
-              investment?.link
-              ? <li><a href={investment.link} target="_blank">{investment}</li></a>
-              : <li>{investment}</li>
-            )}
-          </ul>
-        </>
-      }
-    </div>
-  })}
+  {EDGES.map(edge => <CommunityGraphDialog {...edge} />)}
 
 <community-graph/>
 
