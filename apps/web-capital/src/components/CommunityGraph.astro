@@ -351,7 +351,6 @@ const EDGES: Array<EdgeDef> = [
       curved: EdgeCurveProgram,
     },
     renderEdgeLabels: true,
-    mouseWheelEnabled: false,
     enableEdgeEvents: true,
     edgeReducer(edge, data) {
       const res = { ...data };
@@ -362,6 +361,12 @@ const EDGES: Array<EdgeDef> = [
 
   let draggedNode: string | null = null;
   let isDragging = false;
+
+  // disable scrollwheel zoom
+  container.addEventListener("wheel", (e) => {
+    console.log('wheel')
+    e.stopPropagation();
+  }, true)
 
   renderer.on("downNode", (e) => {
     isDragging = true;
