@@ -7,6 +7,7 @@ import iconSchool from '@material-symbols/svg-400/rounded/school.svg'
 import iconFactory from '@material-symbols/svg-400/rounded/factory.svg'
 import iconLaw from '@material-symbols/svg-400/rounded/gavel.svg'
 import iconHealing from '@material-symbols/svg-400/rounded/healing.svg'
+import iconMedicalInfo from '@material-symbols/svg-400/rounded/medical_information.svg'
 import iconGovernment from '@material-symbols/svg-400/rounded/account_balance.svg'
 import iconIdentity from '@material-symbols/svg-400/rounded/fingerprint.svg'
 import iconWages from '@material-symbols/svg-400/rounded/payments.svg'
@@ -37,6 +38,10 @@ const NODES = [
   {
     name: 'Healthcare',
     icon: iconHealing.src,
+  },
+  {
+    name: 'Health Insurance',
+    icon: iconMedicalInfo.src,
   },
   {
     name: 'Legislators',
@@ -223,6 +228,23 @@ const EDGES: Array<EdgeDef> = [
     investments: [
       'Invest in positive social determinants of health.',
       'Invest in subsidized healthy food.',
+    ],
+  },
+  {
+    from: 'Healthcare',
+    label: 'bills to',
+    to: 'Health Insurance',
+    sdgs: [
+      {
+        number: 3,
+        notes: [
+          ''
+        ]
+      },
+    ],
+    investments: [
+      'Invest in positive social determinants of health.',
+      'Provide subsidies for essential, healthy goods and services.',
     ],
   },
   {
