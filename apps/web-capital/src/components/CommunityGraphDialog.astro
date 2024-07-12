@@ -125,12 +125,51 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
 
   {investments?.length > 0 &&
     <>
-      <h2>Active Investments</h2>
-      <ul>
-        {investments.map(investment =>
-          <li>{investment}</li>
-        )}
-      </ul>
+      <h2>What we are investing in</h2>
+      {investments.map(investment =>
+        <h3>{investment}</h3>
+      )}
     </>
   }
 </div>
+
+<style lang:scss>
+  .dialog {
+    background-color: var(--color-light) !important;
+    background-blend-mode: difference;
+    padding: min(2rem, 10%);
+    color: var(--color-dark-tinted);
+
+    & > * {
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    .sdg .number {
+      text-decoration: none;
+      color: var(--color-light);
+      border: 2px solid currentColor;
+      padding-inline: 0.5em;
+      border-radius: 0.25em;
+
+      &:hover {
+        color: var(--color-light) !important;
+        background-color: var(--color-pop);
+      }
+    }
+
+    [class^=close-] {
+      position: sticky;
+      top: 0;
+      text-align: right;
+      color: var(--color-dark-tinted);
+      font-weight: bold;
+      font-size: 32px;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-light);
+      }
+    }
+  }
+</style>

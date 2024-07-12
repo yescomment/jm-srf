@@ -411,32 +411,6 @@ const EDGES: Array<EdgeDef> = [
     height: 100vh;
     width: 100vw;
   }
-
-  .dialog {
-    background-color: var(--color-light-tinted) !important;
-    background-blend-mode: difference;
-    padding: min(2rem, 10%);
-    color: var(--color-dark-tinted);
-
-    & > * {
-      max-width: 900px;
-      margin-inline: auto;
-    }
-
-    [class^=close-] {
-      position: sticky;
-      top: 0;
-      text-align: right;
-      color: var(--color-dark-tinted);
-      font-weight: bold;
-      font-size: 32px;
-      cursor: pointer;
-
-      &:hover {
-        color: var(--color-light);
-      }
-    }
-  }
 </style>
 
 <script>
