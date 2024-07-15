@@ -105,7 +105,7 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
 <div class="dialog" id={modalId}>
   <a id={`open-${modalId}`} href={`#${modalId}`}></a>
   <div class={`close-${modalId}`}>
-    ×
+    Close ×
   </div>
   <h1>
     <span class="from">{from}</span>
@@ -191,7 +191,7 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
       cursor: pointer;
 
       &:hover {
-        color: var(--color-light);
+        color: var(--color-secondary);
       }
     }
   }
