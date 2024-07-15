@@ -107,10 +107,15 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
   <div class={`close-${modalId}`}>
     ×
   </div>
-  <h1>{from} {label} → {to}</h1>
+  <h1>
+    <span class="from">{from}</span>
+    ➔ <span class="verb">{label}</span> ➔
+    <span class="to">{to}</span>
+  </h1>
 
   {sdgs?.length > 0 &&
     <>
+      <p>In a (W)Healthy Community,</p>
       <h2><a href="/whealth+#sdgs" target="_blank">SDGs</a> Activated</h2>
       {sdgs.map(sdg =>
         <>
@@ -147,6 +152,21 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
     &:hover {
       color: var(--color-light) !important;
       background-color: var(--color-pop);
+    }
+  }
+
+  h1 {
+    .from,
+    .to {
+      display: inline-block;
+      padding: 0.25em;
+      color: var(--color-light);
+      background-color: var(--color-primary);
+      border-radius: 0.25em;
+    }
+
+    .verb {
+      font-style: italic;
     }
   }
 
