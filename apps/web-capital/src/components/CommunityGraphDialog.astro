@@ -137,6 +137,19 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
 </div>
 
 <style lang:scss>
+  .sdg .number {
+    text-decoration: none;
+    color: var(--color-light);
+    border: 2px solid currentColor;
+    padding-inline: 0.5em;
+    border-radius: 0.25em;
+
+    &:hover {
+      color: var(--color-light) !important;
+      background-color: var(--color-pop);
+    }
+  }
+
   .dialog {
     background-color: var(--color-light) !important;
     background-blend-mode: difference;
@@ -146,19 +159,6 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
     & > * {
       max-width: 900px;
       margin-inline: auto;
-    }
-
-    .sdg .number {
-      text-decoration: none;
-      color: var(--color-light);
-      border: 2px solid currentColor;
-      padding-inline: 0.5em;
-      border-radius: 0.25em;
-
-      &:hover {
-        color: var(--color-light) !important;
-        background-color: var(--color-pop);
-      }
     }
 
     [class^=close-] {
