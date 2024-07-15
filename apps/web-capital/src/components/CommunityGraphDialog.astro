@@ -107,6 +107,7 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
   <div class={`close-${modalId}`}>
     Close ×
   </div>
+  <h2>In a (W)Healthy Community,</h2>
   <h1>
     <span class="from">{from}</span>
     ➔ <span class="verb">{label}</span> ➔
@@ -115,8 +116,8 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
 
   {sdgs?.length > 0 &&
     <>
-      <p>In a (W)Healthy Community,</p>
       <h2><a href="/whealth+#sdgs" target="_blank">SDGs</a> Activated</h2>
+      <p>The Sustainable Development Goals (SDGs), otherwise known as the Global Goals, are a universal call to action to end poverty, protect the planet and ensure that all people enjoy peace and prosperity. <a href="https://sdgs.un.org/goals" target="_blank">Learn more at the United Nations</a>.</p>
       {sdgs.map(sdg =>
         <>
           <h3 class="sdg">
