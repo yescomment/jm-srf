@@ -11,7 +11,6 @@ import iconMedicalInfo from '@material-symbols/svg-400/rounded/medical_informati
 import iconGovernment from '@material-symbols/svg-400/rounded/account_balance.svg'
 import iconIdentity from '@material-symbols/svg-400/rounded/fingerprint.svg'
 import iconWages from '@material-symbols/svg-400/rounded/payments.svg'
-import iconPolice from '@material-symbols/svg-400/rounded/local_police.svg'
 import iconGrocery from '@material-symbols/svg-400/rounded/grocery.svg'
 
 const NODES = [
@@ -46,10 +45,6 @@ const NODES = [
   {
     name: 'Legislators',
     icon: iconGovernment.src,
-  },
-  {
-    name: 'Police',
-    icon: iconPolice.src,
   },
   {
     name: 'Identity',
@@ -271,40 +266,6 @@ const EDGES: Array<EdgeDef> = [
       }
     ],
     investments: [],
-  },
-  {
-    from: 'Police',
-    label: 'enforce',
-    to: 'Law',
-    sdgs: [
-      {
-        number: 16,
-        notes: [
-          'Anti-discrimination laws must be enforced.',
-        ]
-      }
-    ],
-    investments: [
-      'Support diversity and anti-discrimination programs.',
-      'Promote diversity training.',
-    ],
-  },
-  {
-    from: 'Legislators',
-    label: 'limit',
-    to: 'Police',
-    sdgs: [
-      {
-        number: 16,
-        notes: [
-          'Law itself must limit the law enforcers.'
-        ]
-      }
-    ],
-    investments: [
-      'Develop and support violence prevention programs.',
-      'Fund community-building events and initiatives.',
-    ],
   },
   {
     from: 'Law',
