@@ -3,8 +3,7 @@ import { TextSection } from 'srf-theme-components';
 import { TitleSection } from 'jm-srf-components'
 import Layout from '../layouts/Page.astro';
 
-import primaryImg from '../../public/assets/images/home/pexels-camilo-ospina-5033182.jpg';
-import accentImg from '../../../../assets/imagery/plants/leaves13-edgeL.png';
+import bannerLogo from '@assets/logos/srf_impact_banner_edgeL.png'
 
 const seo = {
 	title: 'SRF Impact ❦ About',
@@ -14,9 +13,10 @@ const seo = {
 
 <Layout {seo}>
 	<TitleSection
-    title="SRF Impact"
+    primaryImage={null}
+    accentImage={null}
+    bannerImage={bannerLogo}
     deck="What would a future look like where all people had a true opportunity to thrive in place?"
-    accentImage={accentImg}
   >
 		<h1>Origins & Mission</h1>
 		<p>

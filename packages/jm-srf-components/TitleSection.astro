@@ -4,26 +4,34 @@ import BrightSection from './BrightSection.astro'
 
 // defaults
 import birdsImg from '../../assets/imagery/plants/birds1.png'
-import holdingImg from '../../assets/imagery/people/pexels-emma-bauso-2833394.jpg';
 
 const {
   title,
   deck,
   accentImage = birdsImg,
-  primaryImage = holdingImg,
+  primaryImage = null,
   primaryImageDesc = 'People thriving in community, in place',
-  hideBrightSection = false
+  hideBrightSection = false,
+  bannerImage = null,
+  bannerImageDesc = 'SRF',
 } = Astro.props
 ---
 <section class="hero" style={accentImage && `background-image: url(${accentImage.src})`}>
+  {bannerImage &&
+    <h1 class="banner">
+      <Image src={bannerImage} alt={bannerImageDesc}/>
+    </h1>
+  }
   <div class="block">
     <div class="titles">
       <h1>{title}</h1>
       <h2>{deck}</h2>
     </div>
-    <aside class="filmstrip">
-      <Image src={primaryImage} alt={primaryImageDesc}/>
-    </aside>
+    {primaryImage &&
+      <aside class="filmstrip">
+        <Image src={primaryImage} alt={primaryImageDesc}/>
+      </aside>
+    }
   </div>
 </section>
 {!hideBrightSection &&
@@ -50,6 +58,14 @@ const {
     max-width: 500px;
   }
 
+  .banner {
+    width: 80%;
+  }
+
+  :is(h1, h2):empty {
+    display: none;
+  }
+
   .hero {
     background-repeat: no-repeat;
     background-size: 25%;
@@ -59,8 +75,6 @@ const {
     .block {
       display: flex;
       flex-direction: row;
-      min-height: 50vh;
-      height: fit-content;
 
       max-width: var(--maxwidth-wide);
     }

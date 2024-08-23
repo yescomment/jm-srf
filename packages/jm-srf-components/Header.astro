@@ -36,43 +36,36 @@
     height: 3rem;
     overflow-x: auto;
     white-space: nowrap;
+
+    &.right {
+      flex-shrink: 0;
+    }
+
+    &.left :global(.logo-full) {
+      /* .logo-container not global, only for leftmost */
+      border-right: 2px solid var(--color-primary);
+      padding-right: 1.5em;
+      margin-right: 0.5em;
+    }
   }
 
-  .logo-container {
+  :global(.logo-container) {
     box-sizing: border-box;
-    height: calc(100% + 5px);
     padding: 0.5rem;
+    flex-shrink: 0;
 
     :global(.logo-icon) {
       display: none;
     }
-  }
 
-  @media (max-width: 512px) {
-    header {
-      grid-template-columns: 50px auto min-content;
-
-      nav.left {
-        grid-area: mid;
+    @media (max-width: 768px) {
+      :global(.logo-full) {
+        display: none;
       }
 
-      :global(.special) {
-        padding: 0;
-        :global(img) {
-          rotate: 90deg;
-        }
-      }
-
-      .logo-container {
-        grid-area: left;
-
-        :global(.logo-full) {
-          display: none;
-        }
-
-        :global(.logo-icon) {
-          display: block;
-        }
+      :global(.logo-icon) {
+        display: block;
+        height: 100%;
       }
     }
   }
@@ -81,6 +74,7 @@
 <style is:global lang="scss">
   // must be global as these are <slot/>s
   nav > a {
+    color: var(--color-primary);
     font-size: 14px;
     text-decoration: none;
     height: 100%;
@@ -105,7 +99,22 @@
 
     &.to-srfcapital,
     &.to-srfimpact {
-      min-width: 2rem;
+      color: var(--color-light);
+      box-shadow: 0 0 2px grey;
+    }
+
+    &.to-srfcapital {
+      background-color: #223749; // --color-primary
+      &:hover {
+        background-color: #122739; // --color-primary-tinted
+      }
+    }
+
+    &.to-srfimpact {
+      background-color: #e74c34; // --color-primary
+      &:hover {
+        background-color: #c93d2f; // --color-primary-tinted
+      }
     }
   }
 </style>
