@@ -3,6 +3,7 @@
 
 <section id="sectionPin">
   <div class="pin-wrap-sticky">
+    <slot name="nav"/>
     <div class="pin-wrap">
       <slot/>
     </div>
@@ -80,6 +81,25 @@
 
       width: 100vw;
       overflow-x: hidden;
+    }
+
+    #sectionPin nav {
+      position: fixed;
+      top: 65px; // below header
+      display: flex;
+      justify-content: center;
+      box-sizing: content-box;
+      width: 100vw;
+      z-index: 2; // above chart
+
+      a {
+        color: white;
+        font-weight: 500;
+
+        &:hover {
+          background: none;
+        }
+      }
     }
 
     .chart {
