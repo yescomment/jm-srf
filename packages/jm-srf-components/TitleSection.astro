@@ -12,10 +12,17 @@ const {
   accentImage = birdsImg,
   primaryImage = holdingImg,
   primaryImageDesc = 'People thriving in community, in place',
-  hideBrightSection = false
+  hideBrightSection = false,
+  bannerImage = null,
+  bannerImageDesc = 'SRF',
 } = Astro.props
 ---
 <section class="hero" style={accentImage && `background-image: url(${accentImage.src})`}>
+  {bannerImage &&
+    <h1 class="banner">
+      <Image src={bannerImage} alt={bannerImageDesc}/>
+    </h1>
+  }
   <div class="block">
     <div class="titles">
       <h1>{title}</h1>
@@ -52,6 +59,10 @@ const {
     max-width: 500px;
   }
 
+  .banner {
+    width: 80%;
+  }
+
   :is(h1, h2):empty {
     display: none;
   }
@@ -65,8 +76,6 @@ const {
     .block {
       display: flex;
       flex-direction: row;
-      min-height: 50vh;
-      height: fit-content;
 
       max-width: var(--maxwidth-wide);
     }

@@ -3,8 +3,7 @@ import { TextSection, TitleSection, ParallaxSection, FlipHeadshot } from 'jm-srf
 import { Picture, Image } from 'astro:assets';
 import Layout from '../layouts/Page.astro';
 
-import primaryImg from '@people/pexels-biova-nakou-1471843.jpg';
-import accentImg from '@plants/leaves5-edgeB.png';
+import bannerLogo from '@assets/logos/srf_capital_banner_edgeL.png'
 import diversityCompetitiveImg from '@people/pexels-muhammadtaha-ibrahim-4476358.jpg'
 
 import headshotDorian from '@headshots/dorian.jpg'
@@ -23,10 +22,10 @@ const seo = {
 
 <Layout {seo}>
   <TitleSection
-    title="SRF Capital"
+    primaryImage={null}
+    accentImage={null}
+    bannerImage={bannerLogo}
     deck="SRF Capital partners with the world’s brightest and most empathetic leaders to build the sustainable and equitable economies of the future."
-    primaryImage={primaryImg}
-    accentImage={accentImg}
   >
     <h2>Mission & Vision</h2>
     <p>We envision a global economy where value and utility are defined by the good of all humanity. A global economy where investments are made by moral leaders who are dedicated to helping individuals find dignity, self-determine their joy, and thrive in place.</p>
