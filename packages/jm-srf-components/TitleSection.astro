@@ -21,9 +21,11 @@ const {
       <h1>{title}</h1>
       <h2>{deck}</h2>
     </div>
-    <aside class="filmstrip">
-      <Image src={primaryImage} alt={primaryImageDesc}/>
-    </aside>
+    {primaryImage &&
+      <aside class="filmstrip">
+        <Image src={primaryImage} alt={primaryImageDesc}/>
+      </aside>
+    }
   </div>
 </section>
 {!hideBrightSection &&
@@ -48,6 +50,10 @@ const {
     padding: 1rem;
     margin: 1rem;
     max-width: 500px;
+  }
+
+  :is(h1, h2):empty {
+    display: none;
   }
 
   .hero {
