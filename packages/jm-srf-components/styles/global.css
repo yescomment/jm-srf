@@ -6,6 +6,10 @@
 	--maxwidth-narrow: 960px;
 }
 
+img {
+	height: auto;
+}
+
 html,
 body {
 	background-color: var(--color-light);
