@@ -106,6 +106,22 @@
     &.to-srfcapital,
     &.to-srfimpact {
       min-width: 2rem;
+      color: var(--color-light);
+      box-shadow: 0 0 2px grey;
+    }
+
+    &.to-srfcapital {
+      background-color: #223749; // --color-primary
+      &:hover {
+        background-color: #122739; // --color-primary-tinted
+      }
+    }
+
+    &.to-srfimpact {
+      background-color: #e74c34; // --color-primary
+      &:hover {
+        background-color: #c93d2f; // --color-primary-tinted
+      }
     }
   }
 </style>

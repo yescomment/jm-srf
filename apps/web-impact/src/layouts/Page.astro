@@ -12,7 +12,7 @@ import logoImpHoriPrimy from '@assets/logos/srf_impact_wordmark_horizontal_prima
 import logoImpIconPrimy from '@assets/logos/srf_impact_icon_primary.svg';
 import logoImpStacWhite from '@assets/logos/srf_impact_wordmark_stacked_white.svg';
 
-import logoCapHoriPrimy from '@assets/logos/srf_capital_wordmark_horizontal_primary.svg';
+import logoCapHoriWhite from '@assets/logos/srf_capital_wordmark_horizontal_white.svg';
 import logoCapStacWhite from '@assets/logos/srf_capital_wordmark_stacked_white.svg';
 
 export interface Props {
@@ -34,8 +34,8 @@ const { seo } = Astro.props as Props;
 		</Fragment>
 		<Fragment slot="right">
 			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
-			<a class="to-srfimpact" href={config.srfCapitalUrl}>
-				<img class="logo" src={logoCapHoriPrimy.src} alt="SRF Capital">
+			<a class="to-srfcapital" href={config.srfCapitalUrl}>
+				<img class="logo" src={logoCapHoriWhite.src} alt="SRF Capital">
 			</a>
 		</Fragment>
 	</Header>
