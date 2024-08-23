@@ -9,10 +9,11 @@ import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 import settings from '../config/settings';
 
 import logoCapHoriPrimy from '@assets/logos/srf_capital_wordmark_horizontal_primary.svg';
-import logoCapIconPrimy from '@assets/logos/srf_capital_icon_primary.svg';
+import logoCapIconPrimy from '@assets/logos/srf_capital_brackets_primary.svg';
 import logoCapStacWhite from '@assets/logos/srf_capital_wordmark_stacked_white.svg';
 
 import logoImpHoriWhite from '@assets/logos/srf_impact_wordmark_horizontal_white.svg';
+import logoImpIconWhite from '@assets/logos/srf_impact_brackets_white.svg';
 import logoImpStacWhite from '@assets/logos/srf_impact_wordmark_stacked_white.svg';
 
 export interface Props {
@@ -23,8 +24,8 @@ const { seo } = Astro.props as Props;
 ---
 <BaseHtml seo={seo}>
 	<Header slot="header">
-		<img slot="logo-full" class="logo-full" src={logoCapHoriPrimy.src} alt="SRF Impact Logo">
-		<img slot="logo-icon" class="logo-icon" src={logoCapIconPrimy.src} alt="SRF Impact Logo">
+		<img slot="logo-full" class="logo-full" src={logoCapHoriPrimy.src} alt="SRF Capital">
+		<img slot="logo-icon" class="logo-icon" src={logoCapIconPrimy.src} alt="SRF Capital">
 		<Fragment slot="left">
 			<a href="/meet">Meet</a>
 			<a href="/strategize">Strategize</a>
@@ -34,8 +35,9 @@ const { seo } = Astro.props as Props;
 		</Fragment>
 		<Fragment slot="right">
 			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
-			<a class="to-srfimpact" href={config.srfImpactUrl}>
-				<img class="logo" src={logoImpHoriWhite.src} alt="SRF Impact">
+			<a class="to-srfimpact logo-container" href={config.srfImpactUrl}>
+				<img class="logo-full" src={logoImpHoriWhite.src} alt="SRF Impact">
+				<img class="logo-icon" src={logoImpIconWhite.src} alt="SRF Impact">
 			</a>
 		</Fragment>
 	</Header>
