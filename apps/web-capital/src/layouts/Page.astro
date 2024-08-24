@@ -45,11 +45,7 @@ const { seo } = Astro.props as Props;
 		<slot />
 	</div>
 	<Footer>
-		<a slot="about" href="mailto:info@srf.capital">
-			<Icon name="material-symbols:mail-rounded" /> Contact
-		</a>
-		<hr slot="about" />
-		<img class="logo" slot="about" src={logoCapStacWhite.src} alt="SRF Capital">
+		<img slot="logo" class="logo" src={logoCapStacWhite.src} alt="SRF Capital">
 
 		<a slot="sitenav" href="/meet">Meet</a>
 		<a slot="sitenav" href="/strategize">Strategize</a>
@@ -57,8 +53,8 @@ const { seo } = Astro.props as Props;
 		<a slot="sitenav" href="/whealth+">(W)Health+</a>
 		<a slot="sitenav" href="/community">Community</a>
 
-		<a class="to-srfimpact button" slot="othersite" href={config.srfImpactUrl}>
-			<img class="logo" src={logoImpStacWhite.src} alt="SRF Impact">
+		<a slot="contact" class="button" href="mailto:info@srf.capital">
+			<Icon size="1.5em" name="material-symbols:mail-rounded" /> Contact
 		</a>
 	</Footer>
 </BaseHtml>
