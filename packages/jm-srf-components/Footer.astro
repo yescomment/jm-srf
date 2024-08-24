@@ -1,13 +1,13 @@
 <footer>
   <nav>
     <div>
-      <slot name="contact"/>
+      <slot name="logo"/>
     </div>
     <div class="site-nav">
       <slot name="sitenav">
     </div>
     <div>
-      <slot name="othersite">
+      <slot name="contact"/>
     </div>
   </nav>
 </footer>
@@ -18,38 +18,60 @@
     background-color: var(--color-primary);
     background: linear-gradient(var(--color-primary-tinted), var(--color-primary));
 
+    :global(*) {
+      color: var(--color-light-tinted) !important;
+    }
+
     nav {
       max-width: 1200px;
       display: grid;
       gap: 4rem;
       grid-template-columns: repeat(3, 1fr);
 
-      :global(a, hr) {
-        display: block;
-        margin-block: 1rem;
-        text-decoration: none;
-        color: white;
-      }
-
-      :global(a:hover) {
-        color: var(--color-light);
-      }
-
       @media (max-width: 500px) {
         grid-template-columns: 1fr;
       }
     }
 
+    .site-nav {
+      display: flex;
+      flex-direction: column;
+
+      padding-inline: 2rem;
+      border-left: 1px solid var(--color-light-tinted);
+
+      :global(a) {
+        text-decoration: none;
+        margin-block: 0.5rem;
+
+        &:not(:hover) {
+          opacity: 0.7;
+        }
+      }
+    }
+
     :global(.button) {
-      width: 10rem;
+      // TODO: this should move to globals.css
+      display: flex;
+      align-items: center;
+      min-width: 10rem;
+      text-align: center;
       padding: 1rem;
+      border: 1px solid var(--color-light-tinted);
+      text-decoration: none;
 
       &:hover {
         box-shadow: 0 0 5px var(--color-dark);
+        background-color: var(--color-dark-tinted);
+      }
+
+      :global([data-icon]) {
+        padding-inline-end: 0.5em;
       }
     }
 
     :global(.to-srfcapital) {
+      // TODO: this should move to globals.css
       color: var(--color-light);
       background-color: #223749; // --color-primary
       &:hover {
@@ -58,6 +80,7 @@
     }
 
     :global(.to-srfimpact) {
+      // TODO: this should move to globals.css
       color: var(--color-light);
       background-color: #e74c34; // --color-primary
       &:hover {
