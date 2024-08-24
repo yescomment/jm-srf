@@ -1,11 +1,3 @@
-export const footerSocials = [
-  {
-    name: 'Email',
-    url: 'mailto:dorian@whealthfund.com',
-    icon: "mdi:email",
-  }
-]
-
 export const footerLists = [
 	{
 		title: 'SRF Capital',
