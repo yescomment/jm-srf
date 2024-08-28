@@ -10,12 +10,12 @@ import { Icon } from 'astro-icon/components'
       <Icon name="material-symbols:close-rounded" />
     </a>
   </div>
-  <nav class="left">
+  <nav class="main-nav">
     <a href="/" class="logo-container">
       <slot name="logo-icon" class="logo-icon">Home</slot>
       <slot name="logo-full" class="logo-full">Home</slot>
     </a>
-    <slot name="left"/>
+    <slot name="main-nav-items"/>
   </nav>
 </header>
 
@@ -80,7 +80,7 @@ import { Icon } from 'astro-icon/components'
         padding-right: revert;
       }
 
-      .left {
+      .main-nav {
         flex-direction: column;
         justify-content: space-around;
 
