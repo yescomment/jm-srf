@@ -51,22 +51,27 @@ import { Icon } from 'astro-icon/components'
     .menu-button {
       display: none;
     }
-
-    :global(.to-srfcapital),
-    :global(.to-srfimpact) {
-      margin-left: unset;
-    }
   }
 
   @media (max-width: 512px) {
+
     header:not(:target) {
       .menu-button-hide {
+        display: none;
+      }
+
+      .main-nav :global(a:not(.logo-container)) {
         display: none;
       }
     }
 
     header:target {
       height: 60vh;
+
+      :global(nav > a.to-srfcapital),
+      :global(nav > a.to-srfimpact) {
+        margin-left: unset;
+      }
 
       .menu-button-show {
         display: none;
@@ -120,7 +125,7 @@ import { Icon } from 'astro-icon/components'
       margin-right: 0.5em;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 768px) and (min-width: 512px){
       .logo-full {
         display: none;
       }
