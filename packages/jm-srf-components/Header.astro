@@ -54,10 +54,7 @@ import { Icon } from 'astro-icon/components'
 
     :global(.to-srfcapital),
     :global(.to-srfimpact) {
-      order: 1;
-      margin-left: auto;
-      position: sticky;
-      right: 0;
+      margin-left: unset;
     }
   }
 
@@ -163,6 +160,11 @@ import { Icon } from 'astro-icon/components'
     &.to-srfimpact {
       color: var(--color-light);
       box-shadow: 0 0 2px grey;
+
+      order: 1;
+      margin-left: auto;
+      position: sticky;
+      right: 0;
     }
 
     &.to-srfcapital {
