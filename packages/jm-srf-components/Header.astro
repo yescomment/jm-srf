@@ -1,7 +1,15 @@
 ---
-
+import { Icon } from 'astro-icon/components'
 ---
-<header>
+<header id="menu">
+  <div class="menu-button">
+    <a href="#menu" class="menu-button-show">
+      <Icon name="material-symbols:menu-rounded" />
+    </a>
+    <a href="#" class="menu-button-hide">
+      <Icon name="material-symbols:close-rounded" />
+    </a>
+  </div>
   <nav class="left">
     <a href="/" class="logo-container">
       <slot name="logo-icon" class="logo-icon">Home</slot>
@@ -16,15 +24,56 @@
 
 <style lang="scss">
   header {
+    --height-closed: 3rem;
     padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     position: sticky;
     top: 0;
-    height: 3rem;
+    height: var(--height-closed);
     background: var(--color-light);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     z-index: 10;
+    transition: height 0.5s;
+  }
+
+  .menu-button {
+    height: var(--height-closed);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .menu-button {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    header:not(:target) {
+      .menu-button-hide {
+        display: none;
+      }
+    }
+
+    header:target {
+      .menu-button-show {
+        display: none;
+      }
+      height: 12rem;
+      // overflow-y: visible;
+
+      nav {
+        flex-wrap: wrap;
+        height: max-content;
+      }
+
+      .left {
+        flex-direction: column;
+        justify-content: space-around;
+      }
+    }
   }
 
   nav {
@@ -33,7 +82,6 @@
     align-items: center;
     font-size: 0.7rem;
     font-weight: 500;
-    height: 3rem;
     overflow-x: auto;
     white-space: nowrap;
 
@@ -50,6 +98,8 @@
   }
 
   :global(.logo-container) {
+    height: var(--height-closed);
+    // align-self: start;
     box-sizing: border-box;
     padding: 0.5rem;
     flex-shrink: 0;
