@@ -10,11 +10,13 @@
       <slot name="contact"/>
       <p class="copyright">Copyright © {new Date().getFullYear()} SRF</p>
     </div>
+    <a class="scroll-to-top" href="#">↑</a>
   </nav>
 </footer>
 
 <style lang="scss">
   footer {
+    position: relative;
     display: flex;
     justify-content: center;
     padding: 4rem;
@@ -61,6 +63,22 @@
         &:not(:hover) {
           opacity: 0.7;
         }
+      }
+    }
+
+    a.scroll-to-top {
+      position: absolute;
+      display: inline-block;
+      font-size: 50px;
+      top: 0;
+      right: 0;
+      height: auto;
+      padding: 1rem;
+      opacity: 0.7;
+
+      &:hover {
+        background: none;
+        opacity: 1;
       }
     }
 
