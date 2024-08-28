@@ -24,7 +24,7 @@ const { seo } = Astro.props as Props;
 ---
 <BaseHtml seo={seo}>
 	<Header slot="header">
-		<img slot="logo-full" class="logo-full" src={logoCapHoriPrimy.src} alt="SRF Capital">
+		<img slot="logo-full" class="logo-full separator" src={logoCapHoriPrimy.src} alt="SRF Capital">
 		<img slot="logo-icon" class="logo-icon" src={logoCapIconPrimy.src} alt="SRF Capital">
 		<Fragment slot="left">
 			<a href="/meet">Meet</a>
@@ -32,13 +32,11 @@ const { seo } = Astro.props as Props;
 			<a href="/theorize">Theorize</a>
 			<a href="/whealth+">(W)Health+</a>
 			<a href="/community">Community</a>
-		</Fragment>
-		<Fragment slot="right">
-			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
 			<a class="to-srfimpact logo-container" href={config.srfImpactUrl}>
 				<img class="logo-full" src={logoImpHoriWhite.src} alt="SRF Impact">
 				<img class="logo-icon" src={logoImpIconWhite.src} alt="SRF Impact">
 			</a>
+			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
 		</Fragment>
 	</Header>
 	<div id="page">
