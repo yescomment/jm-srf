@@ -6,8 +6,9 @@
     <div class="site-nav">
       <slot name="sitenav">
     </div>
-    <div>
+    <div class="contact">
       <slot name="contact"/>
+      <p class="copyright">Copyright © {new Date().getFullYear()} SRF</p>
     </div>
   </nav>
 </footer>
@@ -33,6 +34,17 @@
       @media (max-width: 500px) {
         grid-template-columns: 1fr;
       }
+    }
+
+    div.contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .copyright {
+      text-align: center;
+      align-self: end;
     }
 
     .site-nav {
