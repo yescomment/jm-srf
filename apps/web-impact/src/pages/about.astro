@@ -1,9 +1,10 @@
 ---
 import { TextSection } from 'srf-theme-components';
-import { TitleSection } from 'jm-srf-components'
+import { BrightSection, TitleSection, ParallaxSection } from 'jm-srf-components'
 import Layout from '../layouts/Page.astro';
 
 import bannerLogo from '@assets/logos/srf_impact_banner_edgeL.png'
+import accentImg from '@people/iStock-1397927301.jpg'
 
 const seo = {
 	title: 'SRF Impact ❦ About',
@@ -17,16 +18,23 @@ const seo = {
     accentImage={null}
     bannerImage={bannerLogo}
     deck="What would a future look like where all people had a true opportunity to thrive in place?"
+    hideBrightSection={true}
   >
-		<h1>Origins & Mission</h1>
-		<p>
-			What if we invested from the perspective that impact and capital can serve everyone? And if we did, how could we accelerate the use of capital and the universe of impact towards a just and inclusive transition? What would a future look like where all people had a true opportunity to thrive in place?
-		</p>
+	</TitleSection>
+  <ParallaxSection
+    backgroundImage={accentImg}
+    tint={false}
+  />
+  <BrightSection>
+    <h1>Origins & Mission</h1>
+    <p>
+      What if we invested from the perspective that impact and capital can serve everyone? And if we did, how could we accelerate the use of capital and the universe of impact towards a just and inclusive transition? What would a future look like where all people had a true opportunity to thrive in place?
+    </p>
     <p>
       SRF Impact, SRF Capital's companion vehicle, was built by the next generation of Impact investors to find the highest and best use of capital. We don’t assume we have all the right answers, but we seek to ask the right questions and build the right solutions in partnership with brilliant and values-aligned leaders. We are rooted in justice and dedicated to building the equitable economies of the future. We partner with proximate individuals, organizations and funds that give voice to innovation and entrepreneurial action to create communities grounded in cooperative growth, industry, self-reliance, and prosperity.
     </p>
     <p>
       Our mission is to <strong>reimagine</strong> the status quo with a new vision for equity, to <strong>redefine</strong> the common good, and to <strong>reinvigorate</strong> the neighborhoods and institutions that nurture all families and communities.
     </p>
-	</TitleSection>
+  </BrightSection>
 </Layout>
