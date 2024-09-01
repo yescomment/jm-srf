@@ -72,16 +72,30 @@ const {
     background-position: bottom left;
     padding-bottom: 5rem;
 
+    display: flex;
+    justify-content: space-between;
+
+    .banner {
+      position: relative;
+      left: -5;
+    }
+
+    .banner + .block {
+      max-width: 500px;
+      margin-bottom: 5rem;
+    }
+
     .block {
       display: flex;
       flex-direction: row;
 
-      max-width: var(--maxwidth-wide);
+      width: 100%;
+      max-width: 1600px;
     }
 
     .titles {
       z-index: 1;
-      flex: 1;
+      flex-grow: 1;
     }
 
     .filmstrip {
@@ -96,15 +110,17 @@ const {
         object-fit: cover;
       }
     }
+  }
 
-    @media (max-width: 768px) {
-      .titles {
-        width: 100%;
-        hyphens: auto;
-      }
-      .block {
-        flex-direction: column;
-      }
+  @media (max-width: 768px) {
+    .titles {
+      width: 100%;
+      hyphens: auto;
+    }
+
+    .hero,
+    .hero .block {
+      flex-direction: column;
     }
   }
 </style>

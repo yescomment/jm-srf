@@ -1,5 +1,8 @@
 ---
-const { backgroundImage } = Astro.props
+const {
+  backgroundImage,
+  tint = true,
+} = Astro.props
 
 import { getImage } from 'astro:assets'
 
@@ -12,7 +15,7 @@ const optimizedBackgroundImage = await getImage({
 <!-- CSS Scroll Timeline polyfill -->
 <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script>
 
-<section class="parallax" style={`background-image: url(${optimizedBackgroundImage.src})`}>
+<section class:list={['parallax', { tinted: tint }]} style={`background-image: url(${optimizedBackgroundImage.src})`}>
   <aside>
     <slot/>
   </aside>
@@ -52,7 +55,7 @@ const optimizedBackgroundImage = await getImage({
     }
 
     position: relative;
-    &::before {
+    &.tinted::before {
       content: '';
       position: absolute;
       display: block;

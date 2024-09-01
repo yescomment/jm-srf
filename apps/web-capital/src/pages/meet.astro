@@ -1,9 +1,10 @@
 ---
-import { TextSection, TitleSection, ParallaxSection, FlipHeadshot } from 'jm-srf-components';
+import { BrightSection, TextSection, TitleSection, ParallaxSection, FlipHeadshot } from 'jm-srf-components';
 import { Picture, Image } from 'astro:assets';
 import Layout from '../layouts/Page.astro';
 
 import bannerLogo from '@assets/logos/srf_capital_banner_edgeL.png'
+import accentImg from '@people/pexels-biova-nakou-1471843.jpg'
 import diversityCompetitiveImg from '@people/pexels-muhammadtaha-ibrahim-4476358.jpg'
 
 import headshotDorian from '@headshots/dorian.jpg'
@@ -27,10 +28,17 @@ const seo = {
     accentImage={null}
     bannerImage={bannerLogo}
     deck="SRF Capital partners with the world’s brightest and most empathetic leaders to build the sustainable and equitable economies of the future."
+    hideBrightSection={true}
   >
+  </TitleSection>
+  <ParallaxSection
+    backgroundImage={accentImg}
+    tint={false}
+  />
+  <BrightSection>
     <h2>Mission & Vision</h2>
     <p>We envision a global economy where value and utility are defined by the good of all humanity. A global economy where investments are made by moral leaders who are dedicated to helping individuals find dignity, self-determine their joy, and thrive in place.</p>
-  </TitleSection>
+  </BrightSection>
   <TextSection>
     <h2>Deep Expertise and Proximate Leadership</h2>
     <p>The SRF Capital team has backgrounds in public and private-sector finance, policy, real estate, entrepreneurship, and technology. We have proximate relationships that span decades, and each team member has lived experience as a member of or a close partner to the communities we serve. These relationships and experiences differentiate us from other firms and give us a unique perspective on how to create value and Impact alongside the institutions and communities in which we invest.</p>

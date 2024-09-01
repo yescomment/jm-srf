@@ -1,30 +1,97 @@
 ---
-
+import { Icon } from 'astro-icon/components'
 ---
-<header>
-  <nav class="left">
+<header id="menu">
+  <div class="menu-button">
+    <a href="#menu" class="menu-button-show">
+      <Icon name="material-symbols:menu-rounded" />
+    </a>
+    <a href="#" class="menu-button-hide">
+      <Icon name="material-symbols:close-rounded" />
+    </a>
+  </div>
+  <nav class="main-nav">
     <a href="/" class="logo-container">
       <slot name="logo-icon" class="logo-icon">Home</slot>
       <slot name="logo-full" class="logo-full">Home</slot>
     </a>
-    <slot name="left"/>
-  </nav>
-  <nav class="right">
-    <slot name="right"/>
+    <slot name="main-nav-items"/>
   </nav>
 </header>
 
 <style lang="scss">
   header {
+    --height-closed: 3rem;
     padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     position: sticky;
     top: 0;
-    height: 3rem;
+    height: var(--height-closed);
     background: var(--color-light);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     z-index: 10;
+    transition: height 0.5s;
+
+    nav {
+      width: 100%;
+    }
+  }
+
+  .menu-button {
+    line-height: 1em;
+    height: var(--height-closed);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 512px) {
+    .menu-button {
+      display: none;
+    }
+  }
+
+  @media (max-width: 512px) {
+
+    header:not(:target) {
+      .menu-button-hide {
+        display: none;
+      }
+
+      .main-nav :global(a:not(.logo-container)) {
+        display: none;
+      }
+    }
+
+    header:target {
+      height: 60vh;
+
+      :global(nav > a.to-srfcapital),
+      :global(nav > a.to-srfimpact) {
+        margin-left: unset;
+      }
+
+      .menu-button-show {
+        display: none;
+      }
+
+      :global(.logo-full) {
+        border: none;
+        padding-right: revert;
+      }
+
+      .main-nav {
+        flex-direction: column;
+        justify-content: space-around;
+
+        :global(a) {
+          font-size: 18px;
+          margin-block: 0.5rem;
+        }
+      }
+    }
   }
 
   nav {
@@ -33,46 +100,43 @@
     align-items: center;
     font-size: 0.7rem;
     font-weight: 500;
-    height: 3rem;
     overflow-x: auto;
     white-space: nowrap;
-
-    &.right {
-      flex-shrink: 0;
-    }
-
-    &.left :global(.logo-full) {
-      /* .logo-container not global, only for leftmost */
-      border-right: 2px solid var(--color-primary);
-      padding-right: 1.5em;
-      margin-right: 0.5em;
-    }
-  }
-
-  :global(.logo-container) {
-    box-sizing: border-box;
-    padding: 0.5rem;
-    flex-shrink: 0;
-
-    :global(.logo-icon) {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      :global(.logo-full) {
-        display: none;
-      }
-
-      :global(.logo-icon) {
-        display: block;
-        height: 100%;
-      }
-    }
   }
 </style>
 
 <style is:global lang="scss">
   // must be global as these are <slot/>s
+  .logo-container {
+    height: var(--height-closed);
+    // align-self: start;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    flex-shrink: 0;
+
+    .logo-icon {
+      display: none;
+    }
+
+    .logo-full.separator {
+      /* .logo-container not global, only for leftmost */
+      border-right: 2px solid currentColor;
+      padding-right: 1.5em;
+      margin-right: 0.5em;
+    }
+
+    @media (max-width: 768px) and (min-width: 512px){
+      .logo-full {
+        display: none;
+      }
+
+      .logo-icon {
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+
   nav > a {
     color: var(--color-primary);
     font-size: 14px;
@@ -101,6 +165,11 @@
     &.to-srfimpact {
       color: var(--color-light);
       box-shadow: 0 0 2px grey;
+
+      order: 1;
+      margin-left: auto;
+      position: sticky;
+      right: 0;
     }
 
     &.to-srfcapital {

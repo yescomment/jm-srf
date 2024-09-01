@@ -1,19 +1,24 @@
 <footer>
   <nav>
-    <div>
+    <div class="logo">
       <slot name="logo"/>
     </div>
     <div class="site-nav">
       <slot name="sitenav">
     </div>
-    <div>
+    <div class="contact">
       <slot name="contact"/>
+      <p class="copyright">Copyright © {new Date().getFullYear()} SRF</p>
     </div>
+    <a class="scroll-to-top" href="#">↑</a>
   </nav>
 </footer>
 
 <style lang="scss">
   footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
     padding: 4rem;
     background-color: var(--color-primary);
     background: linear-gradient(var(--color-primary-tinted), var(--color-primary));
@@ -23,14 +28,29 @@
     }
 
     nav {
+      width: 100%;
       max-width: 1200px;
-      display: grid;
+      display: flex;
       gap: 4rem;
-      grid-template-columns: repeat(3, 1fr);
+      flex-wrap: wrap;
 
-      @media (max-width: 500px) {
-        grid-template-columns: 1fr;
+      & > .logo {
+        flex-basis: 20rem;
+        min-width: 100px;
       }
+    }
+
+    div.contact {
+      margin-left: auto;
+      flex-basis: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .copyright {
+      text-align: center;
+      align-self: end;
     }
 
     .site-nav {
@@ -50,9 +70,26 @@
       }
     }
 
+    a.scroll-to-top {
+      position: absolute;
+      display: inline-block;
+      font-size: 50px;
+      top: 0;
+      right: 0;
+      height: auto;
+      padding: 1rem;
+      opacity: 0.7;
+
+      &:hover {
+        background: none;
+        opacity: 1;
+      }
+    }
+
     :global(.button) {
       // TODO: this should move to globals.css
       display: flex;
+      justify-content: center;
       align-items: center;
       min-width: 10rem;
       text-align: center;
