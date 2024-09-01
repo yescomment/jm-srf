@@ -1,25 +1,26 @@
 {
-	"name": "jm-srf",
-	"version": "3.0.0",
-	"private": true,
-	"repository": {
-		"type": "git",
-		"url": "git@github.com:yescomment/jm-srf"
-	},
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"format": "npx prettier -w ."
-	},
-	"workspaces": [
-		"apps/*",
-		"packages/*"
-	],
-	"dependencies": {
-		"graphology": "^0.25.4",
-		"sigma": "^3.0.0-beta.19",
-		"turbo": "^1.12.4"
-	}
+  "name": "jm-srf",
+  "version": "3.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yescomment/jm-srf"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "npx prettier -w ."
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "graphology": "^0.25.4",
+    "sigma": "^3.0.0-beta.19",
+    "turbo": "^2.1.1"
+  },
+  "packageManager": "npm@10.8.2"
 }
