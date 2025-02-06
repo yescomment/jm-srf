@@ -131,15 +131,6 @@ const modalId = `modal-${from}-${to}`.replace(/[^a-zA-Z0-9-_]/g, '')
       )}
     </>
   }
-
-  {investments?.length > 0 &&
-    <>
-      <h2>What we are investing in</h2>
-      {investments.map(investment =>
-        <h3>{investment}</h3>
-      )}
-    </>
-  }
 </div>
 
 <style lang:scss>
