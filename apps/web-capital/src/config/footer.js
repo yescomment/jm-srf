@@ -7,7 +7,7 @@ export const footerLists = [
 				slug: '/meet',
 			},
 			{
-				title: 'Strategy',
+				title: 'Strategize',
 				slug: '/strategy',
 			},
 			{
@@ -32,7 +32,7 @@ export const footerLists = [
 				slug: '/about',
 			},
 			{
-				title: 'Strategy',
+				title: 'Strategize',
 				slug: '/strategy',
 			},
       {
