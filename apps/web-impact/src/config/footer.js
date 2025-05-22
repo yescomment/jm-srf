@@ -7,7 +7,7 @@ export const footerLists = [
 				slug: '/about',
 			},
 			{
-				title: 'Strategy',
+				title: 'Strategize',
 				slug: '/strategy',
 			},
       {
