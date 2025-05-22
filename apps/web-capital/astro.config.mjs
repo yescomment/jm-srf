@@ -18,6 +18,7 @@ export default defineConfig({
     '/measure': '/whealth+',
     '/strategize': '/strategy',
     '/theorize': '/approach',
+    '/meet': '/about',
   },
   sitemap: false,
   // Generate sitemap (set to "false" to disable)
