@@ -17,6 +17,7 @@ export default defineConfig({
   redirects: {
     '/measure': '/whealth+',
     '/strategize': '/strategy',
+    '/theorize': '/approach',
   },
   sitemap: false,
   // Generate sitemap (set to "false" to disable)
