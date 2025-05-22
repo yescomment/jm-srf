@@ -15,7 +15,8 @@ const siteURL = VERCEL_PREVIEW_SITE || 'https://srf.capital/';
 export default defineConfig({
   site: siteURL,
   redirects: {
-    '/measure': '/whealth+'
+    '/measure': '/whealth+',
+    '/strategize': '/strategy',
   },
   sitemap: false,
   // Generate sitemap (set to "false" to disable)
