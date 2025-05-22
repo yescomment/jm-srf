@@ -7,8 +7,8 @@ export const footerLists = [
 				slug: '/meet',
 			},
 			{
-				title: 'Strategize',
-				slug: '/strategize',
+				title: 'Strategy',
+				slug: '/strategy',
 			},
 			{
 				title: 'Theorize',
