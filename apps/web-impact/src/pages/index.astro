@@ -12,12 +12,13 @@ const seo = {
 ---
 <Layout seo={seo}>
 	<HeroVideo videoUrl={logoVideoUrl}>
+		<p class="section-tag hero-tag">Social Finance</p>
 		<h1>Investing in Human Futures</h1>
 		<p>We resource the organizations and leaders building the infrastructure of the next economies. Transdisciplinary research translated into practice. Patient capital deployed across global markets toward systems that serve broad prosperity.</p>
 	</HeroVideo>
 
 	<BrightSection>
-		<h3 id="thesis" class="scroll-stop">Thesis</h3>
+		<p id="thesis" class="section-tag scroll-stop">Thesis</p>
 		<h2>The infrastructure of the next economies is being built now</h2>
 		<p>Accelerators are developing impact enterprises. Intermediaries are creating new markets. Policy advocates are shaping enabling environments. Universities are training the next generation of practitioners. Measurement bodies are building the standards that will define the field.</p>
 		<p>These organizations create the conditions in which capital can flow toward human futures at scale. They are the connective tissue of social finance. We find them and resource them to reach the next level.</p>
@@ -25,7 +26,7 @@ const seo = {
 	</BrightSection>
 
 	<TextSection>
-		<h3 id="approach" class="scroll-stop">Approach</h3>
+		<p id="approach" class="section-tag scroll-stop">Approach</p>
 		<h2>We seek out visionary organizations and ask what they need</h2>
 		<p>There are enough great ideas in the world. What the field needs is capital willing to find them, resource them properly, and then step back. We identify organizations with transformative potential and partner with them for the long term.</p>
 
@@ -50,7 +51,7 @@ const seo = {
 	</TextSection>
 
 	<BrightSection>
-		<h3 id="ecosystem" class="scroll-stop">Ecosystem</h3>
+		<p id="ecosystem" class="section-tag scroll-stop">Ecosystem</p>
 		<h2>Where we deploy capital</h2>
 		<p>We strengthen the global infrastructure of social finance by investing in the organizations that shape the field and create multiplier effects. A well-placed investment in field infrastructure ripples out to benefit countless other efforts.</p>
 
@@ -83,7 +84,7 @@ const seo = {
 	</BrightSection>
 
 	<TextSection>
-		<h3 id="institute" class="scroll-stop">The Institute</h3>
+		<p id="institute" class="section-tag scroll-stop">The Institute</p>
 		<h2>Next Economies Institute</h2>
 		<p>SRF Impact serves as the advisory and capital formation platform for the Next Economies Institute, a transdisciplinary research and practice organization bridging academic inquiry with field-based implementation.</p>
 		<p>The Institute convenes scholars, practitioners, investors, and community stakeholders across geographies. It develops frameworks for human futures and next economy design, translating research into investable solutions and deploying knowledge toward underinvested communities.</p>
@@ -109,7 +110,7 @@ const seo = {
 	</TextSection>
 
 	<BrightSection>
-		<h3 id="focus-areas" class="scroll-stop">Focus Areas</h3>
+		<p id="focus-areas" class="section-tag scroll-stop">Focus Areas</p>
 		<h2>Sectors shaping human futures</h2>
 
 		<div class="columns">
@@ -141,7 +142,7 @@ const seo = {
 	</BrightSection>
 
 	<TextSection>
-		<h3 id="contact" class="scroll-stop">Contact</h3>
+		<p id="contact" class="section-tag scroll-stop">Contact</p>
 		<h2>For those building the next economies</h2>
 		<p>We partner with organizations and leaders whose work strengthens the infrastructure of social finance.</p>
 		<p>
@@ -153,9 +154,101 @@ const seo = {
 	</TextSection>
 </Layout>
 
+<script>
+	const sectionTags = document.querySelectorAll('.section-tag');
+
+	if ('IntersectionObserver' in window) {
+		const revealTag = new IntersectionObserver((entries, observer) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				entry.target.classList.add('is-visible');
+				observer.unobserve(entry.target);
+			}
+		}, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+
+		sectionTags.forEach((tag) => revealTag.observe(tag));
+	} else {
+		sectionTags.forEach((tag) => tag.classList.add('is-visible'));
+	}
+</script>
+
 <style>
 	.scroll-stop {
 		scroll-margin-top: 5rem;
+	}
+
+	.section-tag {
+		display: inline-block;
+		margin: 0 0 1rem;
+		font-size: clamp(0.78rem, 0.15vw + 0.74rem, 0.9rem);
+		font-weight: 200;
+		letter-spacing: 0.01em;
+		line-height: 1.2;
+		text-transform: uppercase;
+		text-shadow: none;
+		color: var(--color-primary);
+		position: relative;
+		opacity: 0;
+		transform: translate3d(0, 0.85rem, 0) rotateX(14deg);
+		transform-origin: left center;
+		transition:
+			opacity 0.6s ease,
+			transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.hero-tag {
+		margin-top: 0;
+		margin-bottom: 1.25rem;
+	}
+
+	.section-tag::before {
+		content: '';
+		position: absolute;
+		inset: -0.25rem -0.45rem;
+		background: linear-gradient(
+			110deg,
+			transparent 0%,
+			rgba(231, 76, 52, 0.24) 42%,
+			transparent 72%
+		);
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	:global(section.bright) .section-tag {
+		color: var(--color-light);
+	}
+
+	:global(section.bright) .section-tag::before {
+		background: linear-gradient(
+			110deg,
+			transparent 0%,
+			rgba(237, 237, 233, 0.45) 42%,
+			transparent 72%
+		);
+	}
+
+	.section-tag:is(.is-visible, .deployed) {
+		opacity: 1;
+		transform: translate3d(0, 0, 0) rotateX(0);
+	}
+
+	.section-tag:is(.is-visible, .deployed)::before {
+		animation: section-tag-shimmer 1.15s ease-out 1 both;
+	}
+
+	@keyframes section-tag-shimmer {
+		0% {
+			opacity: 0;
+			transform: translateX(-35%) skewX(-12deg);
+		}
+		35% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+			transform: translateX(35%) skewX(-12deg);
+		}
 	}
 
 	.button {
