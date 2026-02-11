@@ -1,30 +1,148 @@
 ---
 import Layout from '../layouts/Page.astro';
-import { HeroVideo, BrightSection } from 'jm-srf-components';
-import { getImage } from 'astro:assets';
+import { HeroVideo, BrightSection, TextSection } from 'jm-srf-components';
 
 const logoVideoUrl = '/assets/video/srf_impact_logo_loop.mp4'
 
 const seo = {
 	title: 'SRF Impact',
-	description: 'Building equitable economies for the future.',
+	description: 'Investing in Human Futures',
 }
 ---
 <Layout seo={seo}>
 	<HeroVideo videoUrl={logoVideoUrl}>
-		<h1>If you could redesign society from scratch, what would it look like?</h1>
+		<h1>Investing in Human Futures</h1>
+		<p>We resource the organizations and leaders building the infrastructure of the next economies. Transdisciplinary research translated into practice. Patient capital deployed across global markets toward systems that serve broad prosperity.</p>
 	</HeroVideo>
 	<BrightSection>
-		<h1 class="bold">How would you distribute wealth and power?</h1>
-		<h1 class="bold">Would you make everyone equal or not? How would you define fairness and equality?</h1>
-		<h1 class="bold">And—here’s the kicker—what if you had to make those decisions without knowing who you would be in this new society?</h1>
-		<h2 style="text-align: right;">~ John Rawls</h2>
+		<h3 id="thesis" class="scroll-stop">Thesis</h3>
+		<h2>The infrastructure of the next economies is being built now</h2>
+		<p>Accelerators are developing impact enterprises. Intermediaries are creating new markets. Policy advocates are shaping enabling environments. Universities are training the next generation of practitioners. Measurement bodies are building the standards that will define the field.</p>
+		<p>These organizations create the conditions in which capital can flow toward human futures at scale. They are the connective tissue of social finance. We find them and resource them to reach the next level.</p>
+		<blockquote>Our role is to strengthen what exists, connect what is fragmented, and provide patient capital where it creates multiplier effects across the ecosystem.</blockquote>
+	</BrightSection>
+	<TextSection>
+		<h3 id="approach" class="scroll-stop">Approach</h3>
+		<h2>We seek out visionary organizations and ask what they need</h2>
+		<p>There are enough great ideas in the world. What the field needs is capital willing to find them, resource them properly, and then step back. We identify organizations with transformative potential and partner with them for the long term.</p>
+
+		<div class="columns">
+			<div>
+				<h4>Design Capital</h4>
+				<p>Patient, flexible funding that provides runway to test ideas, refine models, and scale what works. We walk from the philanthropic side of the capital spectrum, leading with grants and technical assistance, progressing to recoverable grants and program-related investments, employing guarantees and first-loss positions to unlock co-investment.</p>
+			</div>
+			<div>
+				<h4>Select Few, Go Deep</h4>
+				<p>We partner with a small number of organizations at a time, providing each with substantial capital and devoted attention. These are long-term relationships built on mission alignment and mutual commitment. We tailor funding to fit each partner&rsquo;s needs rather than forcing them into predetermined structures.</p>
+			</div>
+			<div>
+				<h4>Fund, Amplify, Connect</h4>
+				<p>We see ourselves as an amplifier and enabler of others&rsquo; work. Rather than replicating what already exists, we strengthen existing anchor institutions and equip them with resources to reach the next level. Our portfolio becomes a network of organizations learning from each other.</p>
+			</div>
+			<div>
+				<h4>Trust</h4>
+				<p>Organizations are selected because of their expertise and proximity to the work. They understand what their communities need. Our role is to provide strategic guidance, mentorship, and access to networks. We invest in people and then go to work for our investments.</p>
+			</div>
+		</div>
+	</TextSection>
+	<TextSection>
+		<h3 id="ecosystem" class="scroll-stop">Ecosystem</h3>
+		<h2>Where we deploy capital</h2>
+		<p>We strengthen the global infrastructure of social finance by investing in the organizations that shape the field and create multiplier effects. A well-placed investment in field infrastructure ripples out to benefit countless other efforts.</p>
+
+		<div class="columns">
+			<div>
+				<h4>Accelerators &amp; Venture Builders</h4>
+				<p>Organizations incubating and scaling impact enterprises. A single investment in a high-performing accelerator may support dozens of ventures over time.</p>
+			</div>
+			<div>
+				<h4>Market Intermediaries</h4>
+				<p>Entities connecting capital to opportunity, structuring deals, and creating financial products that improve capital flows.</p>
+			</div>
+			<div>
+				<h4>Policy &amp; Advocacy</h4>
+				<p>Institutions shaping the regulatory environment. A single policy change can open markets or redirect billions.</p>
+			</div>
+			<div>
+				<h4>Universities &amp; Research</h4>
+				<p>Academic centers generating evidence, developing talent, and institutionalizing blended value in education.</p>
+			</div>
+			<div>
+				<h4>Convenings &amp; Communications</h4>
+				<p>Platforms building community, shaping narrative, and attracting more practitioners and capital to the field.</p>
+			</div>
+			<div>
+				<h4>Measurement &amp; Standards</h4>
+				<p>Organizations creating the frameworks and verification systems that build trust across the ecosystem.</p>
+			</div>
+		</div>
+	</TextSection>
+	<TextSection>
+		<h3 id="institute" class="scroll-stop">The Institute</h3>
+		<h2>Next Economies Institute</h2>
+		<p>SRF Impact serves as the advisory and capital formation platform for the Next Economies Institute, a transdisciplinary research and practice organization bridging academic inquiry with field-based implementation.</p>
+		<p>The Institute convenes scholars, practitioners, investors, and community stakeholders across geographies. It develops frameworks for human futures and next economy design, translating research into investable solutions and deploying knowledge toward underinvested communities.</p>
+
+		<div class="columns">
+			<div>
+				<h4>Transdisciplinary Research</h4>
+				<p>Applied research spanning finance, health, climate, policy, and equity. Partnering with leading universities to generate evidence and inform the design of solutions.</p>
+			</div>
+			<div>
+				<h4>University-Embedded Labs</h4>
+				<p>Collaborative research environments harnessing faculty expertise and student energy to prototype responses to complex challenges.</p>
+			</div>
+			<div>
+				<h4>Technology Transfer</h4>
+				<p>Bridging academic innovation and real-world markets. Transforming university research into ventures addressing social and environmental challenges.</p>
+			</div>
+			<div>
+				<h4>Ecosystem Investments</h4>
+				<p>Design capital for field-building organizations. From accelerators and policy hubs to measurement bodies and global convenings.</p>
+			</div>
+		</div>
+	</TextSection>
+	<TextSection>
+		<h3 id="focus-areas" class="scroll-stop">Focus Areas</h3>
+		<h2>Sectors shaping human futures</h2>
+
+		<div class="columns">
+			<div>
+				<h4>Health &amp; Longevity</h4>
+				<p>Healthcare delivery, global health equity, healthspan extension, accessible care models.</p>
+			</div>
+			<div>
+				<h4>Climate &amp; Planetary Systems</h4>
+				<p>Decarbonization, renewable energy, sustainable agriculture, circular economy, climate adaptation.</p>
+			</div>
+			<div>
+				<h4>Financial Inclusion</h4>
+				<p>Expanding access to payments, credit, insurance, and wealth-building for underserved populations.</p>
+			</div>
+			<div>
+				<h4>Education &amp; Human Capital</h4>
+				<p>Learning technologies and workforce development expanding capability across communities.</p>
+			</div>
+			<div>
+				<h4>Resilient Infrastructure</h4>
+				<p>Water, energy, communications, food systems, housing, and the built environment.</p>
+			</div>
+			<div>
+				<h4>Frontier Technology</h4>
+				<p>AI, biotechnology, and advanced materials deployed in service of human benefit.</p>
+			</div>
+		</div>
+	</TextSection>
+	<BrightSection>
+		<h3 id="contact" class="scroll-stop">Contact</h3>
+		<h2>For those building the next economies</h2>
+		<p>We partner with organizations and leaders whose work strengthens the infrastructure of social finance.</p>
+		<p><a href="mailto:dorian@srfcapital.com">Begin a conversation</a></p>
 	</BrightSection>
 </Layout>
 
 <style>
-	.bold {
-		font-family: 'ebony';
-		font-weight: bold;
+	.scroll-stop {
+		scroll-margin-top: 5rem;
 	}
-</style
+</style>

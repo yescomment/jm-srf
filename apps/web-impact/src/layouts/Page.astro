@@ -21,22 +21,83 @@ export interface Props {
 }
 
 const { seo } = Astro.props as Props;
+const isHomePage = Astro.url.pathname === '/';
 ---
 <BaseHtml seo={seo}>
 	<Header slot="header">
 		<img slot="logo-full" class="logo-full separator" src={logoImpHoriPrimy.src} alt="SRF Impact">
 		<img slot="logo-icon" class="logo-icon" src={logoImpIconPrimy.src} alt="SRF Impact">
 		<Fragment slot="main-nav-items">
-			<a href="/about">About</a>
-			<a href="/areas-of-focus">Areas of Focus</a>
-			<a href="/strategy">Strategy</a>
-			<a href="/get-involved">Get Involved</a>
-			<a href="/whealth-capital-project">The (W)Health Capital Project</a>
-			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
+			{
+				isHomePage ? (
+					<>
+						<a class="section-tab" href="#thesis">Thesis</a>
+						<a class="section-tab" href="#approach">Approach</a>
+						<a class="section-tab" href="#ecosystem">Ecosystem</a>
+						<a class="section-tab" href="#institute">Institute</a>
+						<a class="section-tab" href="#focus-areas">Focus Areas</a>
+						<a class="section-tab" href="#contact">Contact</a>
+					</>
+				) : (
+					<>
+						<a href="/about">About</a>
+						<a href="/areas-of-focus">Areas of Focus</a>
+						<a href="/strategy">Strategy</a>
+						<a href="/get-involved">Get Involved</a>
+						<a href="/whealth-capital-project">The (W)Health Capital Project</a>
+						<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
+					</>
+				)
+			}
 		</Fragment>
 	</Header>
 	<div id="page">
 		<slot />
+		{
+			isHomePage && (
+				<script>
+					const sectionLinks = Array.from(
+						document.querySelectorAll('nav.main-nav > a.section-tab[href^="#"]'),
+					);
+					const sections = sectionLinks
+						.map((link) => {
+							const href = link.getAttribute('href');
+							if (!href) return null;
+							return document.getElementById(href.replace('#', ''));
+						})
+						.filter(Boolean);
+
+					const setActiveSectionLink = (id) => {
+						for (const link of sectionLinks) {
+							const isActive = link.getAttribute('href') === `#${id}`;
+							link.classList.toggle('is-active', isActive);
+							if (isActive) link.setAttribute('aria-current', 'location');
+							else link.removeAttribute('aria-current');
+						}
+					};
+
+					const syncSectionNav = () => {
+						if (!sections.length) return;
+
+						const header = document.querySelector('header');
+						const offset = (header?.getBoundingClientRect().height ?? 0) + 24;
+						const position = window.scrollY + offset;
+
+						let activeId = sections[0].id;
+						for (const section of sections) {
+							if (section.offsetTop <= position) activeId = section.id;
+						}
+
+						setActiveSectionLink(activeId);
+					};
+
+					window.addEventListener('scroll', syncSectionNav, { passive: true });
+					window.addEventListener('resize', syncSectionNav);
+					window.addEventListener('hashchange', syncSectionNav);
+					syncSectionNav();
+				</script>
+			)
+		}
 	</div>
 	<Footer>
 		<img slot="logo" class="logo" src={logoImpStacWhite.src} alt="SRF Impact">
@@ -52,3 +113,14 @@ const { seo } = Astro.props as Props;
 		</a>
 	</Footer>
 </BaseHtml>
+
+<style is:global>
+	nav > a.section-tab {
+		transition: color 0.2s ease, background-color 0.2s ease;
+	}
+
+	nav > a.section-tab.is-active {
+		color: var(--color-light);
+		background-color: var(--color-primary);
+	}
+</style>
