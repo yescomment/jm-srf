@@ -56,14 +56,11 @@ h3 {
 
 h4 {
 	/* more like tags */
+	display: inline-block;
+	font-weight: 300;
 	text-transform: uppercase;
-	border-bottom: 3px solid currentColor;
-}
-
-section.bright :is(h3, h4) {
-  /* invert */
-  background-color: var(--color-light);
-  color: var(--color-primary);
+	border-bottom: 0.11em solid currentColor;
+	margin-block-end: 0.5em;
 }
 
 h4 + p {
