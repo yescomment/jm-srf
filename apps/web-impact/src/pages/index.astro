@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Page.astro';
 import { HeroVideo, BrightSection, TextSection } from 'jm-srf-components';
+import { Icon } from 'astro-icon/components';
 
 const logoVideoUrl = '/assets/video/srf_impact_logo_loop.mp4'
 
@@ -143,12 +144,38 @@ const seo = {
 		<h3 id="contact" class="scroll-stop">Contact</h3>
 		<h2>For those building the next economies</h2>
 		<p>We partner with organizations and leaders whose work strengthens the infrastructure of social finance.</p>
-		<p><a href="mailto:dorian@srfcapital.com">Begin a conversation</a></p>
+		<p>
+			<a class="button" href="mailto:dorian@srfcapital.com">
+				<Icon size="1.5em" name="material-symbols:mail-rounded" />
+				Begin a conversation
+			</a>
+		</p>
 	</TextSection>
 </Layout>
 
 <style>
 	.scroll-stop {
 		scroll-margin-top: 5rem;
+	}
+
+	.button {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 10rem;
+		padding: 1rem;
+		border: 1px solid var(--color-primary-tinted);
+		text-decoration: none;
+		color: var(--color-primary);
+	}
+
+	.button:hover {
+		box-shadow: 0 0 5px var(--color-dark);
+		background-color: var(--color-light-tinted);
+		color: var(--color-primary);
+	}
+
+	.button :global([data-icon]) {
+		padding-inline-end: 0.5em;
 	}
 </style>
