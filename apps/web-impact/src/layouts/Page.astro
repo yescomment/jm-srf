@@ -22,6 +22,22 @@ export interface Props {
 
 const { seo } = Astro.props as Props;
 const isHomePage = Astro.url.pathname === '/';
+const sectionNavLinks = [
+	{ href: '#thesis', label: 'Thesis' },
+	{ href: '#approach', label: 'Approach' },
+	{ href: '#ecosystem', label: 'Ecosystem' },
+	{ href: '#institute', label: 'Institute' },
+	{ href: '#focus-areas', label: 'Focus Areas' },
+	{ href: '#contact', label: 'Contact' },
+];
+const pageNavLinks = [
+	{ href: '/about', label: 'About' },
+	{ href: '/areas-of-focus', label: 'Areas of Focus' },
+	{ href: '/strategy', label: 'Strategy' },
+	{ href: '/get-involved', label: 'Get Involved' },
+	{ href: '/whealth-capital-project', label: 'The (W)Health Capital Project' },
+];
+const navLinks = isHomePage ? sectionNavLinks : pageNavLinks;
 ---
 <BaseHtml seo={seo}>
 	<Header slot="header">
@@ -29,25 +45,9 @@ const isHomePage = Astro.url.pathname === '/';
 		<img slot="logo-icon" class="logo-icon" src={logoImpIconPrimy.src} alt="SRF Impact">
 		<Fragment slot="main-nav-items">
 			{
-				isHomePage ? (
-					<>
-						<a class="section-tab" href="#thesis">Thesis</a>
-						<a class="section-tab" href="#approach">Approach</a>
-						<a class="section-tab" href="#ecosystem">Ecosystem</a>
-						<a class="section-tab" href="#institute">Institute</a>
-						<a class="section-tab" href="#focus-areas">Focus Areas</a>
-						<a class="section-tab" href="#contact">Contact</a>
-					</>
-				) : (
-					<>
-						<a href="/about">About</a>
-						<a href="/areas-of-focus">Areas of Focus</a>
-						<a href="/strategy">Strategy</a>
-						<a href="/get-involved">Get Involved</a>
-						<a href="/whealth-capital-project">The (W)Health Capital Project</a>
-						<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
-					</>
-				)
+				navLinks.map((link) => (
+					<a class={isHomePage ? 'section-tab' : undefined} href={link.href}>{link.label}</a>
+				))
 			}
 		</Fragment>
 	</Header>
@@ -99,17 +99,17 @@ const isHomePage = Astro.url.pathname === '/';
 			)
 		}
 	</div>
-	<Footer>
-		<img slot="logo" class="logo" src={logoImpStacWhite.src} alt="SRF Impact">
+		<Footer>
+			<img slot="logo" class="logo" src={logoImpStacWhite.src} alt="SRF Impact">
 
-		<a slot="sitenav" href="/about">About</a>
-		<a slot="sitenav" href="/areas-of-focus">Areas of Focus</a>
-		<a slot="sitenav" href="/strategy">Strategy</a>
-		<a slot="sitenav" href="/get-involved">Get Involved</a>
-		<a slot="sitenav" href="/whealth-capital-project">The (W)Health Capital Project</a>
+			{
+				navLinks.map((link) => (
+					<a slot="sitenav" href={link.href}>{link.label}</a>
+				))
+			}
 
-		<a slot="contact" class="button" href="mailto:dorian@srfcapital.com">
-			<Icon size="1.5em" name="material-symbols:mail-rounded" /> Contact
+			<a slot="contact" class="button" href="mailto:dorian@srfcapital.com">
+				<Icon size="1.5em" name="material-symbols:mail-rounded" /> Contact
 		</a>
 	</Footer>
 </BaseHtml>
