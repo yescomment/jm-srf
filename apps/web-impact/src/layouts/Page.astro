@@ -23,33 +23,29 @@ export interface Props {
 const { seo } = Astro.props as Props;
 const isHomePage = Astro.url.pathname === '/';
 const sectionNavLinks = [
-	{ href: '#thesis', label: 'Thesis' },
-	{ href: '#approach', label: 'Approach' },
-	{ href: '#ecosystem', label: 'Ecosystem' },
-	{ href: '#institute', label: 'Institute' },
-	{ href: '#focus-areas', label: 'Focus Areas' },
-	{ href: '#contact', label: 'Contact' },
+	{ id: 'thesis', label: 'Thesis' },
+	{ id: 'approach', label: 'Approach' },
+	{ id: 'ecosystem', label: 'Ecosystem' },
+	{ id: 'institute', label: 'Institute' },
+	{ id: 'focus-areas', label: 'Focus Areas' },
+	{ id: 'contact', label: 'Contact' },
 ];
-const pageNavLinks = [
-	{ href: '/about', label: 'About' },
-	{ href: '/areas-of-focus', label: 'Areas of Focus' },
-	{ href: '/strategy', label: 'Strategy' },
-	{ href: '/get-involved', label: 'Get Involved' },
-	{ href: '/whealth-capital-project', label: 'The (W)Health Capital Project' },
-];
-const navLinks = isHomePage ? sectionNavLinks : pageNavLinks;
+const navLinks = sectionNavLinks.map((link) => ({
+	...link,
+	href: isHomePage ? `#${link.id}` : `/#${link.id}`,
+}));
 ---
 <BaseHtml seo={seo}>
 	<Header slot="header">
 		<img slot="logo-full" class="logo-full separator" src={logoImpHoriPrimy.src} alt="SRF Impact">
 		<img slot="logo-icon" class="logo-icon" src={logoImpIconPrimy.src} alt="SRF Impact">
 		<Fragment slot="main-nav-items">
-			{
-				navLinks.map((link) => (
-					<a class={isHomePage ? 'section-tab' : undefined} href={link.href}>{link.label}</a>
-				))
-			}
-		</Fragment>
+				{
+					navLinks.map((link) => (
+						<a class="section-tab" href={link.href}>{link.label}</a>
+					))
+				}
+			</Fragment>
 	</Header>
 	<div id="page">
 		<slot />
