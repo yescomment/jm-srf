@@ -1,6 +1,6 @@
 ---
-import { Button, Container, TextCardSection } from 'srf-theme-components';
 import Layout from '../layouts/Page.astro';
+import birdsImg from '@people/iStock-1058393584.jpg';
 
 const seo = {
 	title: 'SRF Impact ❦ Not Found',
@@ -8,37 +8,129 @@ const seo = {
 ---
 
 <Layout {seo}>
-	<Container>
-		<TextCardSection>
-			<h1>404</h1>
-      <h2>Page Not Found</h2>
-			<div class="cta-buttons__container">
-        <Button
-					href="/"
-					>
-          Return Home
-				</Button>
+	<section class="not-found-page" style={`background-image: url(${birdsImg.src});`}>
+		<div class="not-found-panel">
+			<p class="not-found-kicker">SRF Impact</p>
+			<p class="not-found-code" aria-hidden="true">404</p>
+			<h1 class="not-found-title">Page Not Found</h1>
+			<p class="not-found-copy">We are actively updating paths and content. This page may have moved.</p>
+			<div class="not-found-links">
+				<a class="not-found-link not-found-link-primary" href="/">Return Home</a>
+				<a class="not-found-link" href="/about">About</a>
+				<a class="not-found-link" href="/areas-of-focus">Areas of Focus</a>
+				<a class="not-found-link" href="/strategy">Strategy</a>
+				<a class="not-found-link" href="/get-involved">Get Involved</a>
 			</div>
-		</TextCardSection>
-	</Container>
+		</div>
+	</section>
 </Layout>
 
 <style>
-	.cta-buttons__container {
+	.not-found-page {
+		position: relative;
+		margin: clamp(1rem, 2.25vw, 2.5rem);
+		padding: clamp(1rem, 2.5vw, 2.5rem);
+		min-height: clamp(28rem, 66vh, 44rem);
+		border-radius: clamp(1rem, 2.5vw, 2rem);
+		overflow: hidden;
+		display: flex;
+		align-items: flex-end;
+		background-size: cover;
+		background-position: center;
+	}
+
+	.not-found-page::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(165deg, rgba(50, 56, 53, 0.28), rgba(50, 56, 53, 0.74));
+	}
+
+	.not-found-panel {
+		position: relative;
+		z-index: 1;
+		max-width: min(42rem, 100%);
+		padding: clamp(1rem, 2.4vw, 2rem);
+		background: rgba(50, 56, 53, 0.64);
+		backdrop-filter: blur(6px);
+		border: 1px solid rgba(237, 237, 233, 0.45);
+	}
+
+	.not-found-kicker,
+	.not-found-code,
+	.not-found-title,
+	.not-found-copy {
+		margin: 0;
+		text-shadow: none;
+	}
+
+	.not-found-kicker {
+		font-size: clamp(0.8rem, 0.12vw + 0.76rem, 0.92rem);
+		font-weight: 200;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--color-light-tinted);
+	}
+
+	.not-found-code {
+		margin-top: 0.35rem;
+		font-family: var(--theme-font-family-serif);
+		font-size: clamp(3rem, 10vw, 6rem);
+		line-height: 0.9;
+		color: var(--color-light);
+	}
+
+	.not-found-title {
+		margin-top: 0.4rem;
+		font-size: clamp(2rem, 4.2vw, 3.1rem);
+		line-height: 1;
+		color: var(--color-light);
+	}
+
+	.not-found-copy {
+		margin-top: 0.85rem;
+		max-width: 34ch;
+		color: var(--color-light-tinted);
+	}
+
+	.not-found-links {
+		margin-top: 1.25rem;
 		display: flex;
 		flex-wrap: wrap;
+		gap: 0.65rem;
 	}
-	.cta-buttons__container :global(a) {
-    margin-right: 1rem;
-		margin-bottom: 1rem;
+
+	.not-found-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.6rem 0.95rem;
+		border: 1px solid rgba(237, 237, 233, 0.5);
+		color: var(--color-light);
+		text-decoration: none;
+		background: rgba(237, 237, 233, 0.08);
+		transition: background-color 0.2s ease, border-color 0.2s ease;
 	}
-	.code-buttons__container {
-		margin: 1rem auto;
-		display: flex;
-		flex-wrap: wrap;
+
+	.not-found-link:hover {
+		background: rgba(237, 237, 233, 0.18);
+		border-color: rgba(237, 237, 233, 0.85);
 	}
-	.code-buttons__container > a {
-		margin-right: 1rem;
-		margin-bottom: 1rem;
+
+	.not-found-link-primary {
+		background-color: var(--color-primary);
+		border-color: var(--color-primary);
+	}
+
+	.not-found-link-primary:hover {
+		background-color: var(--color-primary-tinted);
+		border-color: var(--color-primary-tinted);
+	}
+
+	@media (max-width: 768px) {
+		.not-found-page {
+			margin: 0.75rem;
+			min-height: 70vh;
+		}
 	}
 </style>
