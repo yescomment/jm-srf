@@ -21,34 +21,98 @@ export interface Props {
 }
 
 const { seo } = Astro.props as Props;
+const isHomePage = Astro.url.pathname === '/';
+const sectionNavLinks = [
+	{ id: 'thesis', label: 'Thesis' },
+	{ id: 'approach', label: 'Approach' },
+	{ id: 'ecosystem', label: 'Ecosystem' },
+	{ id: 'institute', label: 'Institute' },
+	{ id: 'focus-areas', label: 'Focus Areas' },
+	{ id: 'contact', label: 'Contact' },
+];
+const navLinks = sectionNavLinks.map((link) => ({
+	...link,
+	href: isHomePage ? `#${link.id}` : `/#${link.id}`,
+}));
 ---
 <BaseHtml seo={seo}>
 	<Header slot="header">
 		<img slot="logo-full" class="logo-full separator" src={logoImpHoriPrimy.src} alt="SRF Impact">
 		<img slot="logo-icon" class="logo-icon" src={logoImpIconPrimy.src} alt="SRF Impact">
 		<Fragment slot="main-nav-items">
-			<a href="/about">About</a>
-			<a href="/areas-of-focus">Areas of Focus</a>
-			<a href="/strategy">Strategy</a>
-			<a href="/get-involved">Get Involved</a>
-			<a href="/whealth-capital-project">The (W)Health Capital Project</a>
-			<!-- <a href="/insights">Insights</a> TODO: subdomain? -->
-		</Fragment>
+				{
+					navLinks.map((link) => (
+						<a class="section-tab" href={link.href}>{link.label}</a>
+					))
+				}
+			</Fragment>
 	</Header>
 	<div id="page">
 		<slot />
+		{
+			isHomePage && (
+				<script>
+					const sectionLinks = Array.from(
+						document.querySelectorAll('nav.main-nav > a.section-tab[href^="#"]'),
+					);
+					const sections = sectionLinks
+						.map((link) => {
+							const href = link.getAttribute('href');
+							if (!href) return null;
+							return document.getElementById(href.replace('#', ''));
+						})
+						.filter(Boolean);
+
+					const setActiveSectionLink = (id) => {
+						for (const link of sectionLinks) {
+							const isActive = link.getAttribute('href') === `#${id}`;
+							link.classList.toggle('is-active', isActive);
+							if (isActive) link.setAttribute('aria-current', 'location');
+							else link.removeAttribute('aria-current');
+						}
+					};
+
+					const syncSectionNav = () => {
+						if (!sections.length) return;
+
+						const header = document.querySelector('header');
+						const offset = (header?.getBoundingClientRect().height ?? 0) + 24;
+						const position = window.scrollY + offset;
+
+						let activeId = sections[0].id;
+						for (const section of sections) {
+							if (section.offsetTop <= position) activeId = section.id;
+						}
+
+						setActiveSectionLink(activeId);
+					};
+
+					window.addEventListener('scroll', syncSectionNav, { passive: true });
+					window.addEventListener('resize', syncSectionNav);
+					window.addEventListener('hashchange', syncSectionNav);
+					syncSectionNav();
+				</script>
+			)
+		}
 	</div>
-	<Footer>
-		<img slot="logo" class="logo" src={logoImpStacWhite.src} alt="SRF Impact">
+		<Footer>
+			<img slot="logo" class="logo" src={logoImpStacWhite.src} alt="SRF Impact">
 
-		<a slot="sitenav" href="/about">About</a>
-		<a slot="sitenav" href="/areas-of-focus">Areas of Focus</a>
-		<a slot="sitenav" href="/strategy">Strategy</a>
-		<a slot="sitenav" href="/get-involved">Get Involved</a>
-		<a slot="sitenav" href="/whealth-capital-project">The (W)Health Capital Project</a>
-
-		<a slot="contact" class="button" href="mailto:dorian@srfcapital.com">
-			<Icon size="1.5em" name="material-symbols:mail-rounded" /> Contact
-		</a>
+			{
+				navLinks.map((link) => (
+					<a slot="sitenav" href={link.href}>{link.label}</a>
+				))
+			}
 	</Footer>
 </BaseHtml>
+
+<style is:global>
+	nav > a.section-tab {
+		transition: color 0.2s ease, background-color 0.2s ease;
+	}
+
+	nav > a.section-tab.is-active {
+		color: var(--color-light);
+		background-color: var(--color-primary);
+	}
+</style>
