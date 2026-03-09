@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRF Capital AG + Impact | Social Finance Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #3d3d3d;
+    --ink-muted: #6b6b6b;
+    --cream: #f7f5f0;
+    --cream-dark: #ebe8e0;
+    --accent: #1e3a5f;
+    --accent-light: #2d5a8a;
+    --accent-bright: #3a7bc8;
+    --white: #ffffff;
+    --divider: rgba(26, 26, 26, 0.12);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Libre Franklin', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+    background: transparent;
+  }
+
+  nav.scrolled {
+    background: rgba(247, 245, 240, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--divider);
+    padding: 1rem 3rem;
+  }
+
+  .nav-logo {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .nav-logo span {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(30, 58, 95, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 900px;
+    margin-left: 8vw;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 1.2s ease 0.3s forwards;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-body {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+    max-width: 640px;
+  }
+
+  /* ─── SECTION UTILITY ─── */
+  section {
+    padding: 8rem 3rem;
+    position: relative;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 3rem;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── WHAT WE BELIEVE ─── */
+  .believe {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .believe .section-label { color: var(--accent-bright); }
+
+  .believe-questions {
+    margin-bottom: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid rgba(247, 245, 240, 0.1);
+  }
+
+  .believe-question {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: rgba(247, 245, 240, 0.7);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+  }
+
+  .believe-question.visible {
+    opacity: 1;
+    transform: translateY(0);
+    color: rgba(247, 245, 240, 0.85);
+  }
+
+  .believe-bridge {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--accent-bright);
+    margin-bottom: 4rem;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .principle {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(247, 245, 240, 0.06);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.7s ease;
+  }
+
+  .principle.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .principle-lead {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.4;
+  }
+
+  .principle-body {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: rgba(247, 245, 240, 0.6);
+    max-width: 520px;
+  }
+
+  .believe-close {
+    margin-top: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(247, 245, 240, 0.1);
+  }
+
+  .believe-close p {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 300;
+    line-height: 1.5;
+    color: rgba(247, 245, 240, 0.75);
+    max-width: 700px;
+  }
+
+  .believe-close .highlight {
+    color: var(--accent-bright);
+  }
+
+  /* ─── THE WORK ─── */
+  .work {
+    background: var(--cream);
+  }
+
+  .work-intro {
+    max-width: 700px;
+    margin-bottom: 5rem;
+  }
+
+  .work-intro h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .work-intro p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--divider);
+    border: 1px solid var(--divider);
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 3rem;
+    transition: all 0.4s ease;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    background: var(--white);
+  }
+
+  .service-number {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--ink-muted);
+  }
+
+  /* ─── NEI ─── */
+  .nei {
+    background: var(--white);
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .nei-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .nei-left h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .nei-left h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .nei-left > p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+  }
+
+  .nei-right {
+    padding-top: 0.5rem;
+  }
+
+  .nei-function {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .nei-function:last-child { border-bottom: none; }
+
+  .nei-function h4 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .nei-function p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--ink-muted);
+  }
+
+  /* ─── OCISO ─── */
+  .ociso {
+    background: var(--cream-dark);
+  }
+
+  .ociso-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+
+  .ociso-left h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 300;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+
+  .ociso-left > p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+  }
+
+  .ociso-models {
+    padding-top: 1rem;
+  }
+
+  .ociso-model {
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .ociso-model:first-child { border-top: 1px solid var(--divider); }
+
+  .ociso-model h4 {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .ociso-model p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--ink-muted);
+  }
+
+  /* ─── SECTORS ─── */
+  .sectors {
+    background: var(--cream);
+  }
+
+  .sectors-intro {
+    max-width: 650px;
+    margin-bottom: 4rem;
+  }
+
+  .sectors-intro h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .sectors-intro p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+  }
+
+  .impact-areas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .impact-area {
+    padding: 1.5rem;
+    border-left: 2px solid var(--accent);
+    background: var(--white);
+  }
+
+  .impact-area h4 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .impact-area p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--ink-muted);
+  }
+
+  .sectors-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--divider);
+    border: 1px solid var(--divider);
+  }
+
+  .sector-item {
+    background: var(--cream);
+    padding: 3rem 2.5rem;
+    transition: background 0.3s ease;
+  }
+
+  .sector-item:hover { background: var(--white); }
+
+  .sector-item h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .sector-item p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--ink-muted);
+  }
+
+  /* ─── CLIENT GROUPS ─── */
+  .clients {
+    background: var(--white);
+    border-top: 1px solid var(--divider);
+  }
+
+  .clients-intro {
+    max-width: 700px;
+    margin-bottom: 4rem;
+  }
+
+  .clients-intro h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .clients-intro p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+  }
+
+  .client-group {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .client-group:last-child { border-bottom: none; }
+
+  .client-group h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .client-group .profile {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+  }
+
+  .client-group .value-prop {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--ink-muted);
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--accent);
+    max-width: 700px;
+  }
+
+  /* ─── INVESTMENTS ─── */
+  .investments-hero {
+    background: var(--accent);
+    color: var(--white);
+    padding: 10rem 3rem 8rem;
+  }
+
+  .investments-hero .section-inner {
+    max-width: 900px;
+  }
+
+  .investments-hero .section-label {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .investments-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .investments-hero h1 em {
+    font-style: italic;
+  }
+
+  .investments-hero p {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+  }
+
+  .investments-hero .highlight-text {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .investments-pillars {
+    background: var(--cream);
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--divider);
+    border: 1px solid var(--divider);
+  }
+
+  .pillar {
+    background: var(--cream);
+    padding: 3rem;
+    transition: background 0.3s ease;
+  }
+
+  .pillar:hover { background: var(--white); }
+
+  .pillar h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+  }
+
+  .pillar p {
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: var(--ink-muted);
+  }
+
+  .investments-strategy {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .investments-strategy .section-label { color: var(--accent-bright); }
+
+  .strategy-intro {
+    max-width: 800px;
+    margin-bottom: 4rem;
+  }
+
+  .strategy-intro h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 300;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .strategy-block {
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .strategy-block h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--accent-bright);
+  }
+
+  .strategy-block p {
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: rgba(247, 245, 240, 0.65);
+  }
+
+  .investments-approach {
+    background: var(--cream-dark);
+  }
+
+  .approach-header {
+    max-width: 800px;
+    margin-bottom: 4rem;
+  }
+
+  .approach-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .approach-header .subtitle {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--ink-light);
+    line-height: 1.5;
+  }
+
+  .thesis-block {
+    background: var(--white);
+    padding: 3rem;
+    margin-bottom: 4rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  .thesis-block h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .thesis-block p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+  }
+
+  .drivers-section h3 {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    color: var(--accent);
+  }
+
+  .drivers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .driver-category h4 {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .driver-category ul {
+    list-style: none;
+  }
+
+  .driver-category li {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .driver-category li:last-child { border-bottom: none; }
+
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .criteria-block {
+    padding: 2rem;
+    background: var(--white);
+  }
+
+  .criteria-block h4 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .criteria-block p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--ink-muted);
+  }
+
+  .whealth-section {
+    background: var(--accent);
+    padding: 4rem;
+    color: var(--white);
+  }
+
+  .whealth-section h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .whealth-section p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+  }
+
+  .whealth-section p + p {
+    margin-top: 1.5rem;
+  }
+
+  /* ─── LEADERSHIP ─── */
+  .leadership {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .leadership .section-label { color: var(--accent-bright); }
+
+  .leadership-intro {
+    max-width: 600px;
+    margin-bottom: 5rem;
+  }
+
+  .leadership-intro h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(247, 245, 240, 0.08);
+  }
+
+  .team-member {
+    padding: 3rem;
+    background: var(--ink);
+    transition: background 0.3s ease;
+  }
+
+  .team-member:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .member-role {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    margin-bottom: 0.75rem;
+  }
+
+  .member-name {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    color: var(--cream);
+  }
+
+  .member-bio {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: rgba(247, 245, 240, 0.55);
+  }
+
+  /* ─── GLOBAL PRESENCE ─── */
+  .presence {
+    background: var(--cream);
+  }
+
+  .presence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .presence h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .hq-card {
+    padding: 2rem 0;
+    border-top: 2px solid var(--accent);
+  }
+
+  .hq-card h3 {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .hq-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--ink-muted);
+  }
+
+  .expansion-regions {
+    padding-top: 3rem;
+    border-top: 1px solid var(--divider);
+  }
+
+  .expansion-regions h3 {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .regions-list {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .region {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--ink-light);
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: var(--ink);
+    color: var(--cream);
+    text-align: center;
+    padding: 10rem 3rem;
+  }
+
+  .contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: rgba(247, 245, 240, 0.6);
+    max-width: 550px;
+    margin: 0 auto 3rem;
+  }
+
+  .contact-cta {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    text-decoration: none;
+    padding: 1.2rem 3rem;
+    border: 1px solid var(--accent);
+    transition: all 0.4s ease;
+  }
+
+  .contact-cta:hover {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(247, 245, 240, 0.06);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(247, 245, 240, 0.4);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(247, 245, 240, 0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--accent-bright); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── HAMBURGER ─── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+  }
+
+  .hamburger span {
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: all 0.3s ease;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .principle {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    .nei-grid, .ociso-content, .presence-grid, .strategy-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .services-grid, .pillars-grid {
+      grid-template-columns: 1fr;
+    }
+    .sectors-list, .impact-areas, .drivers-grid, .criteria-grid {
+      grid-template-columns: 1fr;
+    }
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.25rem 1.5rem; }
+    nav.scrolled { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 5rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .hero-content { margin-left: 0; }
+    .regions-list { flex-direction: column; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">SRF Capital <span>AG + Impact</span></div>
+  <ul class="nav-links">
+    <li><a href="#believe">What We Believe</a></li>
+    <li><a href="#work">The Work</a></li>
+    <li><a href="#sectors">Sectors</a></li>
+    <li><a href="#contact">Connect</a></li>
+  </ul>
+  <button class="hamburger" onclick="this.classList.toggle('active')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Social Finance Advisory</div>
+    <h1>Capital is a tool for building the world <em>we believe in.</em></h1>
+    <p class="hero-body">
+      SRF Capital is a social finance advisory for those ready to align their wealth with conviction, bringing strategic counsel across investments, philanthropy, and legacy as parts of one integrated vision. Our work focuses on the economies of tomorrow, the overlooked opportunities, and emerging systems where capital can create sustained value for people and communities.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT WE BELIEVE -->
+<section class="believe" id="believe">
+  <div class="section-inner">
+    <div class="section-label fade-in">What We Believe</div>
+
+    <div class="believe-questions">
+      <p class="believe-question">What happens when capital is directed by conviction rather than convention?</p>
+      <p class="believe-question">What becomes possible when the people with the deepest knowledge and capability are the ones shaping the solutions and building the opportunities?</p>
+      <p class="believe-question">What would an economy look like if it were designed from the strengths of its people rather than the assumptions of its institutions?</p>
+    </div>
+
+    <div class="believe-bridge fade-in">
+      These questions drive our work. The answers live in the principles we practice every day.
+    </div>
+
+    <div class="principle">
+      <div class="principle-lead">We direct capital close to the opportunity.</div>
+      <div class="principle-body">Proximity reveals what distance obscures. Context, relationships, and lived realities are how we find what others miss.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-lead">We design from strengths.</div>
+      <div class="principle-body">Dignity scales and deficit framing stalls. When we engage people through their assets, capabilities, and potential, we build pathways that hold.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-lead">We earn success with honor.</div>
+      <div class="principle-body">Discipline, integrity, and humility are how you become first among equals in the rooms that matter.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-lead">We hold trust as strategy.</div>
+      <div class="principle-body">Trust compounds faster than money. We say what we mean, do what we say, and invest in relationships that grow over time.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-lead">G.A.S. We give a shit.</div>
+      <div class="principle-body">Conviction and care are how we find the overlooked corners of the market where real value lives. Love and empathy are strategic advantages, and we deploy them accordingly.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-lead">We believe capital has a highest use.</div>
+      <div class="principle-body">That use is unlocking freedom, expanding possibility, and compounding value across markets and generations.</div>
+    </div>
+
+    <div class="believe-close fade-in">
+      <p>When frontier and emerging communities are physically, emotionally, educationally, and economically whole, the roadmap for a <span class="highlight">joyful and resilient future</span> unfolds for us all. This is what we are building. This is who we partner with.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE WORK -->
+<section class="work" id="work">
+  <div class="section-inner">
+    <div class="section-label fade-in">The Work</div>
+    <div class="work-intro fade-in">
+      <h2>Advisory built for purpose-driven capital</h2>
+      <p>We provide strategic counsel across the full landscape of social finance. Our role is to integrate investments, philanthropy, communications, and governance into a single, coherent strategy.</p>
+    </div>
+
+    <div class="services-grid fade-in">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3>Total Portfolio Alignment</h3>
+        <p>We help clients develop integrated strategies that align every dimension of their wealth, from investment portfolios to philanthropic capital to business interests, with their values and vision for the future.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3>Capital Formation & Impact Capital Structuring</h3>
+        <p>We advise on the design, structuring, and mobilization of capital vehicles aligned with impact objectives. From blended finance to co-investment syndication, we help clients raise and direct capital with intentionality.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3>Philanthropic Strategy</h3>
+        <p>We treat giving as investment, bringing the same rigor and accountability that clients expect from their financial portfolios to the deployment of philanthropic capital for measurable outcomes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <h3>Narrative and Communications</h3>
+        <p>Impact requires voice. We help clients craft compelling narratives, develop thought leadership, and build the strategic communications infrastructure that amplifies their work and attracts aligned partners.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <h3>Governance and Legacy</h3>
+        <p>We design governance structures that sustain values-driven decision making across generations and leadership transitions, from family councils to investment committees to institutional charters.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <h3>Impact Measurement & Evaluation</h3>
+        <p>We design and structure evaluation instruments that move clients beyond compliance and toward demonstrable impact on ethical labor, environmental, and social standards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OCISO -->
+<section class="ociso" id="ociso">
+  <div class="section-inner">
+    <div class="section-label fade-in">Embedded Advisory</div>
+    <div class="ociso-content">
+      <div class="ociso-left fade-in">
+        <h2>Outsourced Chief Impact Strategy Officer</h2>
+        <p>For organizations seeking senior-level impact leadership, we offer an embedded advisory model that provides dedicated strategic counsel with long-term accountability. Your OCISO serves as a senior partner integrated into your leadership structure, maintaining deep institutional knowledge and continuity of perspective.</p>
+        <p>We attend board meetings, participate in executive committees, and provide the sustained engagement that impact strategy demands. This model delivers the depth and commitment of an executive hire with the breadth and independence of a trusted advisory partnership.</p>
+        <p style="margin-top: 2rem; font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;">Core Responsibilities</p>
+        <p>The OCISO assumes responsibility across the full spectrum of impact strategy. This includes designing comprehensive strategies that align investments, philanthropy, operations, and communications into a unified framework. The OCISO facilitates alignment among family members, boards, executives, staff, and external partners around shared impact objectives, navigating complex stakeholder dynamics to build consensus and momentum.</p>
+        <p style="margin-top: 1rem;">The OCISO manages the execution of impact initiatives, coordinating with internal teams and external advisors to ensure delivery, and maintains accountability for translating strategy into action. This includes establishing impact metrics, tracking progress, and reporting outcomes to relevant stakeholders, ensuring that impact claims are grounded in evidence and that learning informs ongoing strategy refinement.</p>
+        <p style="margin-top: 1rem;">The OCISO connects clients to opportunities, partners, co-investors, grantees, and networks that advance their impact objectives, leveraging SRF Capital AG + Impact's relationships and the Next Economies Institute's intelligence on behalf of the client. The role also encompasses developing the internal capabilities of the client organization to sustain and advance impact work over time, including training staff, building systems, and cultivating next-generation leadership.</p>
+      </div>
+      <div class="ociso-models fade-in">
+        <div class="ociso-model">
+          <h4>Retainer Partnership</h4>
+          <p>Ongoing strategic counsel with defined commitments, regular sessions, and continuous access to your OCISO. Designed for organizations seeking sustained leadership over multi-year timeframes.</p>
+        </div>
+        <div class="ociso-model">
+          <h4>Project-Plus</h4>
+          <p>Intensive engagement around specific initiatives, from launching a foundation to designing an investment program, with extended advisory support through implementation.</p>
+        </div>
+        <div class="ociso-model">
+          <h4>Board Advisory</h4>
+          <p>OCISO participation in governance structures, attending board meetings and providing impact perspective at the fiduciary level, integrating expertise directly into organizational decision-making.</p>
+        </div>
+        <div class="ociso-model">
+          <h4>Ideal Clients</h4>
+          <p>Family offices building institutional impact capacity. Foundations seeking strategic leadership during transitions or periods of strategic refresh. Enterprises embedding impact into corporate strategy. Ventures and funds requiring impact expertise for LP engagement, portfolio support, and thought leadership. High-profile individuals managing complex philanthropic, investment, and reputational portfolios. Anchor institutions seeking to align operations, investments, and community engagement with mission.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT ECONOMIES INSTITUTE -->
+<section class="nei" id="nei">
+  <div class="section-inner">
+    <div class="section-label fade-in">Discovery</div>
+    <div class="nei-grid">
+      <div class="nei-left fade-in">
+        <h2>The Next Economies <em>Institute</em></h2>
+        <p>At the center of our discovery process is an affiliated research and intelligence platform that identifies, analyzes, and validates transformative opportunities at the intersection of capital, innovation, and social change. The Institute powers our advisory work, ensuring that clients access the most promising opportunities before they reach mainstream awareness.</p>
+      </div>
+      <div class="nei-right fade-in">
+        <div class="nei-function">
+          <h4>Translational Research</h4>
+          <p>Deep-dive inquiry into sectors poised for systemic transformation, including health equity, climate resilience, education innovation, and regenerative economics.</p>
+        </div>
+        <div class="nei-function">
+          <h4>Global Intelligence Network</h4>
+          <p>A curated community of thought leaders, innovators, entrepreneurs, and policymakers actively shaping the next generation of economic models and investment opportunities.</p>
+        </div>
+        <div class="nei-function">
+          <h4>Actionable Insight</h4>
+          <p>White papers, convenings, and strategic briefings that translate complex trends into investment and philanthropic opportunities with precision and timeliness.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTOR EXPERTISE -->
+<section class="sectors" id="sectors">
+  <div class="section-inner">
+    <div class="section-label fade-in">Sector Expertise</div>
+    <div class="sectors-intro fade-in">
+      <h2>Where capital, influence, and impact converge</h2>
+      <p>We bring specialized knowledge, networks, and frameworks to clients operating in domains where the opportunity for purpose-driven value creation is distinctive and significant.</p>
+    </div>
+
+    <div class="impact-areas fade-in">
+      <div class="impact-area">
+        <h4>Sustainable Development</h4>
+        <p>Ventures addressing climate change, resource efficiency, biodiversity protection, and environmental regeneration.</p>
+      </div>
+      <div class="impact-area">
+        <h4>Global Health & Life Sciences</h4>
+        <p>Innovations improving health outcomes, healthcare access, and medical systems, particularly in underserved populations.</p>
+      </div>
+      <div class="impact-area">
+        <h4>Inclusive Economic Development</h4>
+        <p>Models that distribute economic opportunity more equitably across communities and populations.</p>
+      </div>
+      <div class="impact-area">
+        <h4>Workforce Transition</h4>
+        <p>Programs and ventures supporting workers navigating technological and economic transitions.</p>
+      </div>
+      <div class="impact-area">
+        <h4>Food Systems</h4>
+        <p>Innovations in food production, distribution, and access that enhance food security and nutrition.</p>
+      </div>
+      <div class="impact-area">
+        <h4>Finance Policy & Innovation</h4>
+        <p>New financial instruments and policy frameworks that align capital with social and environmental outcomes.</p>
+      </div>
+      <div class="impact-area">
+        <h4>Built Environment & Infrastructure</h4>
+        <p>Investments in physical infrastructure, sustainable real estate, urban development, and placemaking that create conditions for human thriving.</p>
+      </div>
+    </div>
+
+    <div class="sectors-note fade-in" style="margin-top: 3rem; padding: 2rem; background: var(--white); border-left: 3px solid var(--accent);">
+      <p style="font-family: var(--serif); font-size: 1.15rem; line-height: 1.7; color: var(--ink-light);">We also bring specialized advisory to clients in <strong>sports, entertainment, and hospitality</strong> who are translating their capital and cultural platforms into lasting community impact through foundation strategy, brand alignment, sustainable operations, and legacy planning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT GROUPS -->
+<section class="clients" id="clients">
+  <div class="section-inner">
+    <div class="section-label fade-in">Who We Serve</div>
+    <div class="clients-intro fade-in">
+      <h2>Tailored advisory for those stewarding capital of consequence</h2>
+      <p>While our core methodology is consistent, the approach is customized to the needs of each client segment.</p>
+    </div>
+
+    <div class="client-group fade-in">
+      <h3>Families and Family Offices Stewarding Capital of Consequence</h3>
+      <p class="profile">Families, family offices, and individual philanthropists seeking to manage their wealth responsibly and meaningfully. These clients often have complex asset holdings and are interested in aligning their financial legacy with their values. Many are multi-generational families facing transitions or looking to engage younger members in philanthropy and social finance.</p>
+      <p class="value-prop">These clients gain a trusted independent advisor who ensures their wealth serves a higher purpose while remaining financially sound. We are product-agnostic and solely focused on the family's mission, helping families avoid common pitfalls and maximize the positive legacy of their wealth.</p>
+    </div>
+
+    <div class="client-group fade-in">
+      <h3>Anchor Institutions</h3>
+      <p class="profile">Established organizations that hold significant capital for public or charitable benefit, including large private foundations, community foundations, university endowments, international NGOs with grantmaking arms, hospitals, and universities interested in aligning their financial assets with their social missions.</p>
+      <p class="value-prop">SRF Capital enables foundations and mission-driven institutions to do more with their capital, to go beyond traditional grantmaking and passive investments, and move toward a model where 100% of their assets advance their mission. We provide the strategic insight and financial acumen that busy leaders may lack in-house.</p>
+    </div>
+
+    <div class="client-group fade-in">
+      <h3>Financial Institutions & Strategic Partners</h3>
+      <p class="profile">Banks, wealth managers, asset management firms, multi-family offices, and other financial intermediaries that serve high-net-worth clients. Many such institutions are looking to differentiate their services with sustainable finance or philanthropy advisory, but may lack specialized expertise internally.</p>
+      <p class="value-prop">By partnering with SRF Capital, financial institutions can accelerate their innovation in sustainable finance. They gain access to cutting-edge expertise, deal flow in the impact space, and a network of impact projects worldwide. This collaboration helps partners attract new client segments and meet the growing demand for purpose-driven investing.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- GLOBAL PRESENCE -->
+<section class="presence" id="presence">
+  <div class="section-inner">
+    <div class="section-label fade-in">Global Presence</div>
+    <h2 class="fade-in">Transatlantic advisory with global reach</h2>
+
+    <div class="presence-grid fade-in">
+      <div class="hq-card">
+        <h3>Washington, D.C.</h3>
+        <p>Our U.S. headquarters positions us at the nexus of policy, philanthropy, and capital markets, serving as our hub for North American relationships, foundation engagement, and strategic partnerships across the Americas.</p>
+      </div>
+      <div class="hq-card">
+        <h3>London</h3>
+        <p>Our U.K. headquarters connects us to European capital markets, institutional investors, and global philanthropy networks, anchoring our presence in one of the world's leading centers for sustainable finance.</p>
+      </div>
+      <div class="hq-card">
+        <h3>Switzerland</h3>
+        <p>Our European continental headquarters anchors our presence in one of the world's premier financial centers, providing access to global wealth management ecosystems, institutional capital, and the deep tradition of private banking and family office services.</p>
+      </div>
+    </div>
+
+    <div class="expansion-regions fade-in">
+      <h3>Expanding Into</h3>
+      <div class="regions-list">
+        <span class="region">LATAM</span>
+        <span class="region">MENA</span>
+        <span class="region">EMEA</span>
+        <span class="region">APAC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Begin the conversation</h2>
+  <p>Our engagements start with a confidential consultation to understand your objectives, assess alignment, and design a tailored approach. We welcome the opportunity to explore how SRF Capital can serve your vision.</p>
+  <a href="mailto:info@srfcapital.com" class="contact-cta">Get in touch</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SRF Capital AG + Impact</div>
+  <ul class="footer-links">
+    <li><a href="https://www.srfcapital.com">srfcapital.com</a></li>
+    <li><a href="#believe">What We Believe</a></li>
+    <li><a href="#work">The Work</a></li>
+    <li><a href="#contact">Connect</a></li>
+  </ul>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// Scroll reveal
+const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in, .believe-question, .principle').forEach(el => {
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
