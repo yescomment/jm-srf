@@ -19,8 +19,8 @@ body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-heigh
 ::selection{background:var(--coral);color:var(--white)}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 4rem;display:flex;justify-content:space-between;align-items:center;transition:all .5s cubic-bezier(.22,1,.36,1)}
 .nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(20px);padding:1rem 4rem;box-shadow:0 1px 0 rgba(0,0,0,.05)}
-.nav-logo{font-family:var(--sans);font-weight:600;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink);text-decoration:none}
-.nav-logo span{color:var(--coral);font-weight:400}
+.nav-title{font-family:var(--sans);font-weight:600;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:var(--coral);text-decoration:none}
+.nav-title span{color:var(--coral);font-weight:400}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-family:var(--sans);font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;transition:color .3s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--coral);transition:width .3s}
@@ -131,17 +131,20 @@ section{padding:8rem 4rem}
 </head>
 <body>
 <nav class="nav" id="nav">
-<a href="#" class="nav-logo">SRF <span>+Impact Fund</span></a>
-<ul class="nav-links">
-<li><a href="#origins">Origins</a></li>
-<li><a href="#believe">Beliefs</a></li>
-<li><a href="#approach">Approach</a></li>
-<li><a href="#principles">Principles</a></li>
-<li><a href="#ecosystem">Ecosystem</a></li>
-<li><a href="#nei">Institute</a></li>
-<li><a href="#contact">Connect</a></li>
-</ul>
-<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+	<div class="nav-logo">
+		<img src="/favicon.svg" alt="Seed Logo" style="height: 1.2em; vertical-align: middle;">
+		<a href="#" class="nav-title">SRF <span>+Impact Fund</span></a>
+	</div>
+	<ul class="nav-links">
+	<li><a href="#origins">Origins</a></li>
+	<li><a href="#believe">Beliefs</a></li>
+	<li><a href="#approach">Approach</a></li>
+	<li><a href="#principles">Principles</a></li>
+	<li><a href="#ecosystem">Ecosystem</a></li>
+	<li><a href="#nei">Institute</a></li>
+	<li><a href="#contact">Connect</a></li>
+	</ul>
+	<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <section class="epigraph">
@@ -363,8 +366,10 @@ section{padding:8rem 4rem}
 </section>
 
 <footer class="footer">
-<div class="footer-logo">SRF <span>+Impact Fund</span></div>
-<div class="footer-right"><span>&copy; 2026</span><a href="mailto:dorian@srfcapital.com">Contact</a></div>
+	<div class="footer-logo">
+		<img src="/favicon.svg" alt="Seed Logo" style="height: 1.2em; vertical-align: middle;">
+		SRF <span>+Impact Fund</span></div>
+	<div class="footer-right"><span>&copy; 2026</span><a href="mailto:dorian@srfcapital.com">Contact</a></div>
 </footer>
 
 <script>
